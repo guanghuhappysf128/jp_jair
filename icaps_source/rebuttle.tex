@@ -1,0 +1,230 @@
+%File: anonymous-submission-latex-2023.tex
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+% \usepackage[submission]{aaai23}  % DO NOT CHANGE THIS
+\usepackage{aaai23}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+%
+% These are are recommended to typeset listings but not required. See the subsubsection on listing. Remove this block if you don't have listings in your paper.
+\usepackage{newfloat}
+\usepackage{listings}
+\DeclareCaptionStyle{ruled}{labelfont=normalfont,labelsep=colon,strut=off} % DO NOT CHANGE THIS
+\lstset{%
+	basicstyle={\footnotesize\ttfamily},% footnotesize acceptable for monospace
+	numbers=left,numberstyle=\footnotesize,xleftmargin=2em,% show line numbers, remove this entire line if you don't want the numbers.
+	aboveskip=0pt,belowskip=0pt,%
+	showstringspaces=false,tabsize=2,breaklines=true}
+\floatstyle{ruled}
+\newfloat{listing}{tb}{lst}{}
+\floatname{listing}{Listing}
+%
+% Keep the \pdfinfo as shown here. There's no need
+% for you to add the /Title and /Author tags.
+\pdfinfo{
+/TemplateVersion (2023.1)
+}
+
+% DISALLOWED PACKAGES
+% \usepackage{authblk} -- This package is specifically forbidden
+% \usepackage{balance} -- This package is specifically forbidden
+% \usepackage{color (if used in text)
+% \usepackage{CJK} -- This package is specifically forbidden
+% \usepackage{float} -- This package is specifically forbidden
+% \usepackage{flushend} -- This package is specifically forbidden
+% \usepackage{fontenc} -- This package is specifically forbidden
+% \usepackage{fullpage} -- This package is specifically forbidden
+% \usepackage{geometry} -- This package is specifically forbidden
+% \usepackage{grffile} -- This package is specifically forbidden
+% \usepackage{hyperref} -- This package is specifically forbidden
+% \usepackage{navigator} -- This package is specifically forbidden
+% (or any other package that embeds links such as navigator or hyperref)
+% \indentfirst} -- This package is specifically forbidden
+% \layout} -- This package is specifically forbidden
+% \multicol} -- This package is specifically forbidden
+% \nameref} -- This package is specifically forbidden
+% \usepackage{savetrees} -- This package is specifically forbidden
+% \usepackage{setspace} -- This package is specifically forbidden
+% \usepackage{stfloats} -- This package is specifically forbidden
+% \usepackage{tabu} -- This package is specifically forbidden
+% \usepackage{titlesec} -- This package is specifically forbidden
+% \usepackage{tocbibind} -- This package is specifically forbidden
+% \usepackage{ulem} -- This package is specifically forbidden
+% \usepackage{wrapfig} -- This package is specifically forbidden
+% DISALLOWED COMMANDS
+% \nocopyright -- Your paper will not be published if you use this command
+% \addtolength -- This command may not be used
+% \balance -- This command may not be used
+% \baselinestretch -- Your paper will not be published if you use this command
+% \clearpage -- No page breaks of any kind may be used for the final version of your paper
+% \columnsep -- This command may not be used
+% \newpage -- No page breaks of any kind may be used for the final version of your paper
+% \pagebreak -- No page breaks of any kind may be used for the final version of your paperr
+% \pagestyle -- This command may not be used
+% \tiny -- This is not an acceptable font size.
+% \vspace{- -- No negative value may be used in proximity of a caption, figure, table, section, subsection, subsubsection, or reference
+% \vskip{- -- No negative value may be used to alter spacing above or below a caption, figure, table, section, subsection, subsubsection, or reference
+
+\setcounter{secnumdepth}{2} %May be changed to 1 or 2 if section numbers are desired.
+
+% The file aaai23.sty is the style file for AAAI Press
+% proceedings, working notes, and technical reports.
+%
+
+% Title
+
+% Your title must be in mixed case, not sentence case.
+% That means all verbs (including short verbs like be, is, using,and go),
+% nouns, adverbs, adjectives should be capitalized, including both words in hyphenated terms, while
+% articles, conjunctions, and prepositions are lower case unless they
+% directly follow a colon or long dash
+\title{Rebuttal for: Planning with Multi-agent Belief using Justified Perspectives}
+
+\input{marco}
+
+\begin{document}
+
+\maketitle
+We would like to thank all the reviewers and editors for their hardwork and valuable comments.
+We will fix the paper on those typos pointed out and only response to some major comments here.
+
+\section{Reviewer 1}
+\subsection{Major Comments 1}
+As mentioned in Section 5, the main contribution of our paper is a KD45 logic extended from PWP S5.
+Therefore, we only covered the detail about our model in Section 3.
+
+As for the encoding, we had some examples in Section 4, but removed due to the page limit; noting that Hu et al's paper (2022) has several examples.
+As the reviewer suggested, we agree the computational results from Table 3 are trivial. We will replace this with an action encoding from the grapevine domain  as follows:
+\begin{example}
+Agent $i$ shares agent $j$'s secret j-sct:
+
+\begin{tabular}{rl}
+~~\texttt{\textbf{action}} & share(i,j-sct)\\
+~~~~\texttt{\textbf{prec}} & loc-i=x\\
+ & \texttt{epis:} $B_i$ j-sct\\
+~~~~\texttt{\textbf{effs}} & \texttt{forall} ?a - agent loc-?a-sct-shared = 0 \\
+ & j-sct=true, loc-j-sct-shared=x\\
+\end{tabular}
+
+The precondition ``\texttt{epis:} $B_i$ j-sct'' is evaluated by the external function (our model).
+The effect ``loc-j-sct-shared=x'' means j-sct has been shared in location x, and ``j-sct=true'' (if $i$ perform action lie, it would be false).
+
+\end{example}
+
+\subsection{Major Point 2}
+\tm{I have cut down this point quite a bit as I feel that the longer version would just open up more questions for the reviewer}
+Note that our solution is for model-free problems; e.g. planning with simulators. As such, there is no action encoding: actions are just named tokens. Our PWP approach is consistent with this: only states (and in theory action names) can be used to construct belief and knowledge. We will clarify this further in the paper.
+
+\begin{comment}
+Since our contribution is a model for epistemic logic reasoning, it does not have specific requirements on the action encoding. 
+To be specific, DEL based approach mainly uses event-based model, which requires the modeller specifying the effects for each type of actions, such as sensing actions, announcing actions. 
+How our approach is a state sequence based approach (state based for PWP), which is a model-free approach. 
+
+The modeller can model the problem freely and define the desire epistemic relations (wherever it need to be evaluated, such as precondition or goal) following the grammar we gave in Section 3.1.
+Then, they can use our justified perspective function (Section 3.2) to evaluate the semantics (Section 3.3) of those epistemic relations.
+And the above Example 1.1 would be a perfect example. The model (perspective functions) and the sequence of states (from initial state to the current expanding search node) would be the input to evaluate the epistemic relation ``$B_i$ j-sct''
+\end{comment}
+
+\subsection{Major Point 3}
+Thanks for this point. We will clarify ``the objective is to demonstrate our model instead of the search algorithm'' by changing it to ``the objective is to demonstrate the belief logic encoded by PWP, rather than the search algorithm used, which is independent due to the use of F-STRIPS external functions". As BFS represents the worst-case complexity (it is effectively brute force), this gives us an upper bound.
+As you can see from the results, even using BFS, our approach can outperform the state-of-the-art solver in many domains.
+Although we focus more on the expressiveness and efficiency on the epistemic logic reasoning part, we could add one sentence to improve the efficiency by changing the search algorithm in Section 5 as another future work direction.
+
+
+
+
+\subsection{Major Point 4}
+\rw{The discussion of Section 2.1 needs to be improved. Importantly, the distinction between the notions of knowledge and belief from a modal logic point of view is not properly explained. In particular, symmetry is contrasted with seriality. Although it is true that S5-models are symmetric and KD45-models are serial, one should be careful in how to explain the distinction between the two logics. In fact, one should contrast reflexivity with seriality and only in a second moment, if needed, mention other properties such as symmetry. In fact, symmetry corresponds to axiom B (i.e., $phi -> []<>phi$), which can be derived by axioms T and 5. Finally, one should explicitly mention that seriality corresponds to axiom D.}
+\gh{Not sure how to address this. Even if I want to we don't have space to put KD45 and S5 in the background section.}
+\tm{I would just say: ''Thanks for this note. We will update the discussion to be clearer on these issues}
+
+
+\subsection{Minor Comments}
+
+\tm{We can safely remove this. A conference rebuttal is different to a journal response in that for a conference we are just answering the major issues to try ot change the reviewer's mind. We should use the space up only on major things}
+We agree with the review on most of the minor review points and will update the paper accordingly. We address the rest as follows:
+\rw{iii. In Section 3, it is mentioned that the perspective function $f_i$ is renamed to be an observation function $O_i$. However, the rest of the section mostly uses the symbol $f_i$ and sometimes $O_i$. Although I was able to follow the discussion, the notation should be more clear.}
+\paragraph{iii}
+In the PWP paper, we named the perspective function (based on seeing) for agent $i$ as $f_i$. So, in this paper, we named the new perspective function (based on seeing and justified belief) as $f_i$, and renamed the solo seeing-based perspective function as $O$, which indicates it is just the agent's observation.
+
+\rw{ v. Section 3.3, Complete Semantics: it is not clear to me what is meant by "the definition of $B_i$ phi aims to capture is that agent i believes phi if in its past, it knew phi". Also, at the end of the paragraph, it is not clear to me what is meant by "there is no underlying definition for our justified belief".}
+\paragraph{v} 
+It should be ``intuitively, the definition of $B_i \varphi$ should be that agent i believes phi if in its past, it knew phi''. The first paragraph below Item (g) in Section 3.3 shows the intuition that our model can capture the belief that comes from both what the agent knows from the past and derived from what the agent knows (beliefs) from the different timestamps.
+
+It means there is no existing definition for the beliefs that our model captures.
+
+
+\rw{ vii. In Section 4, the results for Coin and SN domains are not very significative, since the time values are really low and there is no comparison with other solvers.}
+
+\paragraph{vii}
+There is no existing approach that we are aware of that can handle those domains easily. 
+
+\subsection{Questions}
+\rw{1. Can you give an intuition on how your encoding works in practice? In particular, how are purely epistemic actions represented in F-STRIPS?}
+\paragraph{1}
+As the sample action share from the Grapevine domain from Major Comments 1.
+The share action shares agent's secret with other agents, which could be considered a purely epistemic action.
+We evaluate the epistemic relations, such as the precondition $B_i$ j-sct, based on the current state sequence (from the search node) and perspective function (defined in Definition 3.3 using the seeing rules that the agent sees everything in the same room).
+To be specific, agent $i$ believes $j$'s secret if and only if, the last time agent $i$ sees loc-j-sct-shared, j-sct is true (it would be false if the secret is shared by action $lie$).
+
+
+
+\rw{2. As mentioned in item 2, can you discuss the choice of implementing the BFS?}
+We have responded in Major Point 3.
+
+\rw{ In Section 2 you show some properties of $f_i$ that closely resemble some axioms of S5 (e.g., axioms T and 4). Are there some properties of $f_i$/$O_i$ that could be added to encode the seriality property of axiom D? What about axiom 5?}
+\gh{Not quite sure what this means? Didn't we prove it already?}
+
+
+\section{Review 2}
+
+
+\subsection{Question}
+\rw{Modeling belief and knowledge are important but effective human-machine collaboration further requires modeling intent. COuld your framework be extended to support this additional modality?}
+We are aware of some works addressing that problem, such as \cite{MacNally2018-zy} (Action Selection for Transparent Planning). 
+In some works, our model has the potential to address their assumption of omniscience observers.
+
+\tm{I'd suggest addressing the above with: ``Our current approach does not handle this, but we see no limitation to being able to represent intention (including nested within beliefs) using an idea similar to perspective functions"}
+
+\section{Review 3}
+
+
+\subsection{Questions}
+\rw{Q1. Could you please comment on the advantages and limitations of your logic, and its connections to existing logics of beliefs?}
+\paragraph{Q1}
+Since our model is an extension of the PWP approach, it shares the same advantages and limitations, notably that the knowledge part of the logic is incomplete as in the original PWP paper.
+The advantages is the expressiveness and efficiency.
+Regarding the relationship to existing belief logic and theoretical results, note that in Appendix 3 (Theorem 3.1), the KD45\_n axioms hold for our logic (as stated in Section 3.3).
+
+\rw{Q2. Could you please comment on the reason why your planner shows good performance on the domains other than Grapevine despite it does simple BFS?}
+\tm{I don't think we need the paragraph below. The question is explicitly asking why the BFS-based algorithm works well on those. The 2nd paragraph is sufficient, although I have reworded slightly}
+For the coin, BBL and CN, those domain are showcases for the expressiveness of our model and does not have a computational comparison.
+Our model separates epistemic logic reasoning from planning, which removes the limitation of the classical planning language, such as STRIPS or PDDL.
+So, complex relations can be modeled by our approach as we mentioned in Section Seeing Rule from Section 4.5.
+
+For the Corridor domain, the branching factor is 4, which are move\_right, move\_left, sense, and shout for a single agent $a$.
+In  the Grapevine domain, each agent can move.
+\tm{Isn't it higher than 136? Each agent can move in 4 directions, so there are 32 different moves for 8 agents, plus the lie and share?}
+So, the branching factor for 8 agents is 136 (8 available move actions, and 64 share actions and 64 lie actions).
+For the other domains, the branching factor is much smaller, so the effect of the search algorithm is negligible. This can be observed from the number of nodes generated and expended in Table 1 and Table 2.
+
+
+
+
+\end{document}
+
+

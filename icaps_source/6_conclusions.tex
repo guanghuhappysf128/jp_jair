@@ -1,0 +1,11 @@
+\section{Conclusions and Future Work}
+
+In this paper, we defined an extension to the PWP S5 logic, to handle belief using perspectives; and embedded this within a model-free planning tool. 
+% Although it is not possible to prove the soundness and correctness of our justified belief model, we prove that the new logic is a KD45$_n$ logic. 
+Although it is not possible to prove the soundness and correctness of our justified belief model, we prove that the new logic satisfies the principles of belief described by the axioms of the logic KD45$_n$
+Our experiments demonstrate that we can effectively handle problems of planning with belief, and can do so efficiently even with a simple prototype planner implemented using BFS.
+% \gh{I feel we should say something that our model have the same model-free setting as pwp}
+
+For future work, we will study common belief, which is a challenge to model using perspectives, because common belief is the infinite regress of nested belief, so may not terminate. 
+A potential solution is to find a way to merge each agent's justified perspectives. 
+In addition, besides retrieving information from the agent's memory as justification, other forms of justification, such as argument would be intriguing to be integrated into our model \cite{goldman1979justified}.

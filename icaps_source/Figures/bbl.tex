@@ -1,0 +1,240 @@
+% % \begin{tikzpicture}
+% %   \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+% %   {
+% %      F_t(x) & F(x) \\
+% %      A_t & A \\};
+% %   \path[-stealth]
+% %     (m-1-1) edge node [left] {$\mathcal{B}_X$} (m-2-1)
+% %             edge [double] node [below] {$\mathcal{B}_t$} (m-1-2)
+% %     (m-2-1.east|-m-2-2) edge node [below] {$\mathcal{B}_T$}
+% %             node [above] {$\exists$} (m-2-2)
+% %     (m-1-2) edge node [right] {$\mathcal{B}_T$} (m-2-2)
+% %             edge [dashed,-] (m-2-1);
+% % \end{tikzpicture}
+
+
+% \newcommand{\scale}{0.4}
+% \newcommand{\range}{30}
+% \newcommand{\size}{3}
+% \newcommand{\oversize}{6}
+% \makeatletter
+% \newcommand{\gettikzxy}[3]{%
+%   \tikz@scan@one@point\pgfutil@firstofone#1\relax
+%   \edef#2{\the\pgf@x}%
+%   \edef#3{\the\pgf@y}%
+% }
+% \makeatother
+
+% \begin{tikzpicture}
+%     \coordinate (top_left) at (0,20*\scale);
+%     \coordinate (bottom_left) at (0,0);
+%     \coordinate (top_right) at (20*\scale,20*\scale);
+%     \coordinate (bottom_right) at (20*\scale,0);
+
+%     \coordinate (origin) at (0,0);
+%     \coordinate (a1) at (5*\scale,5*\scale);
+%     \coordinate (a1_up) at (5*\scale,20*\scale);
+%     \coordinate (a1_down) at (20*\scale,5*\scale);
+%     \coordinate (a1_dir) at (6*\scale,6*\scale);
+%     \coordinate (a2) at (15*\scale,15*\scale);
+%     \coordinate (a2_up) at (0,15*\scale);
+%     \coordinate (a2_down) at (15*\scale,0);
+%     \coordinate (a2_dir) at (14*\scale,14*\scale);
+        
+%     \begin{scope}[transparency group]
+%         \begin{scope}[blend mode=multiply]
+%             \fill[ opacity=0.5,blue!30] (a1) -- (a1_up) -- (top_right) -- (a1_down) -- cycle;
+%             \fill[ opacity=0.5,yellow!30] (a2) -- (a2_up) -- (bottom_left) -- (a2_down) -- cycle;
+%         \end{scope}
+%     \end{scope}
+    
+%     \draw[thick, black,->] (a1) -- (a1_dir);
+%     \draw[thick, black,->] (a2) -- (a2_dir);
+    
+
+%     \draw[thick] let    \p{1} = (a1)    in (a1 |- origin)
+%         node[circle,fill=red!80,inner sep=2pt,
+%         label={[align=center]below:
+%                 $a_1$ \\ 
+%                 (\pgfmathparse{(\x1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult},
+%                 \pgfmathparse{(\y1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult})
+%                 }] at (\x1,\y1) {};
+%     \draw[->, black] (a1) -- (a1_up);
+%     \draw[->, black] (a1) -- (a1_down);
+    
+                
+%     \draw[thick] let    \p{1} = (a2)    in (a1 |- origin)
+%         node[circle,fill=red!80,inner sep=2pt,
+%         label={[align=center]below:
+%                 $a_2$ \\ 
+%                 (\pgfmathparse{(\x1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult},
+%                 \pgfmathparse{(\y1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult})
+%                 }] at (\x1,\y1) {};
+%     \draw[->, black] (a2) -- (a2_up);
+%     \draw[->, black] (a2) -- (a2_down);
+    
+    
+%     % border
+
+    
+%     \draw[black] (top_left) -- (bottom_left) -- (bottom_right) -- (top_right) -- cycle;
+
+    
+%     % \draw[->, gray, thick] ({cos(\range)*\size*2},0) -- ({cos(\range)*\size*2-cos(\range)*\oversize},{sin(\range)*\oversize});
+%     % \draw[->, gray, thick] ({cos(\range)*\size*2},0) -- ({cos(\range)*\size*2},0) -- ({cos(\range)*\size*2-cos(\range)*\oversize},-{sin(\range)*\oversize});
+    
+    
+%     \coordinate (b1) at (10*\scale,10*\scale);
+%     \coordinate (b2) at (2.5*\scale,2.5*\scale);
+%     \coordinate (b3) at (17.5*\scale,17.5*\scale);
+    
+%     \draw[thick] let    \p{1} = (b1)    in (a1 |- origin)
+%         node[circle,fill=black!80,inner sep=1pt,
+%         label={[align=center]below:
+%                 $b_1$ \\ 
+%                 (\pgfmathparse{(\x1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult},
+%                 \pgfmathparse{(\y1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult})
+%                 }] at (\x1,\y1) {};
+                
+%     \draw[thick] let    \p{1} = (b2)    in (a1 |- origin)
+%         node[circle,fill=black!80,inner sep=1pt,
+%         label={[align=center]below:
+%                 $b_2$ \\ 
+%                 (\pgfmathparse{(\x1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult},
+%                 \pgfmathparse{(\y1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult})
+%                 }] at (\x1,\y1) {};    
+
+%     \draw[thick] let    \p{1} = (b3)    in (a1 |- origin)
+%         node[circle,fill=black!80,inner sep=1pt,
+%         label={[align=center]below:
+%                 $b_3$ \\ 
+%                 (\pgfmathparse{(\x1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult},
+%                 \pgfmathparse{(\y1/28.45274)}\num[round-mode=places,round-precision=1]{\pgfmathresult})
+%                 }] at (\x1,\y1) {};    
+                
+%     % \filldraw[black] ({cos(\range)*\size},0) circle (2pt) node[anchor=west] {$b_2$};
+%     % \filldraw[black] (-{cos(\range)*\size},0) circle (2pt) node[anchor=west] {$b_1$};
+%     % \filldraw[black] ({cos(\range)*\size*3},0) circle (2pt) node[anchor=west] {$b_3$};
+%     % \filldraw[black] ({cos(\range)*\size},{sin(\range)*\oversize*3/4}) circle (2pt) node [anchor=west] {$b_4$};
+    
+
+    
+    
+%     % border
+%     % \draw[gray, thick] (-{cos(\range)*\size*2},-{sin(\range)*\oversize}) -- ({cos(\range)*\size*4},-{sin(\range)*\oversize});
+%     % \draw[gray, thick] (-{cos(\range)*\size*2},{sin(\range)*\oversize}) -- ({cos(\range)*\size*4},{sin(\range)*\oversize});
+%     % \draw[gray, thick] ({cos(\range)*\size*4},{sin(\range)*\oversize}) -- ({cos(\range)*\size*4},-{sin(\range)*\oversize});
+%     % \draw[gray, thick] (-{cos(\range)*\size*2},{sin(\range)*\oversize}) -- (-{cos(\range)*\size*2},-{sin(\range)*\oversize});
+% \end{tikzpicture}
+
+% % \begin{tikzpicture}
+% %     %\draw [help lines] (0,0) grid (4,4);
+% %     %\coordinate (origin) at (0,0);
+% %     \node[circle,fill]  (d1) at (3,2) {};
+
+% %     %\draw[red,thick] let    \p{1} = (d1)    in (d1|- origin) node[label=below:$\x1$]{} --  (d1) --  (d1 -| origin) node[label=left:\y1]{} ;
+
+% %     \end{tikzpicture}
+
+
+
+
+% \begin{tikzpicture}
+%   \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+%   {
+%      F_t(x) & F(x) \\
+%      A_t & A \\};
+%   \path[-stealth]
+%     (m-1-1) edge node [left] {$\mathcal{B}_X$} (m-2-1)
+%             edge [double] node [below] {$\mathcal{B}_t$} (m-1-2)
+%     (m-2-1.east|-m-2-2) edge node [below] {$\mathcal{B}_T$}
+%             node [above] {$\exists$} (m-2-2)
+%     (m-1-2) edge node [right] {$\mathcal{B}_T$} (m-2-2)
+%             edge [dashed,-] (m-2-1);
+% \end{tikzpicture}
+
+
+\newcommand{\scale}{0.4}
+\newcommand{\range}{30}
+\newcommand{\size}{3}
+\newcommand{\oversize}{6}
+\makeatletter
+\newcommand{\gettikzxy}[3]{%
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}%
+  \edef#3{\the\pgf@y}%
+}
+\makeatother
+
+\begin{tikzpicture}
+    \coordinate (top_left) at (0,20*\scale);
+    \coordinate (bottom_left) at (0,0);
+    \coordinate (top_right) at (20*\scale,20*\scale);
+    \coordinate (bottom_right) at (20*\scale,0);
+
+    \coordinate (origin) at (0,0);
+    \coordinate (a1) at (10*\scale,10*\scale);
+    \coordinate (a1_up) at (0*\scale,10*\scale);
+    \coordinate (a1_down) at (10*\scale,0*\scale);
+    \coordinate (a1_opp) at (0*\scale,0*\scale);
+    
+    \coordinate (a1_dir) at (9*\scale,9*\scale);
+    
+    \coordinate (a2) at (15*\scale,15*\scale);
+    \coordinate (a2_up) at (0,15*\scale);
+    \coordinate (a2_down) at (15*\scale,0);
+    \coordinate (a2_dir) at (14*\scale,14*\scale);
+    
+
+    \coordinate (b2) at (5*\scale,5*\scale);
+    
+        
+    \begin{scope}[transparency group]
+        \begin{scope}[blend mode=multiply]
+            \fill[ opacity=0.5,blue!30] (a1) -- (a1_up) -- (a1_opp) -- (a1_down) -- cycle;
+            \fill[ opacity=0.5,yellow!30] (a2) -- (a2_up) -- (bottom_left) -- (a2_down) -- cycle;
+        \end{scope}
+    \end{scope}
+    
+    \draw[thick, black,->] (a1) -- (a1_dir);
+    \draw[thick, black,->] (a2) -- (a2_dir);
+    
+
+    \draw[thick] let    \p{1} = (a1)    in (a1 |- origin)
+        node[circle,fill=red!80,inner sep=2pt,
+        label={[align=center, xshift=0.6cm]below:
+                $b$ \\ 
+                (10,10)
+                }] at (\x1,\y1) {};
+    \draw[->, black] (a1) -- (a1_up);
+    \draw[->, black] (a1) -- (a1_down);
+    
+                
+    \draw[thick] let    \p{1} = (a2)    in (a1 |- origin)
+        node[circle,fill=red!80,inner sep=2pt,
+        label={[align=center, xshift=0.5cm]below:
+                $a$ \\ 
+                (15,15)
+                }] at (\x1,\y1) {};
+    \draw[->, black] (a2) -- (a2_up);
+    \draw[->, black] (a2) -- (a2_down);
+    
+    
+    % border
+
+    
+    \draw[black] (top_left) -- (bottom_left) -- (bottom_right) -- (top_right) -- cycle;
+    
+    
+
+    
+                
+    \draw[thick] let    \p{1} = (b2)    in (a1 |- origin)
+        node[circle,fill=black!80,inner sep=1pt,
+        label={[align=center]above:
+                $c$ \\ 
+                (5,5)
+                }] at (\x1,\y1) {};    
+
+                
+\end{tikzpicture}

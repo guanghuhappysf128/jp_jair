@@ -1,0 +1,250 @@
+\section{Background}
+
+\subsection{Epistemic and Doxastic Logic}
+
+\label{sec:background:epistemic_doxastic_logic}
+
+% \subsubsection{Kripke Structure}
+% Most of the works in epistemic logic using \emph{Kripke} models~\cite{Fagin:2003:RK:995831} as their theoretical base. 
+% A Kripke model $M=\langle \mathcal{S}, \pi, \mathcal{K}_1,\dots,\mathcal{K}_n \rangle$ contains a set of worlds, interpretation function and accessibility relations between the worlds for each agent.
+% The language that commonly used can be represented by:
+% \[
+%     \phi ::= p \mid \neg \phi \mid \phi \land \psi \mid K_i \phi \mid B_i \phi
+% \]
+
+% \tm{Guang, I would suggest that we don't need this level of detail. Things like Kripke semantics are briefly mentioned but not discussed. Just give an overview of logics for knowledge and belief, etc. The grammar for knowledge is given below in the PWP section}
+
+% There are many interpretation on the beliefs~\cite{DBLP:journals/rsl/BjorndahlO20}.
+
+The relation between knowledge and belief is not so clear.
+Some authors state that knowledge is truthful belief~\cite{DBLP:journals/corr/DitmarschHHK15,DBLP:conf/kr/FriedmanH94,DBLP:conf/tark/FriedmanH94}, while others claim that knowledge is truthful \emph{justified} belief~\cite{DBLP:conf/nmr/Scherl22,DBLP:journals/rsl/Artemov08,DBLP:conf/atal/FanL17,DBLP:conf/kr/GrossiH14}.
+\citet{DBLP:journals/rsl/BjorndahlO20} define the topology for knowledge and belief based on the different types of justification, while \citet{DBLP:conf/kr/GrossiH14} state that belief is generated, endorsed or justified by external arguments. 
+However, there are no definitions of nested belief based on agents' previous observations.
+
+% Some of the works state that $K_i \varphi$ if and only if $\varphi \land B_i \varphi$~\cite{DBLP:conf/kr/FriedmanH94,DBLP:conf/tark/FriedmanH94}, while some others extend this by adding the justification that $i$ is justified in believing $\varphi$~\cite{DBLP:conf/nmr/Scherl22,DBLP:journals/rsl/Artemov08,DBLP:conf/atal/FanL17}.
+
+% \begin{comment}
+Others use possible worlds to define both knowledge and belief~\cite{stalnaker2006logics,Fagin:2003:RK:995831}.
+The idea in these logics is that the agents have a possibility relation $\mathcal{K}_i$ that models whether the agent $i$ can distinguish between two states.
+Both the knowledge formula $K_i \varphi$ and belief formula $B_i \varphi$ are defined as that $\varphi$ holds in all the worlds that agent $i$ considers possible.
+The difference is that possibility relation $\mathcal{K}_i$ in modelling knowledge needs to be \emph{reflective} and \emph{symmetric}\footnote{Reflective means for all $s\in \mathcal{S}$, $(s,s)$ must be in $\mathcal{K}$, while symmetric means if there is a possibility relation $(s,t)$ in $\mathcal{K}_i$, $(t,s)$ must also be in $\mathcal{K}_i$.}, while it is \emph{serial} in modelling beliefs.
+Thus, such approaches have to maintain separate Kripke structures for handling knowledge and belief, and constraints between them must hold to ensure that certain properties hold; e.g.\ if an agent knows something then it believes it. In this paper, knowledge is based on what an agent currently `sees', while belief is based on what it currently sees and has  seen in the past.
+
+
+The theoretical foundation for knowledge is the S5 axioms, while for belief are the KD45$_n$ axioms \cite{Fagin:2003:RK:995831}.
+The difference between these two sets of axioms is that: 
+S5 includes the axiom $K_i \varphi \rightarrow \varphi$ (Axiom T), which states that an agent's knowledge must be the truth (reflexivity); 
+while KD45$_n$ does not have this axiom, so relations generated between possible worlds are derived from the agent's imperfect information of the world (could be false).
+Axiom D, replacing T in KD45$_n$, captures $\neg K_i false$, which is preserved by the serial possibility relation.
+% While the belief formula
+% \end{comment}
+
+% \gh{I changed the wording in the first sentence. The above paragraph is about how to use DEL approach modeling knowledge and beliefs, which mentioned a few times in introduction and background. Please feel free to remove it if you think it is not relevant :)  }
+% \tm{Give a one sentence overview of how these authors deifne belief from knowledge.}
+% \gh{Done}
+% \tm{The above does not define belief though? How do they define belief from knowledge?}
+% \gh{It is pretty hard to explain using one sentence. The idea is that the knowledge came from possibles worlds that is transitive, reflexive and \emph{symmetric}. while the belief needs to be \emph{serial}.}
+% \gh{Done. Does this work?}
+% \tm{Ok. I would say that `` define the knowledge first and derive belief from knowledge" is misleading. I thought the belief modal operator was defined in terms of knowledge; but this just extends the logic. So, I've removed this and just moved onto the next section. Is there anything else you think we should add here?}
+% \gh{Maybe just changing the first sentence, and we can still keep this? unless you think this is not relevant:) We probably need it as in later section, we refer back to discuss there is no theoretical proof with possible worlds. }
+\subsection{Epistemic Planning}
+
+% Researchers in robotics face the problem of modeling robots' sensing.
+% Many of them solving this problem use \emph{belief planning}.
+% Belief planning is solving a search problem in belief space~\cite{DBLP:conf/aips/BonetG00}.
+% They solve the problem by considering it as a partial-observable or non-deterministic planning problem, and using belief tracking, which require agents know how the model (action) works~\cite{DBLP:journals/corr/abs-1909-13778/Causal_Belief_Decomposition_for_Planning_with_Sensing,DBLP:conf/aaai/BonetG12a}.
+% In addition, the objective of belief planning is to solve planning with incomplete information instead of generating and modeling agent's epistemic state.
+% Thus, these approach does not allow agent to have belief or knowledge over others.
+
+% \gh{The two paragraph below are added about epistemic planning}
+Dynamic Epistemic Logic (DEL)  approaches use event models to track the agents' knowledge/belief over possible worlds. 
+Most DEL approaches do not support false-belief because they are built on S5 logics. 
+False-belief is challenging to model in DEL because it removes the `correct' possibility relation between worlds, which results in the agent's belief state becoming isolated~\cite{DBLP:journals/ai/BaralGPS22}.
+% \citet{DBLP:journals/ai/BaralGPS22}'s work allows agents to 
+So, in order to allow agents to recover from false-belief, it requires special sensing or announcing actions~\cite{DBLP:conf/aips/LeFSP18,DBLP:journals/ai/BaralGPS22,DBLP:journals/jolli/LiE22}.
+In addition, it is costly to maintain all agents' possible worlds.
+Although \citet{DBLP:conf/aips/KominisG15}'s work captures a fragment of DEL by tracking single agents' belief under the multi-agent setting and updating it by actions in order to achieve better computational performance, it still cannot handle false-belief.
+
+As for the non-DEL-based approach, \citet{DBLP:journals/ai/MuiseBFMMPS22} define a proper epistemic knowledge base (PEKB) that contains all epistemic formulae as literals.
+They convert an epistemic planning problem into a classical planning problem using the precondition and conditional effects in actions to update and revise the knowledge and belief literals following some modal axiom, such as those of KD45$_n$.
+The advantage of their approach is that the model can be solved by any existing classical planner that supports conditional effects.
+The limitations are: it cannot handle disjunctive belief; the depth of belief is bounded; and the number of literals grows exponentially on the depth of epistemic formulae, so the pre-compilation step has exponential time complexity.
+\cite{DBLP:journals/ai/WanFL21} use a similar method that updates and revises belief knowledge base by implementing their own planner called MEPK, rather than converting to a classical planning problem.
+By doing so, they lose the advantage of using an existing planner but gain  flexibility.
+However, their approach still cannot handle false-belief.
+
+% \tm{Above: can Wan's approach handle false belief? Make this clear}
+% \gh{Cannot. Updated.}
+
+% \tm{Add the PDKB stuff. I also suggest having one sentence on S5 planners, such as Huang's and Kominos, and just noting they solve for S5 not KD45}
+% \gh{Done}
+
+
+
+
+\subsection{Planning with Perspectives Approach}
+\label{sec:background:pwp_appraoch}
+
+\citet{Hu2022-ul} propose \emph{Planning with Perspectives} (PWP), which delegates epistemic reasoning to an external solver using F-STRIPS.
+
+\paragraph{Signatures}
+A PWP \emph{signature} is a tuple $\Sigma = (Agt, V, D_{v_1}, \ldots D_{v_n}, R)$, in which $Agt$ is a finite set of agent identifiers ($n$ of them), $V$ is a finite set of variables such that $Agt \subseteq V$ (agent identifiers can be used as variables), $D_{v_i}$ is a possibly infinite domain of constant symbols, one for each variable $v_i \in V$, and $R$ is a finite set of predicate symbols. Domains can be discrete or continuous, and the set of all values is defined as $D = \bigcup_{v\in V} D_v$.
+
+\paragraph{Language}
+The PWP language $\L(\Sigma)$ is defined by the grammar:
+\[
+    \varphi ::= r(\Vec{t}) \mid \neg \varphi \mid \varphi \land \varphi \mid S_i v \mid S_i \varphi \mid K_i \varphi,
+\]
+in which $r \in R$, vectors of terms $\Vec{t} \in V \cup D \cup Agt$, $i \in Agt$, and $v \in V$. A relation $r$ is a $k$-ary propositional relation; $S_i \varphi$ is a visibility formula that means agent~$i$ `sees' the truth value of formula $\varphi$, $S_i v$ is a visibility formula that means that agent~$i$ `sees' the value of the variable $v$, and $K_i \varphi$ is a knowledge formula. `Seeing' a formula is similar to `knowing whether` a formula is true or not \cite{DBLP:journals/rsl/FanWD15,DBLP:conf/aaai/MillerFMPS16}. `Seeing' should not be treated literally: an agent may `see' the value of a variable by hearing it through a communication channel, for example.
+
+\paragraph{Model}
+A model $M$ is defined $M=(Agt, V, D_{v_1}, \ldots, D_{v_k},\pi,\f_1,\dots,\f_n)$, in which $Agt$, $V$, $D_{v_i}$ are as in a signature.
+A state $s: V \rightarrow D$ is a mapping from variables to values. 
+A \emph{global state} is a total function (a complete assignment for all variables in $V$), while a \emph{local state} is a partial function (some variables may not be assigned). 
+The expression $s(v)$  denotes the value of variable $v$ in state $s$. 
+The set of all local and global states is denoted $\mathcal{S}$, while the set of all global states is $\mathcal{S}_G \subsetneq \mathcal{S}$. 
+% We use $s(v_i)$ to represent the value of $v_i$ in $s$. 
+% If variable $v_i$ is not in the domain of local state $s$, then $s(v_i)=null$. The set of all states (local and global) is denoted as $\mathcal{S}$, while the set of all global states is $\mathcal{S}_G \subsetneq \mathcal{S}$. 
+The set of all models is denoted $\mathcal{M}$. 
+$\pi$ is an interpretation function $\pi : \mathcal{S} \times R \rightarrow \{true,false\}$ that determines whether the atomic term $r(\Vec{t})$ is true in $s$. 
+$r$ is undefined if any of its arguments $t_i$ is a variable $v\in V$ that is not assigned a value in a local state $s$, i.e. $v \not\in dom(s)$.
+
+
+\paragraph{Perspective Function}
+The key idea in the PWP model is the \emph{perspective function}.
+A perspective function for agent $i$, $\f_i: \mathcal{S} \rightarrow \mathcal{S}$ is a function that takes a state and returns a subset of that state, which represents the part of that state that is visible to agent~$i$. 
+The following properties must hold on a perspective function, $\f_i$ for all $i \in Agt$ and $s \in \mathcal{S}$:
+
+% \vspace{2mm}
+% \begin{tabular}{ll}
+%  (1) & $\f_i(s) \subseteq s$ \\[1mm]
+%  (2) & $\f_i(s) = \f_i(\f_i(s))$\\[1mm]
+%  (3) & If $s \subseteq s'$, then $\f_i(s) \subseteq \f_i(s')$
+% \end{tabular}
+% \vspace{2mm}
+
+\vspace{2mm}
+\begin{tabular}{ll}
+ (1) & $\observation_i(s) \subseteq s$ \\[1mm]
+ (2) & $\observation_i(s) = \observation_i(\observation_i(s))$\\[1mm]
+ (3) & If $s \subseteq s'$, then $\observation_i(s) \subseteq \observation_i(s')$
+\end{tabular}
+\vspace{2mm}
+
+
+
+\citeauthor{Hu2022-ul} define general perspective functions, but note that perspective functions can be customised for domains. This provides a level of expressiveness not possible in declarative languages such as PDDL.
+
+
+\paragraph{Complete Semantics}
+\citet{Hu2022-ul} propose a sound and complete semantics for PWP\footnote{They call these semantics the `non-na\"ive' semantics, but we use the term `complete' in this paper as we do not have present a `na\"ive' semantics as \citet{Hu2022-ul} do.}.
+
+\begin{definition}
+\label{def:pwp:individual_semantics}
+
+Given a model $M$ and state $s$, the truth of a PWP formula is defined as:
+
+\vspace{2mm}
+\noindent
+\begin{tabular}{ll@{~~}l@{~~~}l}
+ (a) & $M,s \vDash r(\vec{t})$ & iff & $\pi(s, r(\vec{t})) = true$\\[1mm]
+ (b) & $M,s \vDash \phi \land \psi$  & iff & $M,s \vDash \phi$ and $M,s \vDash \psi$\\[1mm]
+ (c) & $M,s \vDash \neg \varphi$     & iff & $M,s \not\vDash \varphi$\\[1mm]
+ (d) & $M,s \vDash S_i v$            & iff & $v \in \dom(f_i(s))$\\[1mm]
+ (e) & $M,s \vDash S_i \varphi$      & iff & 
+     $\forall g \in \mathcal{S}_G$, $M,g[f_i(s)] \vDash \varphi$  or \\ 
+   &  & & $\forall g \in \mathcal{S}_G$, $M,g[f_i(s)] \vDash \neg \varphi$ \\[1mm]
+\end{tabular}
+\vspace{2mm}
+where: $\vec{t}$ is the terms in the relation $r$, and where $g[s]$ is defined as an override function, where $g[s](v) = s(v)$ if  $v \in \dom(s)$, and $g(v)$ otherwise.
+So, the truth value of $S_i \varphi$ is such that $\varphi$ is true in every possible state based on the partial view of agent $i$, or false in every possible state based on the partial view of agent $i$.
+
+From this, echoing \citet{DBLP:conf/ecai/CooperHMMR16}, the knowledge operation is defined as:
+$K_i \varphi \leftrightarrow S_i \varphi \land \varphi$.
+That is, agent $i$ knows $\varphi$ iff $\varphi$ is true and agent $i$ can see whether $\varphi$ is true.
+\end{definition}
+
+\paragraph{Ternary Semantics}
+\citet{Hu2022-ul} show that the complete PWP semantics has exponential time complexity---in the $S_i \varphi$ definition, we must iterate over all global states $\mathcal{S}_G$. To counter this, they propose a polynomial time \emph{ternary} semantics \cite{levesque1998completeness}, which contains truth values 0 (false), 1 (true), and $\unknown$ (not known). They define a function $T$, which evaluates the value of the formula, defined as follows (omitting $M$ for readability):
+
+\vspace{2mm}
+\noindent
+\begin{tabular}{@{}lllll}
+ (a) & $T[s, r(\vec{t})]$ & =
+         &  $1$ if $\pi(s_n, r(\vec{t})) = true$; \\
+     & & &  $0$ if $\pi(s_n, r(\vec{t})) = false$; \\
+     & & &  $\unknown$  otherwise\\[2mm]
+
+ (b) & $ T[s, \phi \land \psi]$ & = & $\min(T[s_n,\phi]$, $ T[s_n,\psi]$)\\[2mm]
+ (c) & $T[s,\neg \varphi]$ & = &  $1-T[s_n, \varphi]$\\[2mm]
+%  (d) & \multicolumn{2}{l}{ $ T[s \vDash S_i v]=$}            \\ & = & $v \in \observation_i(s_n)$\\[2mm]
+
+ (d) & $T[s, S_i v$] & = 
+        & $\unknown$  if $ i \notin \dom(s_n)$ or $v \notin \dom(s_n)$;\\
+     &&   & $0$ if  $v \notin \dom(\f_i(s_n))$;\\
+     &&   & $1$ otherwise\\[2mm]
+ (e) & $T[s,S_i \varphi]$ & = 
+        & $\unknown$ if $T[s_n,\varphi]=\unknown$ or $i \notin \dom(s)$\\
+      &&  & $ 0 $  if $ T[\f_i(s_n),\varphi]=\unknown$\\
+      &&  & $ 1 $  otherwise
+%  (f) & $T[s, K_i\varphi]$ & = & $T[s, \varphi \land S_i \varphi]$ \\[1mm] 
+%  (f) & $T[s, B_i \varphi]$ & = & $ T[\f_i(s), \varphi]$  \\[1mm] 
+\end{tabular}
+\vspace{2mm}
+
+They prove that this semantics is sound on all formulae, and is also complete for a fragment of the language known as $\NF$. 
+This fragment $\NF$  captures formulae such as those that do not contain tautologies or contradictions. Given perspective functions for each agent, knowledge formulae in preconditions and effects are evaluated by an F-STRIPS external function that implements the ternary semantics. 
+This approach is considerably more efficient that the PDKB baseline \citet{DBLP:journals/ai/MuiseBFMMPS22}, while offering more expressiveness.
+
+% \subsubsection{Common Perspective}
+% They define the common perspective of a group as a perspective fixed point when apply infinite level of nest as follows:
+
+% \begin{definition}
+% \label{def:fix_point}
+%     Let $s$ be the given state and $G$ a group of agents, a perspective fixed point $\cc\f(G,s)=s'$ can be defined as:
+%     \[
+%         \cc\f(G,s')=\cc\f(G,\bigcap _{i \in G} \f_i(s'))
+%     \]
+% \end{definition}
+% That is, using joint everyone's perspective of a given state as input, generate joint nested perspective for everyone until reached a fix point (could be empty).
+
+
+% \subsubsection{Group Semantics}
+% Similar as Individual semantics, their give their group semantics with three formats as well.
+% For simplicity, we only show the definition of their Na\"ive Semantics as follows:
+
+% \begin{definition}
+% \label{def:pwp:group_semantics}
+% Given a model $M$ and state $s$, their group semantics for seeing formulae can be defined as follows:
+
+% \vspace{2mm}
+% \begin{tabular}{llll}
+% 	(g) & $ M,s \vDash ES_G\alpha$   & iff & for all $i\in G$, $ M,s \vDash S_i\alpha$\\[1mm]
+% 	(h) & $ M,s \vDash DS_G v$       & iff & \(v \in dom(\bigcup_{i\in G}\f_i(s))\)\\[1mm]
+% 	(i) & $ M,s \vDash DS_G \varphi$ & iff & $ M,s' \vDash \varphi$\\
+% 	    &                            &     & or $ M,s' \vDash \neg\varphi$,\\
+% 	    & & \multicolumn{2}{l}{where $s'=\bigcup_{i\in G}\f_i(s)$} \\[1mm]
+% 	(j) & $ M,s \vDash CS_G v$       & iff & $v \in \dom(\cc\f(G,s))$\\[1mm]
+% % 	(k) & $ M,s \vDash CS_G \varphi$ & iff & for all $g \in \mathcal{S}_G$, $ M,g[s']) \vDash \varphi$ \\
+% % 	& & & or for all $g \in \mathcal{S}_G$, $ M,s' \vDash \neg\varphi$, where $s'= \cc\f(G,s)$.
+% 	(k) & $ M,s \vDash CS_G \varphi$ & iff & $ M,s' \vDash \varphi$\\
+% 	    &                            &     & or $ M,s' \vDash \neg\varphi$,\\
+% 	    & & \multicolumn{2}{l}{where $s'= \cc\f(G,s)$} \\[1mm]
+% \end{tabular}
+% \vspace{2mm}
+% \end{definition}
+
+% Then, following the equivalency between knowledge and seeing, they can derived the semantics for group knowledge formulae.
+
+% \begin{definition}
+% \label{def:group_equiv}
+% The equivalent relations between group seeing and group knowledge can be defined as:
+
+% \vspace{2mm}
+% \begin{tabular}{l}
+%     $ EK_G \varphi \leftrightarrow \varphi \land ES_G \varphi \leftrightarrow \bigwedge i\in G K_i \varphi$\\[1mm]
+%     $DK_G \varphi \leftrightarrow \varphi \land DS_G$\\[1mm]
+%     $CK_G \varphi \leftrightarrow \varphi \land CS_G$\\[1mm]
+% \end{tabular}
+% \vspace{2mm}
+% \end{definition}

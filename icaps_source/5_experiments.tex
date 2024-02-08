@@ -1,0 +1,558 @@
+% \begin{table*}[ht]
+%     %\addtolength{\tabcolsep}{-3pt}    
+%     \centering
+%     \small
+%     \begin{tabular}{ccccrrrrrrrrr}
+%          \toprule
+%           \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{PWP} & \multicolumn{4}{c}{PDKB} \\ 
+%           \cmidrule(lr){1-4} \cmidrule(lr){5-9} \cmidrule(lr){10-13}
+%           \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|\mathcal{P}|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$}&\multicolumn{2}{c}{TIME(s)}
+%           \\ & & & & & & & {Calls} & Total & & & Search & Total \\
+%          \midrule
+
+%             $4$ & $1$ & $2$ & $4$ & $68$ & $364$ & $2234$ & $4.9$ & $5.4$ & $79$ & $15$ & $0.3$& $0.8$\\
+%             $4$ & $2$ & $2$ & $5$ & $78$ & $442$ & $2558$ & $6.0$ & $6.6$ & $61$ & $12$ & $1.6$ & $9.6$\\
+%             $4$ & $1$ & $4$ & $6$ & $14781$ & $134492$ & $495432$ & $1942.2$ & $2053.3$ & $88$ & $10$ & $0.2$ & $0.7$\\
+%             $4$ & $2$ & $4$ & $7$ & $31709$ & $220022$ & $1056453$ & $5477.5$ & $5707.9$ & $130$ & $17$ & $1.5$ & $9.7$\\
+%             $4$ & $1$ & $8$ & $12$ & $-$ & $-$ & $-$ & $-$ & $-$ & $135$ & $14$ & $0.2$ & $0.7$\\
+%             $4$ & $2$ & $8$ & $27$ & $-$ & $-$ & $-$ & $-$ & $-$ & $1717$ & $508$ & $2.6$ & $10.9$\\
+            
+%             $8$ & $1$ & $2$ & $4$ & $96$ & $892$ & $12290$ & $90.8$ & $95.4$ & $152$ & $25$ & $0.7$ & $4.2$\\
+%             $8$ & $2$ & $2$ & $5$ & $114$ & $1114$ & $14602$ & $108.9$ & $114.4$ & $186$ & $36$ & $340.4$ & $182.4$\\
+%             $8$ & $1$ & $4$ & $11$ & $-$ & $-$ & $-$ & $-$ & $-$ & $5919$ & $194$ & $1.8$ & $5.5$\\
+%             $8$ & $2$ & $4$ & $9$ & $-$ & $-$ & $-$ & $-$ & $-$ & $344$ & $29$ & $166.5$ & $329.2$\\
+%             % $8$ & $1$ & $8$ & $14$ & $-$ & $-$ & $-$ & $-$ & $-$ & $980$ & $268$ & $0.7$ & $4.3$\\
+%             % $8$ & $2$ & $8$ & $15$ & $-$ & $-$ & $-$ & $-$ & $-$ & $726$ & $69$ & $180.5$ & $336.8$\\
+                  
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Experimental results for grapevine domain}
+%     \label{tab:grapevine}
+% \end{table*}
+\begin{table*}
+    %\addtolength{\tabcolsep}{-3pt}    
+    \centering
+    \small
+    \begin{tabular}{c@{~}c@{~}c@{~}crrrrrrrrr}
+         \toprule
+          \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{PWP} & \multicolumn{4}{c}{PDKB} \\ 
+          \cmidrule(lr){1-4} \cmidrule(lr){5-9} \cmidrule(lr){10-13}
+          \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|\mathcal{P}|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$}&\multicolumn{2}{c}{TIME(s)}
+          \\ & & & & & & & {Calls} & Total & & & Search & Total \\
+         \midrule
+
+            $4$ & $1$ & $2$ & $4$ & $364$ & $68$ & $2234$ & $4.9$ & $5.4$ & $79$ & $15$ & $0.3$& $0.8$\\
+            $4$ & $2$ & $2$ & $5$ & $442$ & $78$ & $2558$ & $6.0$ & $6.6$ & $61$ & $12$ & $1.6$ & $9.6$\\
+            $4$ & $1$ & $4$ & $6$ & $134492$ & $14781$ & $495432$ & $1942.2$ & $2053.3$ & $88$ & $10$ & $0.2$ & $0.7$\\
+            $4$ & $2$ & $4$ & $7$ & $220022$ & $31709$ & $1056453$ & $5477.5$ & $5707.9$ & $130$ & $17$ & $1.5$ & $9.7$\\
+            % $4$ & $1$ & $8$ & $12$ & $-$ & $-$ & $-$ & $-$ & $-$ & $135$ & $14$ & $0.2$ & $0.7$\\
+            % $4$ & $2$ & $8$ & $27$ & $-$ & $-$ & $-$ & $-$ & $-$ & $1717$ & $508$ & $2.6$ & $10.9$\\
+            
+            $8$ & $1$ & $2$ & $4$ & $892$ & $96$ & $12290$ & $90.8$ & $95.4$ & $152$ & $25$ & $0.7$ & $4.2$\\
+            $8$ & $2$ & $2$ & $5$ & $1114$ & $114$ & $14602$ & $108.9$ & $114.4$ & $186$ & $36$ & $340.4$ & $182.4$\\
+            $8$ & $1$ & $4$ & $11$ & $-$ & $-$ & $-$ & $-$ & $-$ & $5919$ & $194$ & $1.8$ & $5.5$\\
+            $8$ & $2$ & $4$ & $9$ & $-$ & $-$ & $-$ & $-$ & $-$ & $344$ & $29$ & $166.5$ & $329.2$\\
+            % $8$ & $1$ & $8$ & $14$ & $-$ & $-$ & $-$ & $-$ & $-$ & $980$ & $268$ & $0.7$ & $4.3$\\
+            % $8$ & $2$ & $8$ & $15$ & $-$ & $-$ & $-$ & $-$ & $-$ & $726$ & $69$ & $180.5$ & $336.8$\\
+                  
+        \bottomrule
+    \end{tabular}
+    \caption{Experimental Results for Grapevine Domain}
+    \label{tab:grapevine}
+\end{table*}
+% \begin{table*}[th]
+%     \addtolength{\tabcolsep}{-3pt}    
+%     \centering
+%     \small
+    
+%         \begin{tabular}{lccccrrrrrl}%cc}
+%         \toprule
+        
+%         \multirow{3}{*}{}
+%         & \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{Performance} &  \\
+%          \cmidrule(lr){2-5} \cmidrule(lr){6-10}
+%         & \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|P|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} &\multirow{2}{*}{Goal} \\
+%         & & & & & & & & {$calls$} & Total & \\
+%         \midrule
+%         C01 & $2$ & $1$ & $1$ & $1$ & $3$ & $2$ & $2$ & $0.0$ & $0.0$ & $B_a coin=head $ \\
+%         C02 & $2$ & $1$ & $1$ & $2$ & $7$ & $18$ & $7$ & $0.0$  & $0.0$ & $B_a coin=tail$ \\
+%         C03 & $2$ & $1$ & $1$ & $2$ & $5$ & $12$ & $7$ & $0.0$ & $0.0$ & $B_a coin=head \land B_b coin=head$ \\
+%         C04 & $2$ & $2$ & $1$ & $4$ & $43$ & $126$ & $61$ & $0.0$ & $0.0$& $ B_a coin=head \land B_b coin=tail $ \\
+%         C05 & $2$ & $3$ & $2$ & $4$ & $46$ & $135$ & $58$ & $0.0$ & $0.0$ & $ B_a coin=head \land B_b coin=tail \land B_b\ B_a coin=head $ \\
+%         C06 & $2$ & $2$ & $2$ & $6$ & $414$ & $1239$ & $533$ & $0.5$ & $0.7$ & $ B_a\ B_b coin=tail \land B_b B_a coin=head$ \\
+        
+%         % C07 & $2$ & $1$ & $1$ & $2$ & $43$ & $126$ & $52$ & $0.0$ & $0.0$& $UB_{a,b} coin=head \land B_b coin=tail$ \\
+
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Experimental results for coin domain}
+%     \label{tab:coin}
+% \end{table*}
+
+\begin{table*}[ht]
+    \addtolength{\tabcolsep}{-3pt}    
+    \centering
+    \small
+    
+        \begin{tabular}{lccccrrrrrl}%cc}
+        \toprule
+        
+        
+        \multirow{3}{*}{}
+        & \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{Performance} &  \\
+         \cmidrule(lr){2-5} \cmidrule(lr){6-10}
+        & \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|P|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} &\multirow{2}{*}{Goal} \\
+        & & & & & & & & {$calls$} & Total & \\
+        \midrule
+        % BBL01 & $2$ & $1$ & $1$ & $3$ & $336$ & $85$ & $85$ & $0.0$ & $0.0$ & $S_b v$ \\
+        BBL01 & $2$ & $1$ & $1$ & $3$ & $336$ & $85$ & $85$ & $0.0$  & $0.0$ & $K_b v=e$ \\
+        BBL02 & $2$ & $1$ & $1$ & $3$ & $336$ & $85$ & $85$ & $0.1$ & $0.1$& $B_b v=e$ \\
+        BBL03 & $2$ & $1$ & $2$ & $3$ & $336$ & $85$ & $170$ & $1.1$ & $1.1$ & $B_b v=e \land B_a v=e$ \\
+        BBL04 & $2$ & $2$ & $1$ & $5$ & $2728$ & $683$ & $683$ & $90.4$ & $90.6$ & $B_b B_a v=e$ \\
+        BBL05 & $2$ & $2$ & $2$ & $5$ & $2728$ & $683$ & $693$ & $17.3$ & $17.5$ & $B_a B_b v=e \land B_b B_a v=e$ \\
+        BBL06 & $2$ & $3$ & $1$ & $5$ & $2728$ & $683$ & $683$ & $178.2$ & $178.5$& $B_b B_a B_b v=e$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Experimental results for BBL domain}
+    \label{tab:bbl}
+\end{table*}
+
+\begin{table*}[ht]
+    \centering
+    \small
+    \addtolength{\tabcolsep}{-1pt}    
+
+        \begin{tabular}{lccccrrrrrl}%cc}
+        \toprule
+        
+        \multirow{3}{*}{}
+        & \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{Performance} &  \\
+         \cmidrule(lr){2-5} \cmidrule(lr){6-10}
+        & \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|P|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} &\multirow{2}{*}{Goal} \\
+        & & & & & & & & {$calls$} & Total & \\
+        \midrule
+        SN01 & $5$ & $1$ & $1$ & $1$ & $64$   & $7$  & $7$   & $0.0$ & $0.0$ & $B_c p=t$ \\
+        SN02 & $5$ & $2$ & $2$ & $1$ & $86$   & $9$  & $11$  & $0.2$ & $0.2$ & $B_c p=t \land B_b B_c p=t$ \\
+        SN03 & $5$ & $1$ & $2$ & $2$ & $215$  & $20$ & $25$  & $0.4$ & $0.5$ & $B_c p=t \neg B_d p=t$ \\
+        SN04 & $5$ & $1$ & $1$ & $2$ & $1029$ & $96$ & $193$ & $4.4$ & $4.8$ & $B_{a,b,c,d,e} p = t$ \\
+        %$B_a p=t \land B_b p=t \land B_c p=t \land B_d p=t \land B_e p=t $ \\
+        SN05 & $5$ & $1$ & $1$ & $2$ & $430$  & $37$ & $56$  & $1.3$ & $1.4$ & $B_{a,b,d,e} p = t \land \neg B_c p=t$ \\%$B_a p=t \land B_b p=t \land \neg B_c p=t \land B_d p=t \land B_e p=t $ \\
+        SN06 & $5$ & $1$ & $1$ & $2$ & $669$  & $62$ & $96$  & $2.1$ & $2.3$ & $B_{a,c} p=t \land \neg B_b p=t \land \neg B_d p=t \land \neg B_e p=t $ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Experimental results for SN domain. $B_{a,\ldots,e} \varphi$ is shorthand for each agent in the set $\{a,\ldots,e\}$ believing $\varphi$}
+    \label{tab:sn}
+\end{table*}{}
+
+\section{Experiments}
+
+We experiment on two benchmark domains (Corridor, and Grapevine), as well as three other domains (Coin, Big Brother Logic and Social-media Network) to evaluate the potential of our model.
+In this section, we denote $d$ as the depth of the epistemic formulae, $|\mathcal{G}|$ as the number of goal formulae, $|\mathcal{P}|$ as the length of the plan and $|calls|$ as the number of epistemic formulae reasoning.
+
+
+
+\subsection{Implementation}
+%Since the perspective function in our model use the current state sequence as input, we need a F-STRIPS planner gives an easy access to the current state sequence.
+%Unfortunately, most of the existing F-STRIPS planner does not support that.
+% It is inefficient to track the sequence of states.
+The source code of the planner, the domain and problem files, as well as experimental results, can be downloaded from https://github.com/guanghuhappysf128/bpwp
+
+\subsubsection{Planner Implementation} 
+We implemented a simple F-STRIPS planner that supports PDDL and external functions. 
+Since the objective is to demonstrate our model instead of the search algorithm, we use \emph{Breadth First Search} (BFS).
+The experiments are run on a windows 10 machine with 12 CPUs (Intel i7-8700K CUP \@ 3.70GHz) with 32GB ram. 
+
+\subsubsection{PDDL encoding}
+As for the encoding, we use the same approach in \citet{Hu2022-ul}.
+The epistemic formula evaluation only occurs in either the action precondition (Example~\ref{example:grapvine_action}) or the goal in PDDL encoding, while the evaluation process itself is done in the external function, which we implemented using python.
+% \nl{Some reviewers may ask why we didn't use BFWS or others. May be worth including an explanation why we didn't use it as we did in previous work.}
+% \gh{It has been commented out, I am not sure whether we need to put it in?}
+
+
+
+
+\subsection{Corridor}
+Corridor is a benchmark problem in epistemic planning \cite{DBLP:journals/ai/MuiseBFMMPS22}.
+Several agents located in different rooms of a corridor try to learn a secret.
+One of the agents ($a$ in our encoding) has the ability to \emph{move} between rooms, \emph{sense} the secret, \emph{shout} and \emph{shout\_lie}.
+The action \emph{shout} announces the true value of the secret as long as agent $a$ knows the secret (by performing \emph{sense} action before), while the action \emph{shout\_lie} announces the false value of the secret. For both actions, agents in the same room or adjacent rooms learn the shouted value of the secret. 
+The objective is to find a plan for agent $a$ that makes some agents believe the secret while some other agents believe the  secret is false.
+
+
+\subsubsection{Seeing Rule:}
+\[
+    \text{sct} \in \dom(\observation_i(s)) \text{ iff } |s(\text{loc-secret-shout}) - s(\text{loc-$i$})| \leq 1
+\]
+% \subsubsection{Encoding}
+% The seeing rule for corridor domain can be defined as:
+% \[
+%     \text{sct} \in \dom(\observation_i(s)) \text{ iff } |s(\text{loc-sct-shout}) - s(\text{loc-$i$})| \leq 1
+% \]
+
+
+% % \[
+% %     \sees_i(s)(sct) = 
+% %     \begin{cases}
+% %         true & \text{if } |s(\text{loc-sct-shout}) - s(\text{loc-i})| \leq 1\\
+% %         false & otherwise \\
+% %     \end{cases}
+% % \]
+% Although agent $a$ is the only agent that can shout out a secret, we cannot use \emph{loc-a} to define \emph{seeing} as the secret might not have been announced at the current state.
+% Therefore, a variable \emph{loc-sct-shout} is needed to represent in which room the secret has being shouted.
+% A sample action \emph{shout} can be represented as follows:
+
+% \begin{tabular}{rl}
+% ~~\texttt{\textbf{action}} & shout()\\
+% ~~~~\texttt{\textbf{prec}} & sensed=1, loc-a=x\\
+% ~~~~\texttt{\textbf{effs}} & sct=true, loc-sct-shout=x
+% \end{tabular}
+% \vspace{2mm}
+
+\subsubsection{Result}
+Results are shown in Table~\ref{tab:corridor}.
+We use the same set of problems as \citet{DBLP:journals/ai/MuiseBFMMPS22}, which contain tasks with false-belief.
+Since the goals in all of their problems are the same, the number of node generations and node expansions are constant across all problems, while only the number of agents and depth of epistemic formulae affect execution time. 
+We can see that the number of agents and depth of epistemic formula affect the pre-encoding done by PDKB \citet{DBLP:journals/ai/MuiseBFMMPS22}, but not PWP's lazy evaluation. 
+
+% \begin{table*}[ht]
+%     %\addtolength{\tabcolsep}{-3pt}    
+%     \centering
+%     \small
+%     \begin{tabular}{ccccrrrrrrrrr}
+%          \toprule
+%           \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{PWP} & \multicolumn{4}{c}{PDKB} \\ 
+%           \cmidrule(lr){1-4} \cmidrule(lr){5-9} \cmidrule(lr){10-13}
+%           \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|\mathcal{P}|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$}&\multicolumn{2}{c}{TIME(s)}
+%           \\ & & & & & & & {Calls} & Total & & & Search & Total \\
+%          \midrule
+
+%             $3$ & $1$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.2$ & $0.3$ & $34$ & $16$ & $0.1$& $0.2$\\
+%             $5$ & $1$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.4$ & $0.5$ & $36$ & $16$ & $0.1$ & $0.2$\\
+%             $7$ & $1$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.6$ & $0.7$ & $37$ & $16$ & $0.1$ & $0.2$\\
+%             $3$ & $3$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.3$ & $0.4$ & $34$ & $16$ & $0.1$ & $0.7$\\
+%             $5$ & $3$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.4$ & $0.5$ & $36$ & $16$ & $0.2$ & $3.3$\\
+%             $7$ & $3$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.7$ & $0.8$ & $37$ & $16$ & $0.6$ & $10.8$\\
+%             $3$ & $5$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.3$ & $0.3$ & $34$ & $16$ & $2.4$ & $39.6$\\
+%             $5$ & $5$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.4$ & $0.5$ & $36$ & $16$ & $217.8$ & $1348.8$\\
+%             $7$ & $5$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.7$ & $0.8$ & $37$ & $16$ & $-$ & $-$\\
+                  
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Experimental results for corridor domain}
+%     \label{tab:corridor}
+% \end{table*}
+
+
+\subsection{Grapevine}
+Grapevine is another benchmark problem in epistemic planning \cite{DBLP:journals/ai/MuiseBFMMPS22}. In two adjacent rooms, agents share secrets they have heard previously to all agents in the same room.
+All agents can \emph{move-left} and \emph{move-right} between two rooms, and \emph{share} the truth about someone's secret or \emph{lie} about it.
+Both actions require the agent to believe the secret.
+The objective is to make some agents believe others' secrets without the secret owner's awareness.
+
+\begin{example}
+\label{example:grapvine_action}
+Agent $i$ shares agent $j$'s secret $j$-sct:
+
+\begin{tabular}{rl}
+~~\texttt{\textbf{action}} & share(i,$j$-sct)\\
+~~~~\texttt{\textbf{prec}} & loc-i=x, \texttt{epis:} $B_i$ $j$-sct\\
+~~~~\texttt{\textbf{effs}} & \texttt{forall} ?a - agent loc-?a-sct-shared = 0 \\
+ & $j$-sct=true, loc-$j$-sct-shared=x\\
+\end{tabular}
+
+The precondition ``\texttt{epis:} $B_i$ $j$-sct'' is evaluated by the external function (our model).
+The effect ``loc-$j$-sct-shared=x'' means $j$-sct has been shared in location x, and ``j-sct=true'' (if $i$ performs action lie, it would be false).
+
+\end{example}
+
+\subsubsection{Seeing Rule:}
+\[
+    \text{$j$-secret} \in \dom(\observation_i(s)) \text{ iff } s(\text{loc-$j$-secret-shared})=s(\text{loc-$i$})
+\]
+% \subsubsection{Encoding}
+% The seeing rule for grapevine domain can be defined as:
+% \[
+%     \text{$j$-sct} \in \dom(\observation_i(s)) \text{ iff } s(\text{loc-$j$-sct-shared})=s(\text{loc-$i$})
+% \]
+% % \[
+% %     \sees_i(s)(\text{j-sct}) = 
+% %     \begin{cases}
+% %         true & \text{if } s(\text{loc-j-sct-shared}) = s(\text{loc-i}) \\
+% %         false & otherwise \\
+% %     \end{cases}
+% % \]
+% Although the seeing function is similar to corridor, the modeling is more challenging because everyone in the grapevine is able to share other's secrets.
+% In addition, since every agent is movable in this domain, the knowledge about where the secret has been shared should not persist in the next timestamp.
+% Otherwise, when agent $a$ shared $a$'s secret in room $r1$ and move to room $r2$, agent $a$ would believe that $a$'s secret is still being shared in room $r1$.
+% Therefore, one sample action \emph{share} can be represented as follows:
+
+% \begin{tabular}{rl}
+% ~~\texttt{\textbf{action}} & share(i,j-sct)\\
+% ~~~~\texttt{\textbf{prec}} & loc-i=x\\
+%  & \texttt{epis:} $B_i$ j-sct\\
+% ~~~~\texttt{\textbf{effs}} & \texttt{forall} ?a - agent loc-?a-sct-shared = 0 \\
+%  & j-sct=true, loc-j-sct-shared=x\\
+% \end{tabular}
+
+\subsubsection{Result}
+Results are shown in Table~\ref{tab:grapevine}.
+We use the same set of problems as \citet{DBLP:journals/ai/MuiseBFMMPS22}.
+Since the epistemic formula is in the precondition of all \emph{share} actions, the number of the external function calls is much larger compared to the corridor domain.
+In addition, in grapevine, the number of agents increases the branching factor of the problem. 
+%To be specific, the branching factor for 4 agents is 36 (4 move actions, 16 share actions and 16 lie actions) and for 8 agents is 136 (8 move actions, 64 share actions and 64 lie actions), which is much larger than corridors domain.
+Given we implemented just a BFS search algorithm, the planner ran out of time limit (100 minutes) for larger problems.
+% If our planner have the same amount of node expanded, it would perform better than PDKB approach.
+
+% \tm{Change the above to: `the planner reached out time limit of X minutes' -- whatever X is}
+% \gh{Done}
+
+% \begin{table*}[ht]
+%     %\addtolength{\tabcolsep}{-3pt}    
+%     \centering
+%     \small
+%     \begin{tabular}{ccccrrrrrrrrr}
+%          \toprule
+%           \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{PWP} & \multicolumn{4}{c}{PDKB} \\ 
+%           \cmidrule(lr){1-4} \cmidrule(lr){5-9} \cmidrule(lr){10-13}
+%           \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|\mathcal{P}|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$}&\multicolumn{2}{c}{TIME(s)}
+%           \\ & & & & & & & {Calls} & Total & & & Search & Total \\
+%          \midrule
+
+%             $4$ & $1$ & $2$ & $4$ & $68$ & $364$ & $2234$ & $4.9$ & $5.4$ & $79$ & $15$ & $0.3$& $0.8$\\
+%             $4$ & $2$ & $2$ & $5$ & $78$ & $442$ & $2558$ & $6.0$ & $6.6$ & $61$ & $12$ & $1.6$ & $9.6$\\
+%             $4$ & $1$ & $4$ & $6$ & $14781$ & $134492$ & $495432$ & $1942.2$ & $2053.3$ & $88$ & $10$ & $0.2$ & $0.7$\\
+%             $4$ & $2$ & $4$ & $7$ & $31709$ & $220022$ & $1056453$ & $5477.5$ & $5707.9$ & $130$ & $17$ & $1.5$ & $9.7$\\
+%             $4$ & $1$ & $8$ & $12$ & $-$ & $-$ & $-$ & $-$ & $-$ & $135$ & $14$ & $0.2$ & $0.7$\\
+%             $4$ & $2$ & $8$ & $27$ & $-$ & $-$ & $-$ & $-$ & $-$ & $1717$ & $508$ & $2.6$ & $10.9$\\
+            
+%             $8$ & $1$ & $2$ & $4$ & $96$ & $892$ & $12290$ & $90.8$ & $95.4$ & $152$ & $25$ & $0.7$ & $4.2$\\
+%             $8$ & $2$ & $2$ & $5$ & $114$ & $1114$ & $14602$ & $108.9$ & $114.4$ & $186$ & $36$ & $340.4$ & $182.4$\\
+%             $8$ & $1$ & $4$ & $11$ & $-$ & $-$ & $-$ & $-$ & $-$ & $5919$ & $194$ & $1.8$ & $5.5$\\
+%             $8$ & $2$ & $4$ & $9$ & $-$ & $-$ & $-$ & $-$ & $-$ & $344$ & $29$ & $166.5$ & $329.2$\\
+%             % $8$ & $1$ & $8$ & $14$ & $-$ & $-$ & $-$ & $-$ & $-$ & $980$ & $268$ & $0.7$ & $4.3$\\
+%             % $8$ & $2$ & $8$ & $15$ & $-$ & $-$ & $-$ & $-$ & $-$ & $726$ & $69$ & $180.5$ & $336.8$\\
+                  
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Experimental results for grapevine domain}
+%     \label{tab:grapevine}
+% \end{table*}
+
+
+\subsection{Coin}
+The coin domain is defined in Example~\ref{example:coin}.
+The objective is to generate some false beliefs.
+
+
+\subsubsection{Seeing Rule:}
+\[
+    \text{coin} \in \dom(\observation_i(s)) \text{ iff } s(\text{peeking-$i$})
+\]
+% \subsubsection{Encoding}
+% The seeing rule for coin domain can be defined as:
+% \[
+%     \text{coin} \in \dom(\observation_i(s)) \text{ iff } s(\text{peeking-$i$})
+% \]
+% % \[
+% %     \sees_i(s)(coin) = 
+% %     \begin{cases}
+% %         true & \text{if } s(\text{peeking\_i}) \\
+% %         false & otherwise \\
+% %     \end{cases}
+% % \]
+% The encoding for actions \emph{peek}, \emph{return} and \emph{flip} is straightforward.
+% % \gh{maybe I should remove case environment?}
+% % \tm{Yes, I agree}
+% % \gh{Done}
+
+\subsubsection{Result}
+% The results are shown in Table~\ref{tab:coin}.
+% Test cases C01 and C02 have single belief goals with the depth of 1, while test cases C03 and C04 have two goals demonstrating belief and false belief. 
+% Test case C05 is the same as the task in Example~\ref{example:coin}.
+Since the coin domain is trivial, results are given in the appendix. 
+% It can be solved by either Plan~\ref{plan1} or Plan~\ref{plan2}.
+A test case with complex goals, $B_a B_b coin=tail$ and $B_b B_a coin=head$, is worthy of discussion.
+That is, each agent believes the other believes the coin is a different value.
+
+The plan returned is:
+%\begin{plan}
+%\label{plan:C}
+\emph{peek(a)}, \emph{peek(b)}, \emph{return(b)}, \emph{flip}, \emph{return(a)}, \emph{peek(b)}.
+%\end{plan}
+The latest state where $b$ sees that $a$ sees coin is $s_4$.
+From $s_4$, the function $\memorization$ returns $coin=head$ from $s_2$ (after the first \emph{peek(b)} action), which is the latest state where the coin is in $\f_b(\seq)$ before $s_4$.
+
+% \tm{Is the below correct? State $s_4$ is after `flip'. should it not be after $s_2$?}
+% \gh{Yes. It should be. It means $b$ sees "$a$ sees coin", but $b$ does not see coin himself. Maybe change to $b$ knows/sees $peeking_a$?}
+% \nl{I cannot follow the explanation after the plan. Specially because it is not clear the initil state of coin, and if the first state is s0. I'm not sure this explanation is actually needed. I suggest removing the last 2 sentences it to gain space.}
+% \gh{Yes. the initial state is $s_0$ and it is the same as the examples in Introduction and Model section}
+% C06 and C07 demonstrate the model can handle group belief.
+
+% \begin{table*}[th]
+%     \addtolength{\tabcolsep}{-3pt}    
+%     \centering
+%     \small
+    
+%         \begin{tabular}{lccccrrrrrl}%cc}
+%         \toprule
+        
+%         \multirow{3}{*}{}
+%         & \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{Performance} &  \\
+%          \cmidrule(lr){2-5} \cmidrule(lr){6-10}
+%         & \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|P|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} &\multirow{2}{*}{Goal} \\
+%         & & & & & & & & {$calls$} & Total & \\
+%         \midrule
+%         C01 & $2$ & $1$ & $1$ & $1$ & $3$ & $2$ & $2$ & $0.0$ & $0.0$ & $B_a coin=head $ \\
+%         C02 & $2$ & $1$ & $1$ & $2$ & $7$ & $18$ & $7$ & $0.0$  & $0.0$ & $B_a coin=tail$ \\
+%         C03 & $2$ & $1$ & $1$ & $2$ & $5$ & $12$ & $7$ & $0.0$ & $0.0$ & $B_a coin=head \land B_b coin=head$ \\
+%         C04 & $2$ & $2$ & $1$ & $4$ & $43$ & $126$ & $61$ & $0.0$ & $0.0$& $ B_a coin=head \land B_b coin=tail $ \\
+%         C05 & $2$ & $3$ & $2$ & $4$ & $46$ & $135$ & $58$ & $0.0$ & $0.0$ & $ B_a coin=head \land B_b coin=tail \land B_b\ B_a coin=head $ \\
+%         C06 & $2$ & $2$ & $2$ & $6$ & $414$ & $1239$ & $533$ & $0.5$ & $0.7$ & $ B_a\ B_b coin=tail \land B_b B_a coin=head$ \\
+        
+%         % C07 & $2$ & $1$ & $1$ & $2$ & $43$ & $126$ & $52$ & $0.0$ & $0.0$& $UB_{a,b} coin=head \land B_b coin=tail$ \\
+
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Experimental results for coin domain}
+%     \label{tab:coin}
+% \end{table*}
+
+
+
+\subsection{Big Brother Logic (BBL)}
+BBL~\cite{DBLP:conf/atal/GasquetGS14} contains stationary cameras that can turn and observe a certain angular range in a 2-dimension plane.
+For example,  camera $a$ and camera $b$ are located in positions $(3,3)$ and $(2,2)$ respectively, while a target $v$ with value $e$ is located in position $(1,1)$.
+The angular range of each camera is $90^\circ$, defined by the observation function $\observation_i$.
+Both cameras have two actions: \emph{clockwise-turn} and \emph{anticlockwise-turn}.
+% For simplicity, we set the angle of turning to be enumerated from the set $\{180^\circ,135^\circ,90^\circ,45^\circ,0^\circ,-45^\circ,-90^\circ,-135^\circ\}$ 
+For simplicity, we set the angle of turning to be enumerated from the set $\{0^\circ,\pm 45^\circ, \pm 90^\circ, \pm135^\circ, 180^\circ\}$ 
+and the turning angle to $45^\circ$, but as the external functions are implemented in Python, we can replace this with floating point numbers to  model continuous directions. We use the same problems defined by \citet{Hu2022-ul}, but with modified goals to support belief instead of knowledge.
+
+\subsubsection{Seeing Rule:} From \citet{Hu2022-ul}:
+
+$ j \in \dom(\observation_i(s))$ iff
+\begin{equation}
+    \label{eq:bbl}
+    \begin{array}{c}
+    \left(|\arctan (\frac{|s(y_i)-s(y_j)|}{s(x_i)-s(x_j)}) - s(dir_i)| \leq \frac{s(ang_i)}{2}\right)\\ 
+    \lor \\ 
+    \left(|\arctan (\frac{|s(y_i)-s(y_j)|}{s(x_i)-s(x_j)}) - s(dir_i)| \geq \frac{360^\circ-s(ang_i)}{2}\right)
+    \end{array}
+\end{equation}
+
+\noindent where $(x_i,y_i)$ is the location of object/agent $i$.
+
+
+%We use the same seeing rules as defined by \citet{Hu2022-ul} (see Appendix Section~4).
+% \subsubsection{Encoding}
+% % \tm{As discussed on Zoom, I suggest moving this to the appendix and also referring to this in the JAIR paper}
+% % \gh{Done}
+% % \tm{Ok good, but note also that you should add a reference to the appendix so the reader knows to look there}
+% The seeing rule of the BBL is exactly the same as the one defined in \cite{Hu2022-ul} (also can be found in Appendix Section~4).
+% % The seeing function for BBL domain can be defined as:
+% % $\sees_i(s)(coin)=$
+% % \begin{equation}
+% %     \label{eq:bbl}
+% %     \begin{array}{c}
+% %     \left(|\arctan (\frac{|y_i-y_j|}{x_i-x_j}) - dir_i| \leq \frac{ang_i}{2}\right)\\ 
+% %     \lor \\ 
+% %     \left(|\arctan (\frac{|y_i-y_j|}{x_i-x_j}) - dir_i| \geq \frac{360^\circ-ang_i}{2}\right)
+% %     \end{array}
+% % \end{equation}
+% The encoding for action \emph{clockwise-turn} and \emph{anticlockwise-turn} only changes ontic state, which is trivial.
+
+
+
+\subsubsection{Result}
+
+Results are shown in Table~\ref{tab:bbl}.
+Initially, camera $b$ faces $90^\circ$ in all problems.
+The optimal solution for camera $b$ to gain any information on variable $v$ is to turn anticlockwise $135^\circ$, which is the case of BBL01-03.
+However, as for camera $b$ to acquire any beliefs about camera $a$, camera $b$ has to turn clockwise first to see camera $a$ (BBL04-06).
+
+
+% \begin{table*}[ht]
+%     \addtolength{\tabcolsep}{-3pt}    
+%     \centering
+    
+%         \begin{tabular}{lccccrrrrrl}%cc}
+%         \toprule
+        
+        
+%         \multirow{3}{*}{}
+%         & \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{Performance} &  \\
+%          \cmidrule(lr){2-5} \cmidrule(lr){6-10}
+%         & \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|P|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} &\multirow{2}{*}{Goal} \\
+%         & & & & & & & & {$calls$} & Total & \\
+%         \midrule
+%         % BBL01 & $2$ & $1$ & $1$ & $3$ & $336$ & $85$ & $85$ & $0.0$ & $0.0$ & $S_b v$ \\
+%         BBL01 & $2$ & $1$ & $1$ & $3$ & $336$ & $85$ & $85$ & $0.0$  & $0.0$ & $K_b v=e$ \\
+%         BBL02 & $2$ & $1$ & $1$ & $3$ & $336$ & $85$ & $85$ & $0.1$ & $0.1$& $B_b v=e$ \\
+%         BBL03 & $2$ & $1$ & $2$ & $3$ & $336$ & $85$ & $170$ & $1.1$ & $1.1$ & $B_b v=e \land B_a v=e$ \\
+%         BBL04 & $2$ & $2$ & $1$ & $5$ & $2728$ & $683$ & $683$ & $90.4$ & $90.6$ & $B_b B_a v=e$ \\
+%         BBL05 & $2$ & $2$ & $2$ & $5$ & $2728$ & $683$ & $693$ & $17.3$ & $17.5$ & $B_a B_b v=e \land B_b B_a v=e$ \\
+%         BBL06 & $2$ & $3$ & $1$ & $5$ & $2728$ & $683$ & $683$ & $178.2$ & $178.5$& $B_b B_a B_b v=e$ \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Experimental results for BBL domain}
+%     \label{tab:bbl}
+% \end{table*}
+
+The results show that we can solve multi-agent belief problems in complex domains such as BBL, which would be difficult to encode in a propositional language without external functions. 
+% The difference in solving times for BBL05 and BBL06 is interesting. 
+% $B_b B_a v=e$ is the goal in BBL05 and the second goal in BBL06. 
+% However, the first goal $B_a B_b v=e$ in BBL06 is easier to solve, and is false at most search nodes, thus short-circuiting the query.
+    
+    
+    
+    
+\subsection{Social-media Network}
+The Social-media Network (SN) domain is an abstract network using bi-directional communication proposed by \citet{Hu2022-ul}.
+The agents establish two-way communication channels by befriending each other and communicating by posting messages on their homepage or their friends' homepages. Each agent can \emph{Befriend} or \emph{Unfriend}  another agent.
+For example, let $a$, $b$, $c$, $d$ and $e$ be 5 agents and $p=1$ be the message $a$ wants to share.
+The secret $p$ can be \emph{post} or \emph{retract} on the homepage of agent $a$ or $a$'s friends' homepage.
+The objective is to form beliefs about messages.
+Initially, $a$ is friended with $c$ and $d$, $b$ is friended $c$ and $e$, $c$ is friended with $a$, $b$ and $d$, $d$ is friended with $a$, $c$ and $e$, while $e$ is friended with $b$ and $d$.
+
+\subsubsection{Seeing Rule:}
+\[
+    p \in \dom(\observation_i(s)) \text{ iff } \exists j\in Agt, s(\text{friended-$i$-$j$}) \land s(\text{post-$p$-$j$})
+\]
+% \subsubsection{Encoding}
+% The seeing rule in SN can be represented as:
+% \[
+%     p \in \dom(\observation_i(s)) \text{ iff } \exists j\in Agt, s(\text{friended-$i$-$j$}) \land s(\text{post-$p$-$j$})
+% \]
+% All the actions only change ontic states.
+
+\subsubsection{Results}
+The results are shown in Table~\ref{tab:sn}.
+For SN01, the plan is simply ``post $p$ on $a$'s homepage'', while for SN02, with $b$ involved, the plan becomes ``post on $c$'s homepage''.
+For SN05, the object is for everyone but $c$ to gain the same belief of $p$, while SN06 is for everyone who does not believe $p$ except $c$ ($a$ knows $p$ all along, as $p$ is posted by $a$).
+
+% \begin{table*}[ht]
+%     \centering
+%     \addtolength{\tabcolsep}{-1pt}    
+
+%         \begin{tabular}{lccccrrrrrl}%cc}
+%         \toprule
+        
+%         \multirow{3}{*}{}
+%         & \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{Performance} &  \\
+%          \cmidrule(lr){2-5} \cmidrule(lr){6-10}
+%         & \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|P|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} &\multirow{2}{*}{Goal} \\
+%         & & & & & & & & {$calls$} & Total & \\
+%         \midrule
+%         SN01 & $5$ & $1$ & $1$ & $1$ & $64$   & $7$  & $7$   & $0.0$ & $0.0$ & $B_c p=t$ \\
+%         SN02 & $5$ & $2$ & $2$ & $1$ & $86$   & $9$  & $11$  & $0.2$ & $0.2$ & $B_c p=t \land B_b B_c p=t$ \\
+%         SN03 & $5$ & $1$ & $2$ & $2$ & $215$  & $20$ & $25$  & $0.4$ & $0.5$ & $B_c p=t \neg B_d p=t$ \\
+%         SN04 & $5$ & $1$ & $1$ & $2$ & $1029$ & $96$ & $193$ & $4.4$ & $4.8$ & $B_{a,b,c,d,e} p = t$ \\
+%         %$B_a p=t \land B_b p=t \land B_c p=t \land B_d p=t \land B_e p=t $ \\
+%         SN05 & $5$ & $1$ & $1$ & $2$ & $430$  & $37$ & $56$  & $1.3$ & $1.4$ & $B_{a,b,d,e} p = t \land \neg B_c p=t$ \\%$B_a p=t \land B_b p=t \land \neg B_c p=t \land B_d p=t \land B_e p=t $ \\
+%         SN06 & $5$ & $1$ & $1$ & $2$ & $669$  & $62$ & $96$  & $2.1$ & $2.3$ & $B_{a,c} p=t \land \neg B_b p=t \land \neg B_d p=t \land \neg B_e p=t $ \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Experimental results for SN domain. $B_{a,\ldots,e} \varphi$ is shorthand for each agent in the set $\{a,\ldots,e\}$ believing $\varphi$}
+%     \label{tab:sn}
+% \end{table*}{}
+

@@ -1,0 +1,156 @@
+Reviews
+Review 1
+Relevance	
+3: (the paper is relevant to the ICAPS community)
+Significance / Importance	
+2: (modest contribution or average impact)
+Soundness	
+2: (The paper has minor technical flaws. For example, the proof of a theorem has some fixable errors or the experimental evaluation is weak.)
+Novelty	
+2: (The paper contributes some new ideas or represents incremental advances)
+Clarity	
+2: (The paper is somewhat clear, but some important details are missing or unclear.)
+Reproducibility	
+1: (difficult to reproduce because of missing detail)
+Overall evaluation	
+-1: (weak reject)
+Review	-- Summary --
+The paper tackles the problem of Epistemic Planning in a multi-agent setting, where agents are able to reason about both the physical world, and the beliefs of others. Their approach builds on top of the framework called "Planning with Perspectives" (PWP), that consists of a compilation of epistemic planning into F-STRIPS (Functional STRIPS). In PWP, the plan search and the evaluation of epistemic formulae are decoupled: the former is carried out by a classical planning algorithm, while the latter is lazily handled by external functions.
+
+The authors expand the PWP framework, that is only able to deal with the knowledge of agents, by supporting reasoning about beliefs and, in particular, about false beliefs of multiple agents. They call this approach "Planning with Multi-agent Belief using Justified Perspectives". Their main idea relies on a simple and intuitive principle (Pr): an agent believes that something is true if they have observed it at some point in the past and if they have no evidence that suggests that it no longer is the case.
+
+Their approach does not keep the whole epistemic state as in Dynamic Epistemic Logic and, at the same time, it does not rely on a pre-compilation of all epistemic formulae into classical planning. Therefore, they provide an efficient implementation that proves to be competitive with state-of-the-art solvers.
+
+
+-- Major comments --
+The authors' proposal has some potential and it is relevant to the ICAPS community. The contribution is novel and is based on a fairly agreeable principle to deal with false belief tasks (Pr). Nonetheless, the paper suffers from different issues and weaknesses.
+
+1. The structure of the paper needs some rework. In Section 3, I would have expected a whole discussion on the encoding of the Justified Perspectives approach in F-STRIPS. How do you encode an epistemic model? What about an epistemic action? These seem to be some very important elements that are missing from the exposition. Perhaps some space can be obtained by shortening the discussion in Section 4 (e.g., Table 3 seem not very significative, since the instances are really small and are dealt with in a very short time).
+
+2. The formalization that is given does not define what an action is in the framework (e.g., in DEL an action is a pointed event model). The concept of action is only referred to in intuitive terms when discussing examples.
+
+3. One of the main goals of the paper is to present an efficient tool that is competitive w.r.t. state-of-the-art solvers. However, the authors only implement a BFS algorithm to conduct the search of a plan. This seems to be sufficient for the Corridor domain (Table 1), but not for the Grapevine domain (Table 2), where the execution time of external calls grows exponentially. However, the authors do not properly discuss this choice. In fact, it is not clear what the authors mean by "the objective is to demonstrate our model instead of the search algorithm" (Section 4.1).
+
+4. The discussion of Section 2.1 needs to be improved. Importantly, the distinction between the notions of knowledge and belief from a modal logic point of view is not properly explained. In particular, symmetry is contrasted with seriality. Although it is true that S5-models are symmetric and KD45-models are serial, one should be careful in how to explain the distinction between the two logics. In fact, one should contrast reflexivity with seriality and only in a second moment, if needed, mention other properties such as symmetry. In fact, symmetry corresponds to axiom B (i.e., phi -> []<>phi), which can be derived by axioms T and 5. Finally, one should explicitly mention that seriality corresponds to axiom D.
+
+
+In conclusion, I believe that the ideas of the paper are interesting, but some more work is needed to obtain more solid results. I really hope to see this work published in the future, but I think that at this moment the paper is not yet mature.
+
+
+-- Minor comments --
+i. At the beginning of Section 2.2, it is mentioned that "Most DEL approaches do not support false belief (Le et al. 2018) because they are built on S5 logics". This is correct, but the planners presented by Le et al. are built on KD45. Moreover, a few lines after it is stated that "Kominis and Geffner (2015)’s work captures a fragment of DEL by tracking single agent’s belief". They actually consider multi-agent scenarios.
+
+ii. In Section 2.3, is n = |Agt|? This should be made more explicit.
+
+iii. In Section 3, it is mentioned that the perspective function f_i is renamed to be an observation function O_i. However, the rest of the section mostly uses the symbol f_i and sometimes O_i. Although I was able to follow the discussion, the notation should be more clear.
+
+iv. Definition 3.3 should be made more clear.
+
+v. Section 3.3, Complete Semantics: it is not clear to me what is meant by "the definition of B_i phi aims to capture is that agent i believes phi if in its past, it knew phi". Also, at the end of the paragraph, it is not clear to me what is meant by "there is no underlying definition for our justified belief".
+
+vi. Complexity results should be given in form of Lemmata/Theorems.
+
+vii. In Section 4, the results for Coin and SN domains are not very significative, since the time values are really low and there is no comparison with other solvers.
+
+viii. Section 5 states: "we prove that the new logic is a KD45 logic". Although I understand what is meant (namely, that the new logic satisfies the principles of belief described by the axioms of the logic KD45), the statement should be rephrased, since KD45 is not a "type" of logic, but a specific logic.
+
+ix. The term "model" is used with different meanings in different contexts (e.g., when referring to "model-free planners" and when referring to the "justified belief model"). It would improve clarity to disambiguate the terms.
+
+x. The logic of belief is referred to as KD45 and also KD45_n. Since you are considering a multi-agent scenario, you should only use KD45_n.
+
+
+-- Typos --
+Abstract:
+- Most existing work solves -> Most existing works solve
+- A recently approach -> A recent approach
+- we extend the PWP model to handle multi-agent by -> we extend the PWP model to handle multi-agent belief (?) by
+
+Section 1:
+- grows exponentially on the depth of the epistemic formula used -> grows exponentially w.r.t. the depth of the epistemic formulae used
+- Example 1.1: agent b believes the coin is tail -> agent b believes that the coin is tail
+- Example 1.1: agent a believes the coin is head -> agent a believes that the coin is head
+- Example 1.1: agent b believes that agent a believes the coin is head -> agent b believes that agent a believes that the coin is head
+- agent b recalls the last time it saw agent a see the coin -> agent b recalls that the last time it saw agent a seeing the coin
+- 1. b recalls the -> 1. b recalls that the
+- value of the coin = head at state -> value of the coin = head is at state
+- so cannot reason about -> so they cannot reason about
+
+Section 2:
+- following some modal axiom, such as KD45_n -> following some modal axioms, such as those of KD45_n
+- When defining the Ternary Semantics, use the "cases" environment for items (a), (d) and (e) to improve readability
+
+Section 3:
+- Section 3.2: each state in a sequence -> the states in a sequence
+- Definition 3.3: ats contains all timestamps that -> ats contains all timestamps in which
+- Definition 3.3: timestamp up to st that i sees v -> timestamp up to st in which i sees v
+- Section 3.3, Complete Semantics: is needed to evaluated -> is needed to evaluate
+- Section 3.3, Complete Semantics: most recent timestamps that -> most recent timestamps in which
+- Section 3.3, Complete Semantics: the lts for x and y -> the ats for x and y
+Question for Authors	1. Can you give an intuition on how your encoding works in practice? In particular, how are purely epistemic actions represented in F-STRIPS?
+
+2. As mentioned in item 2, can you discuss the choice of implementing the BFS?
+
+3. In Section 2 you show some properties of f_i that closely resemble some axioms of S5 (e.g., axioms T and 4). Are there some properties of f_i/O_i that could be added to encode the seriality property of axiom D? What about axiom 5?
+
+================================================
+Review 2
+Relevance	
+4: (the paper is very relevant to the ICAPS community)
+Significance / Importance	
+3: (substantial contribution or strong impact)
+Soundness	
+3: (The paper appears to be technically sound. The proofs, if applicable, appear to be correct, but I have not carefully checked the details. The experimental evaluation, if applicable, is adequate, and the results convincingly support the main claims.)
+Novelty	
+3: (The paper makes non-trivial advances over the current state-of-the-art.)
+Clarity	
+4: (The paper is well-organized and clearly written.)
+Reproducibility	
+3: (authors describe the implementation and domains in sufficient detail)
+Overall evaluation	
+3: (strong accept)
+Review	This submission extends the the PWP (Planning with Perspectives) framework, which supports planning with knowledge requirements, to further handle justified beliefs. Here, “justified” is rooted in the idea that something is believed if it has been seen previously and nothing has been seen since to contradict that belief.
+
+Rather than track all possible beliefs, they use a lazy evaluation approach that searches through prior states to reconstruct what has been seen by the different planners. An extensive evaluation on well-chosen test problems shows that the approach reaps substantial computational savings. These results seem quite impressive.
+
+Although the core of the approach is fairly detailed, the authors do an excellent job of explaining the intuition behind technical concepts and using examples effectively to communicate points.
+
+I don’t know this area well but this strikes me as a nice paper, providing a practical approach to epistemic modelling for planning presented in a very accessible manner.
+
+A few small points:
+
+- F-STRIPS is mentioned at several points but not really explained
+- The semantics of the return() action should be stated explicitly when the example is defined. As it stands the reader is left wondering for several paragraphs.
+- Breath First Search – made me laugh! Breath -> Breadth
+Question for Authors	Modeling belief and knowledge are important but effective human-machine collaboration further requires modeling intent. COuld your framework be extended to support this additional modality?
+
+
+======================================
+
+Review 3
+Relevance	
+4: (the paper is very relevant to the ICAPS community)
+Significance / Importance	
+2: (modest contribution or average impact)
+Soundness	
+3: (The paper appears to be technically sound. The proofs, if applicable, appear to be correct, but I have not carefully checked the details. The experimental evaluation, if applicable, is adequate, and the results convincingly support the main claims.)
+Novelty	
+2: (The paper contributes some new ideas or represents incremental advances)
+Clarity	
+3: (The paper is well organized but the presentation has minor details that could be improved.)
+Reproducibility	
+3: (authors describe the implementation and domains in sufficient detail)
+Overall evaluation	
+1: (weak accept)
+Review	This paper extends PWP (planning with perspective), an approach to multi-agent epistemic planning, from S5 to support beliefs. The main idea is: an agent believes something if she saw it in the past, and has no evidence to suggest it no longer holds. The paper presents syntax and semantics of the proposed logic, and conducts an experimental evaluation of the approach.
+
+The presented work is new and interesting, and appears to be sound. However, the paper suffers from some weaknesses. First, the paper lacks theoretic analysis of the proposed logic, for example, valid formulas in the logic, and also lacks discussion of its advantages and limitations, and its connections to existing logics of beliefs. Second, the sections on PWP and its extension lack examples to illustrate the syntax and semantics and help with understanding. Third, the planner shows poor performance on Grapevince and good performance on the other domains, and the paper does not give adequate analysis of the latter. Finally, too little information is given in Sec 4.1 about the planner implementation.
+
+Minor points:
+- Def 2.1: g[s](v)= ...g(v) otherwise: is this correct? Please check
+- The proposition that the presented logic is KD45 should be put in the paper rather than the supplementary material.
+- There are typos and grammatical errors in the paper, eg, sec 2.3, last paragraph, first sentence: "or" should be "on"; Sec 5: "Our experiments demonstrates that".
+
+Question for Authors	
+
+1.Could you please comment on the advantages and limitations of your logic, and its connections to existing logics of beliefs?
+2.Could you please comment on the reason why your planner shows good performance on the domains other than Grapevine despite it does simple BFS?

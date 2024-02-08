@@ -1,0 +1,625 @@
+% By following \cite{Fagin:2003:RK:995831}'s interpretation of difference between knowledge and belief, in the logic S5, $K_i \varphi \rightarrow \varphi$ is an axiom, while in belief logics that as KD45, $B_i \varphi \rightarrow \varphi$ is not an axiom, which implies that $B_i \varphi$ and $\neg \varphi$ can be both true simultaneously. 
+
+
+
+\section{Justified Perspective Model}
+
+In this section, we add a belief operator, $B_i$, to the PWP model \cite{Hu2022-ul}. This belief operator captures the intuition that we believe  something if we have  seen it before, and we have seen no contradicting evidence since. 
+% \gh{maybe say something like: Although we give all necessary definitions, space limitations demand we do this succinctly. Or it is already a common knowledge among the researchers?}
+
+\subsection{Language and Model}
+
+%\begin{definition}[Signature]
+%\label{def:signature}
+%A \emph{signature} is a tuple $\Sigma = (Agt, V, D_{v_1}, \ldots, D_{v_n}, \mathcal{R})$, in which $Agt$ is a finite set of agents, a $V$ is countably infinite set of variables, $D_{v_i}$ is a possibly infinite domain of constant symbols, one for each variable $v_i \in V$, and $\mathcal{R}$ is a finite set of predicate symbols. 
+%Domains can be discrete or continuous. We define $D = \bigcup_{v\in V} D_v$.
+%\end{definition}
+%\vspace{2mm}
+
+\begin{definition}[Syntax]
+\label{def:language}
+The language $\L(\Sigma)$ is defined by the grammar:
+\[
+\begin{array}{lll}
+\alpha &::=& r(t_1,\dots,t_k) \mid \neg \alpha \mid \alpha \land \alpha \mid S_i v \mid S_i \alpha \mid K_i \alpha\\
+\varphi & ::= & \alpha \mid B_i \varphi
+\end{array}
+    \]
+\end{definition}
+
+$B_i \varphi$ is a belief formula meaning that agent $i$ believes that proposition $\varphi$ is true. 
+This grammar prohibits formulae such as $S_i B_j \varphi$ or $K_i B_j \varphi$ because seeing or knowing belief are not semantically meaningful in the PWP model---if belief is known then it is knowledge.
+
+
+%\subsection{Model}
+% A signature is defined as in Section~\ref{sec:background:pwp_appraoch}.
+Both signature and model are defined as in Section~\ref{sec:background:pwp_appraoch}, except that in this paper we rename their perspective function $\f_i(s)$~\footnote{We give a new definition of the perspective function $\f_i$ in Definition~\ref{def:perspective_function}} to be an \emph{observation function} $\observation_i(s)$, which models what an agent can observe in state $s$.
+%except the notation of the perspective function in PWP model becomes the notation of the observation function: $\observation_1,\dots,\observation_n$, which means the model $M$ becomes:
+%\[
+%M=(Agt, V, D_{v_1}, \ldots, D_{v_k},\pi,\observation_1,\dots,\observation_n)
+%\]
+
+% \[
+% M=(Agt, V, D_{v_1}, \ldots, D_{v_k},\mathcal{R},\pi,\observation_1,\dots,\observation_n)
+% \]
+
+% \begin{definition}[Model]
+% \
+% A model $M$ is defined as: 
+% \[
+% M=(Agt, V, D_{v_1}, \ldots, D_{v_k},\mathcal{R},\pi,\sees_1,\dots,\sees_n),
+% \]
+
+
+% %A state $s :V \rightarrow D$, is a mapping from variables to values. 
+% %A \emph{global state} is a total function (a complete assignment for all variables in $V$), while a \emph{local state} is a partial function (some variables may not be assigned). 
+% %The expression $s(v)$  denotes the value of variable $v$ in state $s$. 
+% %The set of all local and global states is denoted $\mathcal{S}$, while the set of all global states is $\mathcal{S}_G \subsetneq \mathcal{S}$. 
+% %
+% %The set of all models is $\mathcal{M}$. %$\mathcal{R}$ is a set of relations among variables.
+% %$\pi$ is an interpretation function $\pi : \mathcal{S} \times \mathcal{R} \rightarrow \bool$ that determines whether the atomic relation $r$ is true in $s$ at time $t$. 
+% %$\pi$ is undefined if any $t_i$ is a variable in $V$ that is not also in $\dom(s)$.
+% %
+% PWP's model is extended with the agents' \emph{seeing functions} $\sees_1,\dots,\sees_n$, one for each agent $i$ in $Agt$. 
+% A seeing function $ \sees_i : \mathcal{S} \times V \rightarrow \bool$ is a function that takes a state and a variable, returning whether agent $i$ sees the variable in the state. 
+% \end{definition}
+
+
+
+
+% \begin{definition} 
+% \label{def:visibility}
+%     $\triangleleft: V \rightarrow \mathcal{S} $
+% \end{definition}
+% $\triangleleft$ is the visibility function for variables. 
+% $\triangleleft(v)$ takes a variable $v$ as input, returns a set of variables that are necessary to determine whether the variable is able to be seen by an agent. 
+% For example, in BBL, $\triangleleft(v)$ would return the location variable of the variable $v$.
+
+% \begin{definition}
+% \label{def:observability}
+%     $\triangleright: Agt \rightarrow \mathcal{S} $
+% \end{definition}
+% $\triangleright$ is the observability function for agents.
+% $\triangleright(i)$ takes in an agent $i$ as input, returns a set of variables that are necessary to determine agent $i$'s observation. 
+% For example, in BBL, $\triangleright(i)$ would return the location, direction and angle range variables of the agent $i$.
+
+% \subsection{Belief Model}
+
+
+% The language $\L(\Sigma)$ is defined by the grammar:
+% \[
+%     \varphi ::= r(v_1,\dots,v_k) \mid \neg \varphi \mid \varphi \land \varphi \mid S_i v \mid S_i \varphi \mid K_i \varphi,
+% \]
+
+% \[
+%     \varphi ::= \varphi \mid B_i \varphi,
+% \]
+% in which $\dots$ $K_i \varphi$ is a knowledge formula, and $B_i \varphi$ is a belief formula. $r$ is the static relation formula, and we denote $R(v_1,\dots.v_n) \equiv \varphi$
+
+% \begin{definition}
+% Simplest Form (SF): A formula is in simplest form if and only if this formula is not logical separable
+% \end{definition}
+
+% \begin{definition}
+%     The omniscience agent is $g$, whose observation (perspective) is always consistent with the global states. 
+% \end{definition}
+% \gh{We don't need this agent $g$ anymore}
+
+
+\subsection{Observation and Justified Perspectives}
+
+Now, we  define a retrieval function $\memorization$ to retrieve a variable's value from the latest timestamp that the agent had an `eye' on this variable. From this, we will define the perspective function $\f_i$ to construct the agent's \emph{justified perspective}, and reason about the agent's justified belief following the intuition discussed in Section~\ref{sec:intro}.
+
+A sequence of states is denoted as $\seq$, the set of all possible states sequences is denoted as $\vec{S}$, a timestamp is denoted as $\timestamp$, and the states in a sequence $\seq$ are denoted as $s_0,\dots,s_n$. Here, the sequence of states in the states that are part of the state-action pairs in a potential plan.
+A specific state in agent $i$'s perspective $\f_i(\seq)$ at timestamp $n$ is referred as $\f_i(\seq)[n]$.
+
+%For simplicity, we use $n$ to denote the length of any sequence.
+% Now, we give the definition of the observation function, the memorization function and the perspective function. A sequence of state is denoted as $\seq$, the set of all possible state sequences is denoted as $\vec{S}$, and a timestamp is denoted as $\timestamp$
+
+\begin{comment}
+\begin{definition}[Observation function]
+\label{def:Observation_function}
+    The Observation Function for agent $i$, $\observation_i: \mathcal{S} \rightarrow \mathcal{S}$ can be defined as: 
+    \[
+    \observation_i(s) = \{ v \rightarrow s(v) \mid \triangleright_i(s,v) \}
+    \]
+
+\end{definition}
+
+This is the same as the perspective function $f$ defined by \citet{Hu2022-ul} in their PWP approach. 
+The function $\observation_i(s)$ contains all the variables and their values that are visible to agent $i$ in state $s$.
+
+
+It is up to the modeller to model the assumptions of the domain.
+For example, one common assumption is that the agents has the common knowledge of the domain $D$.
+Then, a variable $v$ with $|D_v|=1$ must always return by the observation function $O_i$ for any agent $i$.
+However, as in \cite{Hu2022-ul}, the observation function must have the following properties:
+
+\vspace{2mm}
+\begin{tabular}{ll}
+ (1) & $\observation_i(s) \subseteq s$ \\[1mm]
+ (2) & $\observation_i(s) = \observation_i(\observation_i(s))$\\[1mm]
+ (3) & If $s \subseteq s'$, then $\observation_i(s) \subseteq \observation_i(s')$
+\end{tabular}
+\vspace{2mm}
+\end{comment}
+
+An observation function is defined the same as the perspective function in Section~\ref{sec:background:pwp_appraoch}, except the notation becomes $\observation$ instead of $\f$.
+% It is up to the modeller to model the assumptions of the domain.
+% For example, one common assumption is that the agents has the common knowledge of the domain $D$.
+% Then, a variable $v$ with $|D_v|=1$ must always return by the observation function $O_i$ for any agent $i$.
+% \gh{Maybe we don't need the above discussion?}
+
+\noindent
+Then, we can construct a retrieval function, $\memorization$.
+
+
+\begin{definition}[Retrieval function]
+\label{def:memorization_function}
+    Given a sequence of states  $\seq$, a timestamp $ts$ and a variable $v$, the retrieval function, $\memorization: \seq \times \mathbf{N} \times V \rightarrow D$, is defined as:
+    % \[
+    % \memorization(\seq,\timestamp,v) = \memorization'_i(\seq,\timestamp,v,\timestamp)  
+    % \]
+    \[
+    \memorization(\seq,\timestamp,v) = 
+    \begin{cases}
+        s_{\timestamp}(v) & \text{if } v \in s_{\timestamp}\\
+        s_{max(lts)}(v) & \text{if } lts \neq \{\}\\
+        s_{min(rts)}(v) & \text{if } rts \neq \{\} \\
+        None &  otherwise
+    \end{cases}
+    \]
+    where:
+    \[
+    \begin{array}{lll}
+    lts & = & \{j \mid v \in s_j \land j < \timestamp\}\\
+    rts & = & \{j \mid v \in s_j \land 0 \leq \timestamp < j \leq |\seq|\}
+    \end{array}
+    \]
+\end{definition}
+
+% \begin{definition}
+%     A retrieval function, $\memorization: SEQ \times \mathbf{N} \times V \rightarrow D_v$, is defined as:
+%     \[
+%     \memorization(\seq,\timestamp,v) = \memorization'_i(\seq,\timestamp,v,\timestamp)  
+%     \]
+%     \[
+%     \memorization'(\seq,\timestamp,v,i) = 
+%     \begin{cases}
+%         s_i(v) & \text{if } s_i(v) \neq None\\
+%         \memorization'(\seq,\timestamp,v,i-1) & \text{if } i \leq \timestamp \\
+%         \memorization'(\seq,\timestamp,v,\timestamp +1) & \text{if } i = -1 \\
+%         \memorization'(\seq,\timestamp,v,i+1) & \text{if } i > \timestamp \\
+%         None &  \text{if } i > |seq|
+%     \end{cases},
+%     \]
+%     where: $\seq$ is a sequence of state and $\timestamp$ is a timestamp.
+% \end{definition}
+
+
+Here, $\seq$ represents the sequence of states of a plan from a particular perspective, which could be an agent's perspective or the global perspective. The sets $lts$ and $rts$ specify the set of states before and after timestamp $ts$ respectively in which $v$ is seen.
+
+The function $\memorization$ plays a crucial role. If we see an agent $i$ seeing variable $v$, we know that agent $i$ learns the value of $v$. However, what value should we believe that $i$ believes? The function $\memorization$ determines this.
+%
+If the value of variable $v$ exists at time $\timestamp$, then this is in `our' perspective, $\seq$, and we see the variable at the same time as $i$, so $\memorization$ returns the value of $v$ in state $s_{ts}$. This is the straightforward case. 
+
+However, if we do not see variable $v$ at time $\timestamp$, what value should we assign to agent $i$'s belief?  $\memorization$ searches the timestamps before $\timestamp$ to find the most recent reference to $v$. Intuitively, if we see that agent $i$ sees $v$ at $\timestamp$, but we do not see the value of $v$ itself at time $ts$, then we believe that agent $i$ believes the value is the same as the last time we saw $v$. For example, if we peek at the coin in the box and see it is a tail, and then we observe agent $i$ peeking at the coin, it implies $B_a coin=tail$ should hold, because $tail$ is the most recent observation of the coin.
+
+If there is no value of $v$  before $\timestamp$, the function $\memorization$ retrieves the value by searching forward (the timestamps after $\timestamp$).
+Intuitively, if we believe that agent $i$ sees $v$ at $\timestamp$, but we have not seen variable $v$ previously, then we assign $i$'s belief about $v$ the next time we see $v$ after $\timestamp$.
+
+%
+This is what we see in Plan~\ref{plan2} -- agent $b$ forms a belief about agent $a$ based on agent $b$'s observation after agent $a$'s observation.
+If there is no value found about $v$ within $\seq$, then $\memorization$ function returns $None$, as the variable has not been seen from $\seq$. 
+
+
+Other design decisions could be made for $\memorization$: searching forward first, then backwards; finding the value closest to $ts$; or `forgetting' the value of a variable after a certain number of timestamps. Ultimately, there is no `correct' design here and no design can handle all possible cases, but we believe our choice above is intuitive and justified.
+
+% approach 1
+% \begin{lstlisting}[language=Python]
+% def m(i,path,t,v):
+%     ts = len(path)-1
+%     output_v = None
+%     while ts >-1:
+%         temp_v = path[ts](v)
+%         if ts <= t and not temp_v==None:
+%             return temp_v
+%         elif ts > t and not temp_v==None:
+%             output_v = temp_v
+%             ts-- 
+%         else:
+%             st--
+%     return output_v
+% \end{lstlisting}
+
+% \vspace{2mm}
+% approach 2
+% \begin{lstlisting}[language=Python]
+% def m(i,path,t,v,last_t):
+%     ts = t
+    
+%     # if i saw v before timestamp t
+%     while ts >-1:
+        
+%         value = path[ts](v)
+%         if not value==None:
+%             return value
+%         ts--
+    
+%     # if i did not saw v before timestamp t
+%     ts=t+1
+%     while ts<last_t:
+%         value = path[ts](v)
+%         if not value==None:
+%             return value
+%         ts++
+        
+%     # if i did not saw v before timestamp t
+%     # and i did not saw v after timestamp t
+%     return None
+% \end{lstlisting}
+
+% \begin{tabular}{ll}
+%   & $\memorization_i(s_t,t',v)$ = \\[1mm]
+%  if  & $\observation_i(s_t) = \observation_i(\observation_i(s_t))$\\[1mm]
+%  (2) & If $s_t \subseteq s'_t$, then $\observation_i(s_t) \subseteq \observation_i(s'_t)$
+% \end{tabular}
+
+% \begin{tabular}{l}
+%   $\memorization_i(s_t) = \{ v=\f_i (s(t-1))(v) \ |\ v \in s_t \backslash \observation_i(s_t)\} $ \\[1mm]
+%   $\memorization_i(f_j(s_t)) =$ \\
+%   $\{ v=\f_i (\f_j(s(t-1)))(v) \ |\ v \in s(t) \backslash \observation_i(f_j(s(t)))\} $ \\[1mm]
+% \end{tabular}
+
+% The common properties of the retrieval functions are listed as follows:
+
+% \vspace{2mm}
+% \begin{tabular}{ll}
+%  (0) & $\forall v \in V,\ \memorization_i(s(-1))(v)=null$ \\[1mm]
+%  (1) & $\memorization_i(s(t))$ is not necessarily be a subset of $ s(t)$ \\[1mm]
+%  (2) & $\memorization_i(s(t)) = \memorization_i(\memorization_i(s(t))$\\[1mm] 
+%  (3) & $\memorization_i(s(t)) \cap \observation_i(s(t)) = \emptyset$ \\[1mm] 
+% %  (4) & $\memorization_i(s(t)) \cup \observation_i(s(t)) \in \mathcal{S}_G$ 
+ 
+% \end{tabular}
+%  \gh{not sure about the (2)}
+We can now give the definition of a perspective function $\f_i$ for agent $i$.
+Intuitively, a perspective function models an agent's perspective over the sequence of states in a plan; specifically, an agent's belief about each variable in each state from a given state sequence, which can either be the sequence of global states or another agent's perspectives.
+
+\begin{definition}
+    
+    \label{def:perspective_function}
+    A perspective function for agent $i$, $\f_i: \vec{S} \rightarrow \vec{S}$, is defined as follows:
+    % \vspace{2mm}
+    \[
+    \f_i([s_0,\dots,s_n])=[s'_0,\dots,s'_n] 
+    \]
+\noindent
+    where for all $t \in [0, n]$ and all $v \in \dom(s_t)$:
+    %
+    \[
+    \begin{array}{l@{\ }l@{\ }l}
+    s'_t            & = & \{v \mapsto e \mid lt = max(a\timestamp(v)) \land e \neq None\} \text{,} \\
+    a\timestamp(v)  & = & \{j \mid v \in \dom(\observation_i(s_j)) \land j \leq t \} \cup \{ -1\} \text{,}\\
+    e               & = & \memorization([s_0,\dots,s_t],lt,v)
+    \end{array}
+    \]
+    % \[    
+    % \text{where: }a\timestamp = \{j \mid \triangleright_i(s_j)(v) = true \land j \leq t \}
+    % \]
+
+
+% \begin{itemize}
+%     \item $\f_i([s_0,\dots,s_t])=[s_0',\dots,s_t']$, where:
+
+%     \item $s_t' = \{v \mapsto \memorization_i([s_0,\dots,s_t],lt,v,t) \mid lt = max(st)$, where $st = \{tt\mid \triangleright_i(s_{tt},v) =1 \}\}$
+
+% \end{itemize}
+\end{definition}
+% In Definition~\ref{def:perspective_function}, we set $\f_i(\seq)=\f_i(\f_g(\seq))$ to allow nesting on the perspective function.
+
+This definition is not so straightforward, so let's give some intuition. First, recall that the sequence $\seq = [s_0,\ldots, s_n]$ can be the perspective of another agent, so it may contain partial states. The set $a\timestamp$ contains all timestamps in which agent $i$ sees  variable $v$ before state $s_t$, according to the current perspective. Then, $lt$ is the most recent timestamp up to $s_t$ in which $i$ sees $v$, which is $-1$ if agent $i$ has not seen $v$ at all. This tells us the last time that agent $i$ was seen observing variable $v$ in the current perspective. This evidence is used to justify belief \cite{goldman1979justified}.
+
+However, if the current perspective represents an agent's perspective, agent $j$, rather than a global perspective, then agent $j$ may not have seen variable $v$ at time $lt$---it may have merely observed agent $i$ seeing $v$, without seeing $v$ itself; e.g.\ the two agents peek at the coin in the box at different times. We use $\memorization([s_0,\ldots,s_t], lt, v)$ (Definition~\ref{def:memorization_function}) to find what value agent $j$ will believe variable $v$ was in state $s_t$. That is, the most recent value before $s_t$ or the closest after $lt$, as defined by $\memorization$. Therefore, the value $\memorization([s_0,\ldots,s_t], lt, v)$ is the value of $v$ that agent $j$ `believes' agent $i$ saw;
+and the perspective function forms a justified perspective of the agent $i$. We can nest perspective functions arbitrarily to form nested beliefs.
+
+% Based on Definition~\ref{def:Observation_function} and Definition~\ref{def:perspective_function}, we have the following Lemma:
+% \begin{lemma}
+%     \label{lemma:o_subset_f}
+%     $\observation_i(s_n) \subseteq \f_i(\seq)[n]$
+% \end{lemma}
+
+
+
+
+
+
+
+% \begin{tabular}{ll}
+% %   $\f_i(s(t)) = \memorization_i(s(t)) \cup \observation_i(s(t)) $\\[1mm]
+  
+% \end{tabular}
+
+
+% The perspective function contains both variables and their values from observation function or retrieval function. Then, the inherited properties are listed as follows:
+
+% \vspace{2mm}
+% \begin{tabular}{ll}
+%  (1) & If $s(t) \in \mathcal{S}_G$, then $\f_i(s(t)) \in \mathcal{S}_G$ \\[1mm]
+%  (2) & $\f_i(s(t)) = \f_i(\f_i(s(t))$\\[1mm] 
+%  (3) & $\memorization_i(s(t)) \cap \observation_i(s(t)) = \emptyset$ \\[1mm] 
+%  (4) & $\memorization_i(s(t)) \cup \observation_i(s(t)) \in \mathcal{S}_G$ \\[1mm] 
+% %  (5) & $\memorization_i(s(t)) \observation_i(s(t)) \in \mathcal{S}_G$ 
+ 
+% \end{tabular}
+% \gh{Should we specify how the observation function works?}
+% For example, given a state $s(t) = \{v_1 \mapsto e_1, v_2 \mapsto e_2\}$ and next state $s(t') = \{v_1 \mapsto e_1', v_2 \mapsto e_2'\}$ and assume agent $i$ sees both variables in time $t$, but only sees $v_1$ in time $t'$, then $\observation_i(s(t)) = \{v_1 \mapsto e_1, v_2 \mapsto e_2\}$ and $\observation_i(s(t')) = \{v_1 \mapsto e_1'\}$ specifies that agent $i$ can see both variables in time $t$ and can only see $v_1$ in time $t'$. While, the retrieval of agent $i$ at time $t'$ can be represented by $\memorization_i(s(t')) = \{v_2 \mapsto e_2\}$. So that the perspective of agent $i$ in time $t'$ is $\f_i(s(t')) = \{v_1 \mapsto e_1', v_2 \mapsto e_2\}$. Different from the original vision-based perspective model, this model cannot be nested as the retrieval of each agent are different.
+
+
+
+
+
+%These functions can be nested, such that $\f_j(\f_i(s(t))$ represents agent $i$'s perspective of agent $j$'s perspective, which can be just a subset of agent $i$'s actual perspective. 
+
+% Note the set of logical separable formula as $LSF$. Then, we have that, for any logical separable formula $\Phi$, the truth value can be evaluated as: $M,s(t) \vDash \bigwedge_{\varphi \in \Phi \varphi}$
+\subsection{Semantics}
+Now, we give two different KD45$_n$ semantics: complete semantics and ternary semantics, which extend their respective S5 semantics from Section~\ref{sec:background:pwp_appraoch}.
+These have an exponential worst-case time complexity, while the ternary semantics have a polynomial time complexity and have the same properties of incompleteness as their S5 version.
+
+
+% \subsubsection{Na\"ive Semantics}
+
+% \tm{Note that so far there has been no discussion about na\"ive semantics. I would suggest dropping this section altogether and just calling Section 3.5 ``Semantics".}
+% \gh{I was planed to talk about the relation of naive, non-navie and ternary in background session}
+% \tm{I suggest just the Non-naive and ternary semantics. The naive semantics is done just for presentation, but we don't have the space in a conference paper}
+
+% The na\"ive semantics of our model is same as in Definition~\ref{def:pwp:individual_semantics}, except adding one item for the belief formulae as:
+% \begin{tabular}{llll}
+% %  (f) & $M,\seq \vDash K_i\varphi$  & iff   & $M,\seq \vDash \varphi \land S_i \varphi$ \\[1mm] 
+%  (f) & $M,\seq \vDash B_i \varphi$ & iff & $M,\f_i(\seq) \vDash \varphi$  \\[1mm] 
+% \end{tabular}
+
+% The na\"ive semantics strictly based on the agent's observation of a global or local state.
+% % The semantics for $B_i \varphi$, which means agent $i$ believe $\varphi$, is determined by agent $i$ belief perspective $\f_i$.
+% However, the na\"ive semantics suffers the similar problems as in the PWP approach, which are all related with the local states. 
+% First, the semantics do not allow an agent always sees a tautology. 
+% To be specific, $S_i \varphi$ should always be $true$ while $\varphi$ is a tautology.
+% However, if any variable determining (appears as a term of $\varphi$ in a tautology) the truth value of $\varphi$ is unseen for agent $i$, then, $S_i \varphi$ is $false$.
+% Second, the semantics of $\neg \varphi$ uses a closed-world assumption.
+% However, we are unable to prove $\varphi$ pr $\neg \varphi$ under a local state $s$.
+% To be specific, some variables $p$\footnote{For simplicity, here uses proposition variable $p$ as example}, such that $\neg p \rightarrow \neg S_i p$ indicates $S_i \neg p$, which should indicates $K_i \neg p$, cannot be handled by the na\"ive semantics. 
+% In addition, in our new perspective function, instead of $\neg K_i \neg p \lor \neg K_i p$, $B_i p$ could be evaluated as $true$, since $\neg S_i p$ in current timestamp results in $p$'s value is retrieved from previous timestamp while $p$ is still $true$.
+
+% Thus, we believe it is better to explain Non-Na\"ive Semantics in details in the following sections.
+\subsubsection{Complete Semantics}
+
+% \gh{The second sentence need to be reviewed}
+The complete semantics inherits the definitions of items (a) - (e) in Definition~\ref{def:pwp:individual_semantics}, but with three minor changes:
+(1) the frame is a pair $M, \seq$ instead of $M, s$, i.e. it requires a sequence of states instead of a single state $s$; (2) the $S_i$ operator uses $\observation_i$ instead of $\f_i$ (our function $\observation_i$ is equivalent to PWP's $\f_i$ perspective function, while our justified perspective function $\f_i$ generalises for belief);
+and (3) the evaluation of atomic propositions is based on the final state of the sequence $\seq$.
+% \gh{ adding ''The detailed semantics after changes can be found in appendix?''}
+% \tm{Yes definitely}
+% \gh{But it is in separate files, so the reader will not be able to see appendix?}
+% \tm{Yes, they can download the other file. This is a routine thing in conferences, so they will know it. When we put this up on arxiv etc., we can add them to just a single PDF file}
+
+The major addition is the semantics~\footnote{The detailed full semantics can be found in our Appendix: \url{https://github.com/guanghuhappysf128/bpwp/blob/main/ICAPS-23_Supplementarymaterial_final.pdf}} for the belief operator:
+
+\vspace{2mm}
+\noindent
+\begin{tabular}{@{}l@{~}l@{~~}l@{~~}l}
+%  (a) & $M,s \vDash r(\vec{t})$ & iff & $\pi(s, r(\vec{t})) = true$\\[1mm]
+%  (b) & $M,s \vDash \phi \land \psi$  & iff & $M,s \vDash \phi$ and $M,s \vDash \psi$\\[1mm]
+%  (c) & $M,s \vDash \neg \varphi$     & iff & $M,s \not\vDash \varphi$\\[1mm]
+%  (d) & $M,s \vDash S_i v$            & iff & $v \in \dom(f_i(s))$\\[1mm]
+    % (f) & $M,\seq \vDash B_i \varphi$      & iff & $M,\f_i(\seq) \vDash \varphi$  \\[1mm]
+    
+    (g) & $M,\seq \vDash B_i \varphi$   & iff & $\forall \vec{g} \in \vec{S}_G, (M,  \vec{g}[\f_i(\seq)]) \vDash \varphi$ \\[1mm]
+        % &                               &     & $\forall \vec{g} \in \vec{S}_G, (M,  \vec{g}[\f_i(\seq)])\ \vDash \neg \varphi$\\[1mm]
+
+    % (g) & $M,\seq \vDash B_i \varphi$      & iff & $M,\f_i(\seq) \vDash \varphi$  \\[1mm] 
+\end{tabular}
+\vspace{2mm}
+
+% \tm{Is this correct?? Why the `or'? Surely an agent believe $\varphi$ only if $\varphi$ holds; not $\neg\varphi$ as well?}
+% \gh{I was thinking correctly, it was from $O$. Updated}
+
+\noindent
+where $\vec{S}_G \in \vec{S}$ is the set of all possible global states sequences and $\vec{g}[\seq] = g_1[s_1],\dots,g_n[s_n]$.
+% \tm{This is good -- very clear}
+% \tm{Also, two things regarding this: (1) We should use this notation for items e, f, and g in the appendix, so that the frame is always a sequence instead of sometimes a sequence, sometimes a state. It is much cleaner that way; and (2) don't forget to keep the semantics in the appendix up to date so they don't become out of line. In fact, I would say the semantics in the appendix should be the thing we change first so that they are all in 'one place'}
+% \gh{Done}
+% \gh{I am not sure whether this representation makes sense. The key is to capture $g[f_i(\seq)]$ in the item (f), which is effectively evaluated based on the last state if the formulae is in $\alpha$. If is in $\varphi$, which means it is a nested belief formula, it evaluated by (g). But it is not really the case because $ \alpha \subseteq \varphi  $}
+% \tm{I don't understand why there are two definitions above, nor }
+
+
+This definition requires some discussion.
+At a high level, the definition of $B_i \varphi$ aims to capture is that agent $i$ believes $\varphi$ if in its past (including present), it saw $\varphi$ and $\varphi$ is true: that is, $K_i\varphi$ was true. 
+However, this does not capture situations where $\varphi$ contains references to variables observed in different states. 
+For example, consider the proposition $B_a (x + y \geq 0)$. 
+If agent $a$ observes $x=1$ in state $s_0$, then observes $y = 1$ in state $s_1$, while not observing $x$ in state $s_1$ at all, then it is not the case that $M, s_0 \vDash K_a (x + y \geq 0)$ or $M, s_1 \vDash K_a (x + y \geq 0)$ because it does not know the value of $y$ in state $s_0$ or the value of $x$ in state $s_1$. 
+However, it seems valid to state that $M, s_1 \vDash B_a (x + y \geq 0)$ because it can remember $x=1$ from state $s_0$, and has no evidence to suggest $x$ has changed. 
+
+% \gh{Added how the above example work with the justified perspective function in the following sentences, not sure whether it is needed.}
+% \tm{It's good! Very clear (I think!)}
+Based on the item (g), $\f_a(\seq)$ is needed to evaluate the proposition $B_a (x + y \geq 0)$. 
+
+In the last timestamp ($1$), the perspective function identifies the most recent timestamps in which $x$ and $y$ are seen by agent $a$, which are $0$ and $1$ respectively. 
+Then, the retrieval function $\memorization$ retrieves the value of $x$ and $y$, which are $x=1$ and $y=1$.
+So, the last state in agent $a$'s justified perspective $\f_a(\seq)$ at $s_1$ is $\{x \!\rightarrow\! 1,y \!\rightarrow\! 1\}$.
+Then, in the previous timestamp, also the first timestamp ($0$), the $lt$ for $x$ and $y$ identified by the perspective function are $0$ and $-1$.
+So that, $\memorization$ retrieves $x$'s value is $1$, and $a$'s justified perspective at timestamp $0$ ($\f_a(\seq)$ at $s_0$) is $\{x \!\rightarrow\! 1\}$.
+
+Then, assuming $D_y = \{-1,1\}$, by applying the function override $\vec{g}[ ]$ on $a$'s justified perspective $\f_a(\seq)$, we have two possible sequences:
+$\seq_1 = [\{x \!\rightarrow\! 1,y \!\rightarrow\! -1\},\{x \!\rightarrow\! 1,y \!\rightarrow\! 1\}]$ and $\seq_2 = [\{x \!\rightarrow\! 1,y \!\rightarrow\! 1\},\{x \!\rightarrow\! 1,y \!\rightarrow\! 1\}]$.
+
+Then, we have $M,\seq \vDash B_a (x + y \geq 0) \leftrightarrow (M,\seq_1 \vDash (x + y \geq 0) \land M,\seq_2 \vDash (x + y \geq 0))$.
+Then, based on item (a) in semantics, $M,\seq \vDash B_a (x + y \geq 0)$ holds.
+% $\vec{g}[\f_a(\seq)]$ is $\{[\{x \!\rightarrow\! 1,y \!\rightarrow\! -1\},\{x \!\rightarrow\! 1,y \!\rightarrow\! 1\}],[\{x \!\rightarrow\! 1,y \!\rightarrow\! 1\},\{x \!\rightarrow\! 1,y \!\rightarrow\! 1\}]\}$.
+% Thus, $M, \seq \vDash B_a (x + y \geq 0)$ holds.
+% \tm{This last part is a bit hard to follow. Can you make it clearer what the different parts between the first and last curly brackets refer to?}
+% \gh{Done.}
+
+
+
+
+% \gh{I am not sure which (d) to use}
+% All the semantics above are only related with the last state $s_n$ in a state sequence $\seq$.
+% \tm{These don't quite work. For example, with $\phi \land \psi$, if one or both of $\phi$ or $\psi$ are belief formula, then we lose the sequence of states, and therefore all of the context. It is reasonably straightforward to fix for conjunction, negation, and $S_i v$. I think for $S_i \varphi$ you need to define $O_i$ over a sequence of states? Then to evaluate $r$ or $S_i v$, we just use the final state, like you already have.}
+% \gh{It does not really make sense to have $S_i B_j \varphi$? An agent cannot sees someone belief a variable?}
+
+% \tm{Also, you need to quantify $\forall$ over all $g$ in definition (e) right? As was done in the JAIR PWP paper. Otherwise, we just have the naive semantics}
+% \gh{Yes. That what I was asking in the above comments}
+% \gh{Why don't we change $\vec{t}$ into language?}
+% Item (a) quantifies the value of $r(\vec{t})$ over every possible state in $g[s]$.
+% Item (b) and (c) are straightforward,  which just evaluating relations and logic operators in global states.
+% In Item (d), $S_i v$ depends on whether every state $\observation_i(s')$ in $g[s_n]$ agrees on existence of the variable $v$.
+% In Item (e), $S_i \varphi$ depends on whether agent's observation agrees on the truth value of $\varphi$.
+
+
+
+
+
+% Since both the input $\seq$ (based on the grammar in Definition~\ref{def:language}) and output $\seq~'$ of the perspective function are lists of global states, there is no effect if we apply the function override $g$ on it directly.
+% %
+% \nl{we did not specify that the input of the perspective function can be only global states $S_G$. If that's the case, then we need to edit the definition of perspective function adding $s_t \in S_G$. Even so, if e=None, then the resulting state will become local, right? Unless you use ternary semantics as you may assign it to 1/2, but not with the non-naive semantics}
+% \gh{Yes. The above statement was outdated. }
+
+
+% However, the definition of $a\timestamp$ used $\observation_i(s)$, which could yield a local state.
+% Therefore, we need to update the definition of $a\timestamp$ as follows to be consistent with non-na\"ive semantics:
+%     \[    
+%     a\timestamp = \{j \mid v \in \observation_i(g[s_j]) \land j \leq t \}
+%     \]
+% \tm{Above: I think we don't need this now? For the non-naive semantics, it will quantify over all global states $g$ already?}
+% \gh{I think we need it, as this is a part of the $\f_i$, which is not the $M,\seq \vDash S_i v$?
+% }
+% \tm{I'm not sure that I follow. It is part of $\f_i$, but in the non-na\"ive semantics, each time we apply $\f_i$, we quantify over all $\mathcal{S}_G$, so states are never partial.}
+% \gh{So, we quantify over $\f_i(\seq)$? It will filling every partial state in the sequence with possible values?}
+
+As noted in Section~\ref{sec:background:epistemic_doxastic_logic}, there is no underlying definition for our justified belief. 
+So, there is no underlying model to which we can prove soundness or completeness.
+However, we show our model is sound with respect to KD45$_n$ logic (see the Appendix, Section 3).
+
+
+
+% This can be proved by simply constructing the Kripke structure corresponding to our model using the same approach.
+
+% \nl{the sentence is incomplete. The same approach as the one used where ...?}
+
+% \tm{If we make this claim, logicians will ask for the proof. For a conference paper, the proof itself can be moved to `supplementary material', which is a separate PDF containing appendices, etc.}
+
+% Now, we give the theorem and proof for KD45$_n$ properties.
+% \begin{theorem}
+% \label{pos:kd45}
+% The following axioms hold, making this a KD45$_n$ logic:
+
+% \noindent
+% \vspace{2mm}
+% \begin{tabular}{l@{~~}l}
+% 	K (Distribution):           & $B_i \varphi \land B_i(\varphi \rightarrow \psi) \rightarrow B_i \psi $\\[1mm]
+% 	D (Consistency):            & $B_i \varphi \rightarrow \neg B_i \neg \varphi $\\[1mm]
+% 	4 (Positive Introspection): & $B_i \varphi \rightarrow  B_i B_i \varphi $\\[1mm]
+% 	5 (Negative Introspection): & $\neg B_i \varphi \rightarrow B_i \neg B_i \varphi $\\[1mm]
+% \end{tabular} 
+% \end{theorem}
+
+% \tm{Move the proof to the appendix to give us some space in the main paper}
+% \begin{proof}
+%     Based on the definition of $B_i$, $M,\seq \vDash B_i \varphi$ is equivalent to $M,\f_i(\seq) \vDash \varphi$.
+%     From this, axiom K is: $M,\f_i(\seq) \vDash \varphi$ and $M,\f_i(\seq) \vDash (\varphi \rightarrow \psi)$ imply $M,\f_i(\seq) \vDash \psi$, which holds trivially.
+%     For the axiom D, when $M,\f_i(\seq) \varphi$ holds, then it must be that  $M,\f_i(\seq) \neg \varphi$ does not hold.
+
+%     Axioms 4 and 5 are more involved.
+%     The value of a variable from $\f_i(\seq)$ depends on two values: $lt$ and $\seq$, which are, respectively, the last time the variable was seen by agent $i$ and the input perspectives.
+%     The $lt$ depends only on the function $\observation_i$.
+%     Since $\observation_i(s)=\observation_i(\observation_i(s))$, the $lt$ of $\f_i(\seq)$ and $\f_i(\f_i(\seq))$ for each state and each variable are the same.
+    
+%     Now, note that the retrieval function $\memorization$ returns the value $v=e$ if $v$ is in the state $s_{lt}$ (the first line of $\memorization$), the value of each variable in $\f_i(s)$ is the same as its in $\f_i(\f_i(s))$. Therefore, $\f_i(s) = \f_i(\f_i(s))$. 
+
+%     Given that axiom 4 is equivalent to $M,\f_i(\seq) \vDash \varphi$ implies $M,\f_i(\f_i(\seq)) \vDash \varphi$, this holds trivially.
+    
+%     For axiom 5, $M, \f_i(s) \nvDash \varphi$ is equivalent to $M, \f_i(\f_i(s)) \nvDash \varphi$.
+%     Based on the definition of $B_i$, $M,\f_i(\f_i(s)) \nvDash \varphi$ gives $M,\f_i(s) \nvDash B_i \varphi$.
+%     Then, based on the definition of $\neg$, we have that $M,\f_i(s) \nvDash B_i \varphi$ is equivalent to $M,\f_i(s) \vDash \neg B_i \varphi$. Therefore, axiom 5 holds.
+% \end{proof}
+
+\begin{table*}[ht]
+    %\addtolength{\tabcolsep}{-3pt}    
+    \centering
+    \small
+    \begin{tabular}{ccccrrrrrrrrr}
+         \toprule
+          \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{PWP} & \multicolumn{4}{c}{PDKB} \\ 
+          \cmidrule(lr){1-4} \cmidrule(lr){5-9} \cmidrule(lr){10-13}
+          \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|\mathcal{P}|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$}&\multicolumn{2}{c}{TIME(s)}
+          \\ & & & & & & & {Calls} & Total & & & Search & Total \\
+         \midrule
+
+            $3$ & $1$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.2$ & $0.3$ & $34$ & $16$ & $0.1$& $0.2$\\
+            $5$ & $1$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.4$ & $0.5$ & $36$ & $16$ & $0.1$ & $0.2$\\
+            $7$ & $1$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.6$ & $0.7$ & $37$ & $16$ & $0.1$ & $0.2$\\
+            $3$ & $3$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.3$ & $0.4$ & $34$ & $16$ & $0.1$ & $0.7$\\
+            $5$ & $3$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.4$ & $0.5$ & $36$ & $16$ & $0.2$ & $3.3$\\
+            $7$ & $3$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.7$ & $0.8$ & $37$ & $16$ & $0.6$ & $10.8$\\
+            $3$ & $5$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.3$ & $0.3$ & $34$ & $16$ & $2.4$ & $39.6$\\
+            $5$ & $5$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.4$ & $0.5$ & $36$ & $16$ & $217.8$ & $1348.8$\\
+            $7$ & $5$ & $2$ & $5$ & $575$ & $154$ & $185$ & $0.7$ & $0.8$ & $-$ & $-$ & $-$ & $-$\\
+                  
+        \bottomrule
+    \end{tabular}
+    \caption{Experimental results for corridor domain}
+    \label{tab:corridor}
+\end{table*}
+
+
+\subsubsection{Ternary Semantics}
+Now, we show how to implement our model using ternary logic semantics, based on the ternary semantics used by \citet{Hu2022-ul}. This semantics offers a polynomial time complexity logic, compared to the complete semantics, which is exponential in the number of states in the problem. It sacrifices completeness for efficiency. The ternary values for propositions are: $0$ denotes false, $1$ denotes true, and $\unknown$ means the truth value is unknown (unable to be proved). 
+
+\vspace{2mm}
+\noindent
+\begin{tabular}{@{}lllll}
+%  (a) & $T[\seq, r(\vec{t})]$ & =
+%          &  $1$ if $\pi(s_n, r(\vec{t})) = true$; \\
+%      & & &  $0$ if $\pi(s_n, r(\vec{t})) = false$; \\
+%      & & &  $\unknown$  otherwise\\[2mm]
+
+%  (b) & $ T[\seq, \phi \land \psi]$ & = & $\min(T[s_n,\phi]$, $ T[s_n,\psi]$)\\[2mm]
+%  (c) & $T[\seq,\neg \varphi]$ & = &  $1-T[s_n, \varphi]$\\[2mm]
+% %  (d) & \multicolumn{2}{l}{ $ T[\seq \vDash S_i v]=$}            \\ & = & $v \in \observation_i(s_n)$\\[2mm]
+
+%  (d) & $T[\seq, S_i v$] & = 
+%         & $\unknown$  if $ i \notin \dom(s_n)$ or $v \notin \dom(s_n)$;\\
+%      &&   & $0$ if  $v \notin \dom(\observation_i(s_n))$;\\
+%      &&   & $1$ otherwise\\[2mm]
+%  (e) & $T[\seq,S_i \varphi]$ & = 
+%         & $\unknown$ if $T[s_n,\varphi]=\unknown$ or $i \notin \dom(s)$\\
+%       &&  & $ 0 $  if $ T[\observation_i(s_n),\varphi]=\unknown$\\
+%       &&  & $ 1 $  otherwise\\
+%         [1mm]
+%  (f) & $T[\seq, K_i\varphi]$ & = & $T[\seq, \varphi \land S_i \varphi]$ \\[1mm] 
+ (g) & $T[\seq, B_i \varphi]$ & = & $ T[\f_i(\seq), \varphi]$  \\[1mm] 
+\end{tabular}
+\vspace{2mm}
+
+So, $B_i \varphi = 1$ is `true' (is equal to 1 in the ternary semantics) if and only if $\varphi$ is `true' in agent $i$'s perspective. 
+
+% \nl{I agree with Tim, we need to explain why this is linear and non-naive exponential. You could include a proof sketch of soundness and completeness for non-naive where you focus on the exponential blow up. A proof sketch could be included for incompleteness and linear size of ternary semantics.}
+% \tm{Yes, at this point, again we can note that the efficiency comes in for the fact that we don't have to quantify over $\mathcal{S}_G$.}
+% \subsection{Properties}
+
+\subsubsection{Complexity}
+The time complexity for the complete semantics and the ternary semantics are similar to the PWP approach.
+The only difference is the time complexity for the new justified perspective function.
+
+To evaluate $M, \seq \vDash \varphi$, the worst case scenario is that $\varphi$ is a belief formula with the depth of $d$.
+Then, the justified perspective function complexity is in $\Theta(d\cdot|V|^2\cdot|\seq|^3)$, which is for each variable, getting the $a\timestamp$, getting $R(\seq,\timestamp,v)$, for $s$ in $\seq$ and for each level of nesting from $\varphi$.
+
+For the complete semantics, in $\seq$, each state could have $|V| \times |D|$ possibilities.
+Thus, the number of possible sequences is $|V \times D|^{|\seq|}$.
+So, the complexity of the query in the complete semantics is in $\Theta(d\cdot|V|^2\cdot|\seq|^3 \cdot |V \cdot D|^{|\seq|})$, which is exponential on the input size.
+While, in the ternary semantics, the complexity of the query is the same as the justified perspective function, assuming item (a) defined in Section~\ref{sec:background:pwp_appraoch} is in $\Theta(1)$.
+
+% \tm{WHy the $V^2$ in the justified perspective function?}
+
+% \gh{$\Theta(|V|\times |V|*|\seq| \times |\seq| \times |\seq| \times d)$, each part representing: for each variable, getting the $a\timestamp$, getting $R(\seq,\timestamp,v)$, for $s$ in $\seq$ and for each level of nesting from $\varphi$. So the first $|V|$ is for each variable from $s_t$ in perspective function, and second $|V|*1$ is calculation for a single $\observation$ (assuming seeing function can be calculated within $\Theta(1)$), while we need to calculate for every timestamp, thus $|V|*|\seq|$ }
+

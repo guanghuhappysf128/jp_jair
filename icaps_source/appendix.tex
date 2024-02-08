@@ -1,0 +1,254 @@
+%File: anonymous-submission-latex-2023.tex
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+% \usepackage[submission]{aaai23}  % DO NOT CHANGE THIS
+\usepackage{aaai23}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+%
+% These are are recommended to typeset listings but not required. See the subsubsection on listing. Remove this block if you don't have listings in your paper.
+\usepackage{newfloat}
+\usepackage{listings}
+\DeclareCaptionStyle{ruled}{labelfont=normalfont,labelsep=colon,strut=off} % DO NOT CHANGE THIS
+\lstset{%
+	basicstyle={\footnotesize\ttfamily},% footnotesize acceptable for monospace
+	numbers=left,numberstyle=\footnotesize,xleftmargin=2em,% show line numbers, remove this entire line if you don't want the numbers.
+	aboveskip=0pt,belowskip=0pt,%
+	showstringspaces=false,tabsize=2,breaklines=true}
+\floatstyle{ruled}
+\newfloat{listing}{tb}{lst}{}
+\floatname{listing}{Listing}
+%
+% Keep the \pdfinfo as shown here. There's no need
+% for you to add the /Title and /Author tags.
+\pdfinfo{
+/TemplateVersion (2023.1)
+}
+
+% DISALLOWED PACKAGES
+% \usepackage{authblk} -- This package is specifically forbidden
+% \usepackage{balance} -- This package is specifically forbidden
+% \usepackage{color (if used in text)
+% \usepackage{CJK} -- This package is specifically forbidden
+% \usepackage{float} -- This package is specifically forbidden
+% \usepackage{flushend} -- This package is specifically forbidden
+% \usepackage{fontenc} -- This package is specifically forbidden
+% \usepackage{fullpage} -- This package is specifically forbidden
+% \usepackage{geometry} -- This package is specifically forbidden
+% \usepackage{grffile} -- This package is specifically forbidden
+% \usepackage{hyperref} -- This package is specifically forbidden
+% \usepackage{navigator} -- This package is specifically forbidden
+% (or any other package that embeds links such as navigator or hyperref)
+% \indentfirst} -- This package is specifically forbidden
+% \layout} -- This package is specifically forbidden
+% \multicol} -- This package is specifically forbidden
+% \nameref} -- This package is specifically forbidden
+% \usepackage{savetrees} -- This package is specifically forbidden
+% \usepackage{setspace} -- This package is specifically forbidden
+% \usepackage{stfloats} -- This package is specifically forbidden
+% \usepackage{tabu} -- This package is specifically forbidden
+% \usepackage{titlesec} -- This package is specifically forbidden
+% \usepackage{tocbibind} -- This package is specifically forbidden
+% \usepackage{ulem} -- This package is specifically forbidden
+% \usepackage{wrapfig} -- This package is specifically forbidden
+% DISALLOWED COMMANDS
+% \nocopyright -- Your paper will not be published if you use this command
+% \addtolength -- This command may not be used
+% \balance -- This command may not be used
+% \baselinestretch -- Your paper will not be published if you use this command
+% \clearpage -- No page breaks of any kind may be used for the final version of your paper
+% \columnsep -- This command may not be used
+% \newpage -- No page breaks of any kind may be used for the final version of your paper
+% \pagebreak -- No page breaks of any kind may be used for the final version of your paperr
+% \pagestyle -- This command may not be used
+% \tiny -- This is not an acceptable font size.
+% \vspace{- -- No negative value may be used in proximity of a caption, figure, table, section, subsection, subsubsection, or reference
+% \vskip{- -- No negative value may be used to alter spacing above or below a caption, figure, table, section, subsection, subsubsection, or reference
+
+\setcounter{secnumdepth}{2} %May be changed to 1 or 2 if section numbers are desired.
+
+% The file aaai23.sty is the style file for AAAI Press
+% proceedings, working notes, and technical reports.
+%
+
+% Title
+
+% Your title must be in mixed case, not sentence case.
+% That means all verbs (including short verbs like be, is, using,and go),
+% nouns, adverbs, adjectives should be capitalized, including both words in hyphenated terms, while
+% articles, conjunctions, and prepositions are lower case unless they
+% directly follow a colon or long dash
+\title{Appendix: Planning with Multi-agent Belief using Justified Perspectives}
+\author{
+    %Authors
+    % All authors must be in the same font size and format.
+    % Written by AAAI Press Staff\textsuperscript{\rm 1}\thanks{With help from the AAAI Publications Committee.}\\
+    % AAAI Style Contributions by Pater Patel Schneider,
+    % Sunil Issar,\\
+    Guang Hu,
+    Tim Miller,
+    Nir Lipovetzky
+}
+\affiliations{
+    %Afiliations
+    % \textsuperscript{\rm 1}Association for the Advancement of Artificial Intelligence\\
+    % If you have multiple authors and multiple affiliations
+    % use superscripts in text and roman font to identify them.
+    % For example,
+
+    % Sunil Issar, \textsuperscript{\rm 2}
+    % J. Scott Penberthy, \textsuperscript{\rm 3}
+    % George Ferguson,\textsuperscript{\rm 4}
+    % Hans Guesgen, \textsuperscript{\rm 5}.
+    % Note that the comma should be placed BEFORE the superscript for optimum readability
+    
+    School of Computing and Information Systems\
+    The University of Melbourne\\
+    Parkville, VIC 3010, AUS\\
+    % email address must be in roman text type, not monospace or sans serif
+    ghu1@student.unimelb.edu.au, tmiller@unimelb.edu.au, nir.lipovetzky@unimelb.edu.au
+%
+% See more examples next
+}
+\input{marco}
+
+\begin{document}
+
+\maketitle
+\begin{table*}[th]
+    \addtolength{\tabcolsep}{-3pt}    
+    \centering
+    \small
+    
+        \begin{tabular}{lccccrrrrrl}%cc}
+        \toprule
+        
+        \multirow{3}{*}{}
+        & \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{Performance} &  \\
+         \cmidrule(lr){2-5} \cmidrule(lr){6-10}
+        & \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|P|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} &\multirow{2}{*}{Goal} \\
+        & & & & & & & & {$calls$} & Total & \\
+        \midrule
+        C01 & $2$ & $1$ & $1$ & $1$ & $3$ & $2$ & $2$ & $0.0$ & $0.0$ & $B_a coin=head $ \\
+        C02 & $2$ & $1$ & $1$ & $2$ & $7$ & $18$ & $7$ & $0.0$  & $0.0$ & $B_a coin=tail$ \\
+        C03 & $2$ & $1$ & $1$ & $2$ & $5$ & $12$ & $7$ & $0.0$ & $0.0$ & $B_a coin=head \land B_b coin=head$ \\
+        C04 & $2$ & $2$ & $1$ & $4$ & $43$ & $126$ & $61$ & $0.0$ & $0.0$& $ B_a coin=head \land B_b coin=tail $ \\
+        C05 & $2$ & $3$ & $2$ & $4$ & $46$ & $135$ & $58$ & $0.0$ & $0.0$ & $ B_a coin=head \land B_b coin=tail \land B_b\ B_a coin=head $ \\
+        C06 & $2$ & $2$ & $2$ & $6$ & $414$ & $1239$ & $533$ & $0.5$ & $0.7$ & $ B_a\ B_b coin=tail \land B_b B_a coin=head$ \\
+        
+        % C07 & $2$ & $1$ & $1$ & $2$ & $43$ & $126$ & $52$ & $0.0$ & $0.0$& $UB_{a,b} coin=head \land B_b coin=tail$ \\
+
+        \bottomrule
+    \end{tabular}
+    \caption{Experimental results for coin domain}
+    \label{tab:coin}
+\end{table*}
+\section{Complete semantics for justified belief}
+
+\begin{definition}[Complete semantics]
+The complete semantics for justified belief is defined as:
+
+\vspace{2mm}
+\noindent
+\begin{tabular}{llll}
+ (a) & $(M,\seq) \vDash r(\Vec{t})$      & iff & $\pi(s_n, r(\Vec{t})) = true$\\[1mm]
+ (b) & $(M,\seq) \vDash \phi \land \psi$ & iff & $(M,\seq) \vDash \phi$ and $(M,s) \vDash \psi$\\[1mm]
+ (c) & $(M,\seq) \vDash \neg \varphi$    & iff & $(M,\seq) \not\vDash \varphi$\\[1mm]
+ (d) & $(M,\seq) \vDash S_i v$           & iff & $v \in \dom(\observation_i(s_n))$\\[1mm]
+ (e) & $(M,\seq) \vDash S_i \varphi$     & iff & $\forall \vec{g} \in \vec{S}_G, (M,  \vec{g}[\langle\observation_i(s_n)\rangle] ) \vDash \varphi$ or \\
+     &                                   &     & $\forall \vec{g} \in \vec{S}_G, (M,  \vec{g}[\langle\observation_i(s_n)\rangle] ) \vDash \neg\varphi$\\[1mm]
+ (f) & $(M,\seq) \vDash K_i\varphi$      & iff & $(M, \seq ) \vDash \varphi \land S_i \varphi$\\[1mm]
+ (g) & $(M,\seq) \vDash B_i \varphi$       & iff & $\forall \vec{g} \in \vec{S}_G, (M,  \vec{g}[\f_i(\seq)]) \vDash \varphi$  \\[1mm]
+\end{tabular}
+\vspace{2mm}
+
+\noindent where: $\vec{S}_G \in \vec{S}$ is the set of all possible global states sequences and $\vec{g}[\seq] = g_1[s_1],\dots,g_n[s_n]$; and, $g[s]$ means function override: $g[s](v) = s(v)$ when $v \in \dom(s)$ and $g(v)$ otherwise; and $s_n$ is the final state in sequence $\seq$; that is, $s_n = \seq(|\seq|)$.
+\end{definition}
+
+\section{Ternary semantics for justified belief}
+
+\begin{definition}[Ternary semantics]
+The ternary semantics are defined using function $\T$, omitting the model $M$ for readability:
+
+\vspace{2mm} 
+\noindent
+\begin{tabular}{l@{~~}l@{~~}l@{~~}l}
+ (a) & $\T[\seq, r(\Vec{t})]$ & $=$ & 1 if $\pi(s_n, r(\Vec{t})) = true$;\\
+     &                          &     & 0 if $\pi(s_n, r(\Vec{t})) = false$;\\
+     &                          &     & $\unknown$ otherwise\\[1mm] 
+ (b) & $\T[\seq, \phi \land \psi]$ & $=$ & $\min(\T[\seq, \phi], \T[\seq, \psi])$\\[1mm]
+ (c) & $\T[\seq, \neg \varphi]$    & $=$ & $1 - \T[\seq, \varphi]$\\[1mm]
+ (d) & $\T[\seq, S_i v]$           & $=$ & $\unknown$ if $ i \notin \dom(s_n)$ or $ v \notin  \dom(s_n)$\\[1mm]
+     &                          &   & $0$ if $v \notin \dom(\observation_i(s_n))$\\
+     &                          &   & $1$ otherwise     \\
+ (e) & $\T[\seq, S_i \varphi]$    
+ & $=$ & $\unknown$ if $\T[\seq,\varphi] = \unknown$ or $ i \notin \dom(s_n)$;\\
+     &                          &   & $0$ if $\T[\langle\observation_i(s_n)\rangle, \varphi] = \unknown$;\\
+     &                          &   & $1$ otherwise\\[1mm]
+  (f) & $\T[\seq, K_i \varphi]$ & = & $ \T[\seq, \varphi \land S_i\varphi]$\\[1mm]
+  (g) & $\T[\seq, B_i \varphi]$ & = & $ \T[\f_i(\seq), \varphi]$
+\end{tabular}
+\vspace{2mm} 
+
+\noindent
+where $s_n$ is the final state in sequence $\seq$; that is, $s_n = \seq(|\seq|)$.
+\end{definition}
+
+\section{Proof for KD45$_n$}
+
+Now, we give the theorem and proof for KD45$_n$ properties.
+\begin{theorem}
+\label{pos:kd45}
+The following axioms hold, making this a KD45$_n$ logic:
+
+\noindent
+\vspace{2mm}
+\begin{tabular}{l@{~~}l}
+	K (Distribution):           & $B_i \varphi \land B_i(\varphi \rightarrow \psi) \rightarrow B_i \psi $\\[1mm]
+	D (Consistency):            & $B_i \varphi \rightarrow \neg B_i \neg \varphi $\\[1mm]
+	4 (Positive Introspection): & $B_i \varphi \rightarrow  B_i B_i \varphi $\\[1mm]
+	5 (Negative Introspection): & $\neg B_i \varphi \rightarrow B_i \neg B_i \varphi $\\[1mm]
+\end{tabular} 
+\end{theorem}
+
+% \tm{Move the proof to the appendix to give us some space in the main paper}
+\begin{proof}
+    Based on the definition of $B_i$, $M,\seq \vDash B_i \varphi$ is equivalent to $M,\f_i(\seq) \vDash \varphi$.
+    From this, axiom K is: $M,\f_i(\seq) \vDash \varphi$ and $M,\f_i(\seq) \vDash (\varphi \rightarrow \psi)$ imply $M,\f_i(\seq) \vDash \psi$, which holds trivially.
+    For the axiom D, when $M,\f_i(\seq) \varphi$ holds, then it must be that  $M,\f_i(\seq) \neg \varphi$ does not hold.
+
+    Axioms 4 and 5 are more involved.
+    The value of a variable from $\f_i(\seq)$ depends on two values: $lt$ and $\seq$, which are, respectively, the last time the variable was seen by agent $i$ and the input perspectives.
+    The $lt$ depends only on the function $\observation_i$.
+    Since $\observation_i(s)=\observation_i(\observation_i(s))$, the $lt$ of $\f_i(\seq)$ and $\f_i(\f_i(\seq))$ for each state and each variable are the same.
+    
+    Now, note that the retrieval function $\memorization$ returns the value $v=e$ if $v$ is in the state $s_{lt}$ (the first line of $\memorization$), the value of each variable in $\f_i(s)$ is the same as its in $\f_i(\f_i(s))$. Therefore, $\f_i(s) = \f_i(\f_i(s))$. 
+
+    Given that axiom 4 is equivalent to $M,\f_i(\seq) \vDash \varphi$ implies $M,\f_i(\f_i(\seq)) \vDash \varphi$, this holds trivially.
+    
+    For axiom 5, $M, \f_i(s) \nvDash \varphi$ is equivalent to $M, \f_i(\f_i(s)) \nvDash \varphi$.
+    Based on the definition of $B_i$, $M,\f_i(\f_i(s)) \nvDash \varphi$ gives $M,\f_i(s) \nvDash B_i \varphi$.
+    Then, based on the definition of $\neg$, we have that $M,\f_i(s) \nvDash B_i \varphi$ is equivalent to $M,\f_i(s) \vDash \neg B_i \varphi$. Therefore, axiom 5 holds.
+\end{proof}
+
+\section{Experiment Results for Coin example}
+
+
+
+\end{document}
+
+

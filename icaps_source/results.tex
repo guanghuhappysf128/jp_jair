@@ -1,0 +1,171 @@
+%File: anonymous-submission-latex-2023.tex
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+% \usepackage[submission]{aaai23}  % DO NOT CHANGE THIS
+\usepackage{aaai23}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in} % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in} % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+%
+% These are are recommended to typeset listings but not required. See the subsubsection on listing. Remove this block if you don't have listings in your paper.
+\usepackage{newfloat}
+\usepackage{listings}
+\DeclareCaptionStyle{ruled}{labelfont=normalfont,labelsep=colon,strut=off} % DO NOT CHANGE THIS
+\lstset{%
+	basicstyle={\footnotesize\ttfamily},% footnotesize acceptable for monospace
+	numbers=left,numberstyle=\footnotesize,xleftmargin=2em,% show line numbers, remove this entire line if you don't want the numbers.
+	aboveskip=0pt,belowskip=0pt,%
+	showstringspaces=false,tabsize=2,breaklines=true}
+\floatstyle{ruled}
+\newfloat{listing}{tb}{lst}{}
+\floatname{listing}{Listing}
+%
+% Keep the \pdfinfo as shown here. There's no need
+% for you to add the /Title and /Author tags.
+\pdfinfo{
+/TemplateVersion (2023.1)
+}
+
+% DISALLOWED PACKAGES
+% \usepackage{authblk} -- This package is specifically forbidden
+% \usepackage{balance} -- This package is specifically forbidden
+% \usepackage{color (if used in text)
+% \usepackage{CJK} -- This package is specifically forbidden
+% \usepackage{float} -- This package is specifically forbidden
+% \usepackage{flushend} -- This package is specifically forbidden
+% \usepackage{fontenc} -- This package is specifically forbidden
+% \usepackage{fullpage} -- This package is specifically forbidden
+% \usepackage{geometry} -- This package is specifically forbidden
+% \usepackage{grffile} -- This package is specifically forbidden
+% \usepackage{hyperref} -- This package is specifically forbidden
+% \usepackage{navigator} -- This package is specifically forbidden
+% (or any other package that embeds links such as navigator or hyperref)
+% \indentfirst} -- This package is specifically forbidden
+% \layout} -- This package is specifically forbidden
+% \multicol} -- This package is specifically forbidden
+% \nameref} -- This package is specifically forbidden
+% \usepackage{savetrees} -- This package is specifically forbidden
+% \usepackage{setspace} -- This package is specifically forbidden
+% \usepackage{stfloats} -- This package is specifically forbidden
+% \usepackage{tabu} -- This package is specifically forbidden
+% \usepackage{titlesec} -- This package is specifically forbidden
+% \usepackage{tocbibind} -- This package is specifically forbidden
+% \usepackage{ulem} -- This package is specifically forbidden
+% \usepackage{wrapfig} -- This package is specifically forbidden
+% DISALLOWED COMMANDS
+% \nocopyright -- Your paper will not be published if you use this command
+% \addtolength -- This command may not be used
+% \balance -- This command may not be used
+% \baselinestretch -- Your paper will not be published if you use this command
+% \clearpage -- No page breaks of any kind may be used for the final version of your paper
+% \columnsep -- This command may not be used
+% \newpage -- No page breaks of any kind may be used for the final version of your paper
+% \pagebreak -- No page breaks of any kind may be used for the final version of your paperr
+% \pagestyle -- This command may not be used
+% \tiny -- This is not an acceptable font size.
+% \vspace{- -- No negative value may be used in proximity of a caption, figure, table, section, subsection, subsubsection, or reference
+% \vskip{- -- No negative value may be used to alter spacing above or below a caption, figure, table, section, subsection, subsubsection, or reference
+
+\setcounter{secnumdepth}{2} %May be changed to 1 or 2 if section numbers are desired.
+
+% The file aaai23.sty is the style file for AAAI Press
+% proceedings, working notes, and technical reports.
+%
+
+% Title
+
+% Your title must be in mixed case, not sentence case.
+% That means all verbs (including short verbs like be, is, using,and go),
+% nouns, adverbs, adjectives should be capitalized, including both words in hyphenated terms, while
+% articles, conjunctions, and prepositions are lower case unless they
+% directly follow a colon or long dash
+\title{Appendix for: Planning with Multi-agent Belief using Justified Perspectives}
+
+\input{marco}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{table*}[ht]
+    %\addtolength{\tabcolsep}{-3pt}    
+    \centering
+    \small
+    \begin{tabular}{ccccrrrrrrrrr}
+         \toprule
+          \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{PWP} & \multicolumn{4}{c}{PDKB} \\ 
+          \cmidrule(lr){1-4} \cmidrule(lr){5-9} \cmidrule(lr){10-13}
+          \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|\mathcal{P}|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$}&\multicolumn{2}{c}{TIME(s)}
+          \\ & & & & & & & {Calls} & Total & & & Search & Total \\
+         \midrule
+
+            $4$ & $1$ & $2$ & $4$ & $68$ & $364$ & $2234$ & $4.9$ & $5.4$ & $79$ & $15$ & $0.3$& $0.8$\\
+            $4$ & $2$ & $2$ & $5$ & $78$ & $442$ & $2558$ & $6.0$ & $6.6$ & $61$ & $12$ & $1.6$ & $9.6$\\
+            $4$ & $1$ & $4$ & $6$ & $14781$ & $134492$ & $495432$ & $1942.2$ & $2053.3$ & $88$ & $10$ & $0.2$ & $0.7$\\
+            $4$ & $2$ & $4$ & $7$ & $31709$ & $220022$ & $1056453$ & $5477.5$ & $5707.9$ & $130$ & $17$ & $1.5$ & $9.7$\\
+            $4$ & $1$ & $8$ & $12$ & $-$ & $-$ & $-$ & $-$ & $-$ & $135$ & $14$ & $0.2$ & $0.7$\\
+            $4$ & $2$ & $8$ & $27$ & $-$ & $-$ & $-$ & $-$ & $-$ & $1717$ & $508$ & $2.6$ & $10.9$\\
+            
+            $8$ & $1$ & $2$ & $4$ & $96$ & $892$ & $12290$ & $90.8$ & $95.4$ & $152$ & $25$ & $0.7$ & $4.2$\\
+            $8$ & $2$ & $2$ & $5$ & $114$ & $1114$ & $14602$ & $108.9$ & $114.4$ & $186$ & $36$ & $340.4$ & $182.4$\\
+            $8$ & $1$ & $4$ & $11$ & $-$ & $-$ & $-$ & $-$ & $-$ & $5919$ & $194$ & $1.8$ & $5.5$\\
+            $8$ & $2$ & $4$ & $9$ & $-$ & $-$ & $-$ & $-$ & $-$ & $344$ & $29$ & $166.5$ & $329.2$\\
+            $8$ & $1$ & $8$ & $14$ & $-$ & $-$ & $-$ & $-$ & $-$ & $980$ & $268$ & $0.7$ & $4.3$\\
+            $8$ & $2$ & $8$ & $15$ & $-$ & $-$ & $-$ & $-$ & $-$ & $726$ & $69$ & $180.5$ & $336.8$\\
+                  
+        \bottomrule
+    \end{tabular}
+    \caption{Experimental results for grapevine domain}
+    \label{tab:grapevine}
+\end{table*}
+
+% \begin{table*}[ht]
+%     %\addtolength{\tabcolsep}{-3pt}    
+%     \centering
+%     \small
+%     \begin{tabular}{ccccrrrrrrrrr}
+%          \toprule
+%           \multicolumn{4}{c}{Parameters} & \multicolumn{5}{c}{PWP} & \multicolumn{4}{c}{PDKB} \\ 
+%           \cmidrule(lr){1-4} \cmidrule(lr){5-9} \cmidrule(lr){10-13}
+%           \multirow{2}{*}{$|Agt|$} & \multirow{2}{*}{$d$} & \multirow{2}{*}{$|\mathcal{G}|$} & \multirow{2}{*}{$|\mathcal{P}|$} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$} & \multirow{2}{*}{$|Calls|$} & \multicolumn{2}{c}{TIME(s)} & \multirow{2}{*}{$|Gen|$} & \multirow{2}{*}{$|Exp|$}&\multicolumn{2}{c}{TIME(s)}
+%           \\ & & & & & & & {Calls} & Total & & & Search & Total \\
+%          \midrule
+
+%             $4$ & $1$ & $2$ & $3$ & $220$ & $40$ & $432$ & $0.8$ & $1.0$ & $79$ & $15$ & $0.3$& $0.8$\\
+%             $4$ & $2$ & $2$ & $3$ & $236$ & $42$ & $468$ & $1.1$ & $1.3$ & $61$ & $12$ & $1.6$ & $9.6$\\
+%             $4$ & $1$ & $4$ & $5$ & $3746$ & $464$ & $15688$ & $50.2$ & $52.8$ & $88$ & $10$ & $0.2$ & $0.7$\\
+%             $4$ & $2$ & $4$ & $6$ & $2528$ & $382$ & $11004$ & $55.3$ & $57.4$ & $130$ & $17$ & $1.5$ & $9.7$\\
+%             $4$ & $1$ & $8$ & $12$ & $-$ & $-$ & $-$ & $-$ & $-$ & $135$ & $14$ & $0.2$ & $0.7$\\
+%             $4$ & $2$ & $8$ & $27$ & $-$ & $-$ & $-$ & $-$ & $-$ & $1717$ & $508$ & $2.6$ & $10.9$\\
+            
+%             $8$ & $1$ & $2$ & $4$ & $668$ & $68$ & $1256$ & $7.7$ & $8.5$ & $152$ & $25$ & $0.7$ & $4.2$\\
+%             $8$ & $2$ & $2$ & $5$ & $700$ & $70$ & $1324$ & $8.9$ & $9.7$ & $186$ & $36$ & $340.4$ & $182.4$\\
+%             $8$ & $1$ & $4$ & $11$ & $-$ & $-$ & $-$ & $-$ & $-$ & $5919$ & $194$ & $1.8$ & $5.5$\\
+%             $8$ & $2$ & $4$ & $9$ & $-$ & $-$ & $-$ & $-$ & $-$ & $344$ & $29$ & $166.5$ & $329.2$\\
+%             % $8$ & $1$ & $8$ & $14$ & $-$ & $-$ & $-$ & $-$ & $-$ & $980$ & $268$ & $0.7$ & $4.3$\\
+%             % $8$ & $2$ & $8$ & $15$ & $-$ & $-$ & $-$ & $-$ & $-$ & $726$ & $69$ & $180.5$ & $336.8$\\
+                  
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Experimental results for grapevine domain2}
+%     \label{tab:grapevine}
+% \end{table*}
+
+
+\end{document}
+
+

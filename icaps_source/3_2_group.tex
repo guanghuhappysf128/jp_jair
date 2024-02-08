@@ -1,0 +1,423 @@
+
+\subsection{Group Semantics}
+The group semantics for the seeing relation is the same as \cite{Hu2022-ul}, while for the belief, it is much more complex.
+We can not simply extend the idea of using group seeing relation to derive the agent's justified perspectives, as the agent might holds different beliefs compared to the group.
+
+\subsubsection{Language} We extend the language defined in Definition~\ref{def:language} by adding group seeing formulae, group knowledge formulae and group belief formulae as follows:
+
+\begin{definition}
+\label{def:g_language}
+Let $G$ be a group of agent and $\gamma$ be $v \mid \alpha$ for simplicity:
+    \[
+        \alpha ::= \alpha \mid ES_G \gamma \mid DS_G \gamma \mid CS_G \gamma,
+    \]
+    \[
+        \alpha ::= \alpha \mid EK_G \alpha \mid DK_G \alpha \mid CK_G \alpha,
+    \]
+    \[
+        \varphi ::= \varphi \mid \alpha \mid EB_G \varphi \mid CB_G \varphi \mid UB_G \varphi %\mid DB_G \varphi
+    \]
+\end{definition}
+\vspace{2mm}
+
+$ES_G \gamma$ represents every agent in group $G$ sees $\gamma$.
+$DS_G \gamma$ and $CS_G \gamma$ represents agents in group $G$ distributively and commonly sees $\gamma$ respectively.
+$EK_G \alpha$, $DK_G \alpha$ and $CK_G \alpha$ are similar except they represents knowledge relations.
+$EB_G \varphi$ represents every agent in group $G$ believe $\varphi$, while $UB_G \varphi$ represents that agents as a group $G$ believes $\varphi$.
+$CB_G \varphi$ represents all agents in group shared a common belief of $\varphi$.
+We omit the distributed belief as it does not make sense syntactically. 
+\gh{Not sure if the above makes sense}
+
+
+\subsubsection{Non-Na\"ive Semantics}
+Now, we can simply gives the group semantic for the seeing relations as:
+\vspace{2mm}
+
+\begin{tabular}{llll}
+	(g) & $M,\seq \vDash ES_G\gamma$      & iff & $\forall i\in G$, $M,\seq \vDash S_i\alpha$\\[1mm]
+	(h) & $M,\seq \vDash DS_G v$        & iff & $v \in \dom(\bigcup_{i\in G}\observation_i(s_n))$\\[1mm]
+	(i) & $M,\seq \vDash DS_G \varphi$  & iff & $M,s' \vDash \varphi$ \\ 
+	    &                               &     & $M,s' \vDash \neg \varphi$ \\
+	    &                               & \multicolumn{2}{l}{ , where $s'=\bigcup_{i\in G}\observation_i(s_n)$} \\[1mm]
+	(j) & $M,\seq \vDash CS_G v$        & iff & $v \in \dom(\cc\observation(G,s_n))$\\[1mm]
+% 	(k) & $M,\seq \vDash CS_G \varphi$ & iff & for all $g \in \mathcal{S}_G$, $(M,g[s']) \vDash \varphi$ \\
+% 	& & & or for all $g \in \mathcal{S}_G$, $(M,g[s']) \vDash \neg\varphi$, where $s'= \cc\f(G,s)$.
+	
+	(k) & $M,\seq \vDash CS_G \varphi$  & iff & $M,s' \vDash \varphi$ \\ 
+        &                               &     & $M,s' \vDash \neg \varphi$ \\
+        &                               & \multicolumn{2}{l}{ , where~\footnote{The function for fix point $\cc\observation$ is exactly the same as the one in Definition~\ref{def:fix_point} with different notation. } $s'=\cc\observation_G(s_n)$} \\[1mm]
+\end{tabular}
+\vspace{2mm}
+\gh{Should I handle g[n] in the $DS_G v$ or $DS_G v$  }
+
+Then, we can derive semantics for group knowledge using the same equivalent relation as in Definition~\ref{def:group_equiv}.
+
+The group belief semantic is more tricky.
+Instead of simply using group observation to generate a justified perspective, we should merge agent's individual justified perspectives.
+For example using Example~\ref{example:coin} with Plan~\ref{plan2} (shown in Figure~\ref{fig:coin_plan_B}): 
+if we simply using group observation $\observation_{a,b}$, there is no state holds $ES_{a,b} coin$, which means joint justified perspective between $a$ and $b$ would return $None$ for the value of $coin$.
+Another example can be found in Example~\ref{example:coin} with Plan~\ref{plan1} (shown in Figure~\ref{fig:coin_plan_A}):
+if we simply using common group observation fix point $\cc\observation(\{a,b\},s)$, the most recent state that $CS_{a,b} coin$ holds is $s_2$, and value of coin is $head$, which results in $B_{a,b} coin=head$ holds.
+However, it is obvious that $B_b coin=tail$ holds, which is inconsistent with $B_{a,b} coin=head$.
+
+\begin{definition}
+    
+    \label{def:common-perspective-function}
+    A common perspective function for a group of agents $G$, with respect to agents $i,j \in G$, $\f_{G,i,j}: \vec{S} \rightarrow \vec{S}$, is defined as as follows:
+    \[
+    \f_{G,i,j}([s_0,\dots,s_n])=[s'_0,\dots,s'_n] \text{, where:}
+    \]
+\noindent
+    where for all $t \in [0, n]$ and all $v \in \dom(s_t)$:
+    %
+    \[
+    \begin{array}{l@{\ }l@{\ }l}    
+    s'_t & = & \{v \mapsto \memorization([s_0,\dots,s_t, lt,v) \mid lt = max(a\timestamp)\}\\
+    a\timestamp & = & \{j \mid M, s_j \vDash CS_G S_i v \land j \leq t \}\\
+                & = & \{j \mid v \in \observation_i(\cc\f(G, s_k)) \land j \leq t\}
+    \end{array}
+    \]
+
+Recall that $\cc\f$ is the fixed-point function for defining common seeing and common knowledge from \citet{Hu2022-ul}.
+
+This is similar to the perspective function $\f_i$ for an individual agent, but it considered the common perspective for a group. The variable $lt$ gives us the most recent timestep in which the group of agents $G$ collectively saw that agent $i$ saw variable $v$, while $\memorization([s_0,\dots,s_t],lt,v)$ is as for the single-agent case. This will be empty if the group $G$ has never collectively seen agent $i$ observe $v$, as it cannot be common belief otherwise.
+\end{definition}
+
+We now define $CB_G$, the common belief of group $G$, as follows:
+
+\vspace{2mm}
+\noindent
+\begin{tabular}{lll}
+  $M, \seq \vDash CB_G \varphi$ & iff & for all $i,j \in G$, $M, \f_{G,i}(f_j(\seq)) \vDash \varphi$
+\end{tabular}
+\vspace{2mm}
+
+This requires some unpacking. The expression $\f_{G,i}(f_j(\seq))$ captures the commonly-believed perspective from agent $j$'s perspective. The perspective $\f_{G,i}(\seq)$ finds the perspective for when the group $G$ saw agent $i$ observing each variable. This effectively gives each agent in $G$ the reference to when agent $i$ saw each variable. However, each agent in the group then needs to determine what value \emph{they} believe that variable is, because they may not have observed some variables in the same state that another agent did. To do this, for each agent $j$, we pass their perspective $\f_j(\seq)$ into $\f_{G,i}$. The expression $\f_{G,i}(f_j(\seq))$ therefore returns agent $j$'s perspective on the common belief. If all agents $j \in G$ agree that $\varphi$ is true in their common perspective, then $\varphi$ is common belief.
+
+Hence, we propose a new concept called unified belief.
+An unified belief over formula $\varphi$ among a group of agent $G$ can be represented by $UB_G$.
+An unified perspective function can be derived from perspective function defined in Definition~\ref{def:perspective_function} with joint observation $\cc\observation$.
+
+\begin{definition}
+    
+    \label{def:unified_perspective_function}
+    An unified perspective function for a group of agent $G$, $U\f_G: \vec{S} \rightarrow \vec{S}$, is a recursive function as follows:
+    \[
+    U\f_G([s_0,\dots,s_t,\dots,s_n])=[s'_0,\dots,s'_t,\dots,s'_n] \text{, where:}
+    \]
+    \[    
+    s'_t = \{v \mapsto \memorization([s_0,\dots,s_t],lt,v) \mid lt = max(a\timestamp), v\in V\} \text{,} 
+    \]
+    \[    
+    \text{where: }a\timestamp = \{j \mid v \in \cc\observation_G(s_j) \land j \leq t \}
+    \]
+    % \[    
+    % \text{where: }a\timestamp = \{j \mid \triangleright_i(s_j)(v) = true \land j \leq t \}
+    % \]
+
+
+% \begin{itemize}
+%     \item $\f_i([s_0,\dots,s_t])=[s_0',\dots,s_t']$, where:
+
+%     \item $s_t' = \{v \mapsto \memorization_i([s_0,\dots,s_t],lt,v,t) \mid lt = max(st)$, where $st = \{tt\mid \triangleright_i(s_{tt},v) =1 \}\}$
+
+% \end{itemize}
+\end{definition}
+\vspace{2mm}
+
+Then, in order to handle common belief, we give definition of the perspective fix point as follows:
+
+\begin{definition}
+\label{def:fix_perspective}
+    Let $\seq$ be the given perspective and the group of agent as $G$, the fixed perspective $\cc\f_G(\seq) = \seq~'$ can be defined as:
+    \[
+        \cc\f_G(\seq~') = \cc\f_G(\bigcap_{i \in G} \f_i(\seq~'))
+    \]
+    
+\end{definition}
+
+
+Then, we give the semantics for group belief as follows:
+\vspace{2mm}
+
+\begin{tabular}{llll}
+	(l) & $M,\seq \vDash UB_G \varphi$  & iff    & $ M,U\f_G(\seq) \vDash \varphi$\\[1mm]
+	(m) & $M,\seq \vDash EB_G \varphi$  & iff    & $ M,\seq~'\vDash \varphi$\\
+	    &                               & \multicolumn{2}{l}{, where $\seq~'=\bigcap_{i \in G} \f_i(\seq)$ } \\
+	    &                               & $\equiv$ & $\forall i \in G,\ M,\seq \vDash B_i \varphi$ \\ [1mm]
+% 	(n) & $M,\seq \vDash DB_G \varphi$  & iff    & $ M,\seq~'\vDash \varphi$\\
+% 	    &                               & \multicolumn{2}{l}{, where $W=\bigcup_{i \in G} \f_i(\seq)$ } \\
+% 	    &                               & $\equiv$ & $\forall i \in G,\ M,\seq \vDash B_i \varphi$ \\ [1mm]
+	(n) & $M,\seq \vDash CB_G \varphi$  & iff    & $ M,\seq~'\vDash \varphi$\\
+	    &                               & \multicolumn{2}{l}{, where $\seq~'=\cc\f_G(\seq)$ } \\
+	    &                               & $\equiv$ & $M,\seq \vDash EB_G \varphi \land UB_G \varphi $ \\ [1mm]	    
+\end{tabular}
+\vspace{2mm}
+
+
+% \vspace{2mm}
+% \begin{tabular}{llll}
+% 	(l) & $M,\seq \vDash UB_G \varphi$      & iff & $M,\f_G(\seq) \vDash \varphi$\\[1mm]
+	
+
+% 	(o) & $M,\seq \vDash CS_G v$        & iff & $v \in \dom(\cc\f(G,s))$\\[1mm]
+% % 	(k) & $M,\seq \vDash CS_G \varphi$ & iff & for all $g \in \mathcal{S}_G$, $(M,g[s']) \vDash \varphi$ \\
+% % 	& & & or for all $g \in \mathcal{S}_G$, $(M,g[s']) \vDash \neg\varphi$, where $s'= \cc\f(G,s)$.
+	
+% 	(p) & $M,\seq \vDash CS_G \varphi$  & iff & $M,s' \vDash \varphi$ \\ 
+%         &                               &     & $M,s' \vDash \neg \varphi$ \\
+%         &                               & \multicolumn{2}{l}{ , where~\footnote{The function for fix point $\cc\observation$ is exactly the same as the one in Definition~\ref{def:fix_point} } $s'=\cc\observation(G,s)$} \\[1mm]
+% \end{tabular}
+% \vspace{2mm}
+
+
+
+
+
+
+
+
+
+
+% \subsection{Group Semantics}
+
+% Now we give the formal definition for our group semantics, which formed by using group observation functions: $E\observation$, $D\observation$ and $C\observation$.
+
+% % \begin{definition}
+% % \label{def:group_observation_function}
+% %     An Joint Observation Function for a group of agent $g$, $\observation_g: \mathcal{S} \rightarrow \mathcal{S}$ can be defined as: 
+% %     \[
+% %     E\observation_g(s) = \{ v \rightarrow s(v) \mid \forall i \in g,\ \triangleright_i(s,v) \}
+% %     \]
+% %     An distributed Observation Function for a group of agent $g$, $\observation_g: \mathcal{S} \rightarrow \mathcal{S}$ can be defined as: 
+% %     \[
+% %     D\observation_i(s) = \{ v \rightarrow s(v) \mid \exists i \in g,\ \triangleright_i(s,v) \}
+% %     \]    
+% %     A common observation Function for a group of agent $g$, $\observation_g: \mathcal{S} \rightarrow \mathcal{S}$ can be defined as: 
+% %     \[
+% %     C\observation_i(s) = \{ v \rightarrow s(v) \mid \triangleright_i(s,v) \}
+% %     \]
+% % \end{definition}
+
+% % \gh{Which one is better?}
+% \begin{definition}
+% \label{def:group_observation_function}
+%     An Joint Observation Function for a group of agent $g$, $\observation_g: \mathcal{S} \rightarrow \mathcal{S}$ can be defined as: 
+%     \[
+%     E\observation_g(s) = \bigcap _{i \in G} \observation_i
+%     \]
+%     An distributed Observation Function for a group of agent $g$, $\observation_g: \mathcal{S} \rightarrow \mathcal{S}$ can be defined as: 
+%     \[
+%     D\observation_i(s) = \bigcup _{i \in G} \observation_i
+%     \]    
+%     A common observation Function for a group of agent $g$, $\observation_g: \mathcal{S} \rightarrow \mathcal{S}$ can be defined as: 
+%     \[
+%     C\observation_i(s) = \cc\observation(g,s)
+%     \]
+% \end{definition}
+% in which $\cc\f(G,s)$ is the state reached by applying composite function $\bigcap _{i \in G} \f_i$ until it reaches its fixed point. That is, the fixed point $s'$ such that $\cc\f(G,s')=\cc\f(G,\bigcap _{i \in G} \f_i(s'))$.
+
+% calculated as follows:
+%     \[    
+%     a\timestamp = \{j \mid T[s_j, S_i v] =1 \land j \leq t \}
+%     \]
+
+
+
+
+% \vspace{2mm}\begin{tabular}{llll}
+% %  (f) & $ M,s(t) \vDash \Phi$ &\\ iff & $\bigwedge_{\varphi \in \Phi} M,s(t) \vDash \varphi$\\[1mm]
+% %  (f) & $M,s(t) \vDash K_i v$       &\\ iff & $M,s(t) \vDash S_i v \land \pi(s(t),v)=e \land |e|=1$ \\[1mm]
+% %  (f) & $M,s(t) \vDash K_i v$       &\\ iff & $M,s(t) \vDash S_i v$ \\[1mm] 
+%  (f) & $M,\seq \vDash K_i\varphi$       &\\ iff & $M,\seq \vDash \varphi \land S_i \varphi$ \\[1mm] 
+% %  (f) & $M,s(t) \vDash K_i\varphi$       &\\ iff & $M,s(t) \vDash \varphi \land S_i \varphi$ \\[1mm] 
+% %  (g) & $M,s(t) \vDash B_i\varphi$   &\\ iff & $M, \f_i(s(t)) \ \vDash \varphi$ \\[1mm]
+
+% %  (h) & if $ M,s(t) \vDash B_i v$ \\ 
+% %  & $ M,s(t) \vDash S_i v \lor M,s(t-1) \vDash B_i v$  \\[1mm]
+ 
+% %  (g) & if $ M,s(t) \vDash B_i r(v_1,\dots,v_n)$ & \\
+% %  iff 
+% % %  & $\bigwedge_{v \in \{v_1,\dots,v_n\}} M,s(t) \vDash B_i v$\\$ \land$ 
+% %  & $  M,s(t) \vDash r(\f_i(s(t))(v_1),\dots,\f_i(s(t))(v_n))$  \\[1mm]
+%  (g) & if $ M,\seq \vDash B_i \varphi$ & \\
+%  iff 
+% %  & $\bigwedge_{v \in \{v_1,\dots,v_n\}} M,s(t) \vDash B_i v$\\$ \land$ 
+%  & $  M,\f_i(\seq) \vDash \varphi$  \\[1mm] 
+% \end{tabular}
+% \vspace{2mm}
+
+
+
+
+
+
+% \subsection{Non-na\"ive Semantics}
+
+% To handle the issue with local states, similar, we define the expression $a[s]$ to mean function override: $a[s](v)=s(v)$ when $ \triangleright_i(s)(v)$; and, $a(v)$ otherwise. To be specific, $a[s]$ is a list contains every global state $s'$ such that $s \subseteq s'$. Using this we can extend semantics where local states occurs to handled non-visible variables.  
+% \vspace{2mm}
+% \begin{tabular}{lll}
+
+%     (d) & \multicolumn{2}{l}{ $ M,\seq \vDash S_i v$ }\\ 
+%     & iff & $ \triangleright_i(a[s_n])(v) $\\[1mm]
+%     (e*) & \multicolumn{2}{l}{$ M,\seq \vDash S_i \varphi$ }  \\ 
+%     & iff & $ M,\observation_i(a[s_n])\ \vDash \varphi$ \\ 
+%     & or & $ M,\observation_i(a[s_n])\ \vDash \neg\varphi$\\
+%  [1mm]
+% \end{tabular}
+% \vspace{2mm}
+% The effect of evaluating $S_i v$ under $a[s_n]$ means that $\triangleright_i(s')(v)$ is evaluated for every state $s'$ from $a[s_n]$. 
+
+
+% \vspace{2mm}
+% \begin{tabular}{lll}
+
+%  (g*) & \multicolumn{2}{l}{ if $ M,\seq \vDash B_i \varphi$ }\\
+%  & iff & $  M,\f_i(a[\seq]) \vDash \varphi$  \\[1mm] 
+% \end{tabular}
+% \vspace{2mm}
+
+%  \gh{It is up to the model to make sure the inconsistent cases would not occur?}
+ 
+%  \gh{possible inconsistent cases: 1, The R needs to be logical separable, otherwise, you need to specify in the prospective function; 2, indicating the false value}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \subsubsection{Na\"ive semantics for belief model 2}
+
+% Given this definition of a model, we first define the following semantics for our language, which we call the \emph{na\"{i}ve} semantics, where $s$ is a local or global state:
+
+% \vspace{2mm}
+
+% \begin{tabular}{llll}
+%  (a) & $ M,s(t) \vDash r(t_1,\dots,t_k)$ &\\ iff & $\pi(s,t, r(t_1,\ldots,t_k)) = true$\\[1mm]
+%  (b) & $ M,s(t) \vDash \phi \land \psi$  &\\ iff & $ M,s(t) \vDash \phi$ and $ M,s(t) \vDash \psi$\\[1mm]
+%  (c) & $ M,s(t) \vDash \neg \varphi$     &\\ iff & $ M,s(t) \not\vDash \varphi$\\[1mm]
+%  (d) & $ M,s(t) \vDash S_i v$            &\\ iff & $v \in \f_i(s(t))$\\[1mm]
+%  (e) & $ M,s(t) \vDash S_i \varphi$     &\\ iff & $ M,\f_i(s(t))\ \vDash \varphi$ or $ M,\observation_i(s(t))\ \vDash \neg\varphi$\\
+%  [1mm]
+%  (f) & $M,s(t) \vDash K_i\varphi$       &\\ iff & $M,s(t) \vDash \varphi \land S_i \varphi$ \\[1mm] 
+%  (g) & $M,s(t) \vDash B_i\varphi$   &\\ iff & $M, s(t) \ \vDash \varphi$ \\[1mm]
+% \end{tabular}
+% \vspace{2mm}
+
+
+
+
+% \subsection{Ternary Semantics}
+% \vspace{2mm} 
+% \begin{tabular}{llll}
+% (a) & $\T[s(t), r(t_1,\dots,t_k)]$ & $=$ & 1 if $\pi(s,t, r(t_1,\ldots,t_k)) = true$;\\
+%  &                          &     & 0 if $\pi(s,t, r(t_1,\ldots,t_k)) = false$;\\
+%  &                          &     & $\unknown$ otherwise\\[1mm] % ($vars(r(t_1,\ldots,t_k)) \not\subseteq dom(s)$)
+% (b) & $\T[s,t, \phi \land \psi]$  & $=$ & $\min(\T[s,t, \phi], \T[s,t, \psi])$\\[1mm]
+% (c) & $\T[s,t, \neg \varphi]$     & $=$ & $1 - \T[s,t, \varphi]$\\[1mm]
+% (d) & $\T[s,t, S_i v]$            & $=$ & $1$ if $v \in \dom(f_i(s,t))$; 0 otherwise\\[1mm]
+% (e) & $\T[s,t, S_i \varphi]$      & $=$ & $\unknown$ if $\T[s,t,\varphi] = \T[s,t,\neg\varphi] = \unknown$;\\
+%  &                          &   & $0$ if $\T[f_i(s,t),t, \varphi] = \T[f_i(s,t),t, \neg\varphi] = \unknown$;\\
+%  &                          &   & $1$ otherwise\\ %\max(\T[f_i(s), \varphi], \T[f_i(s), \neg\varphi])$ otherwise\\
+% (f) & $\T[s,t, K_i \varphi]$ & $=$ & $\min(\T[s,t, S_i \varphi],\T[s,t, \varphi])$ \\
+% (e) & $\T[s,t, B_i \varphi]$      & $=$ & $\T[s,t, K_i \varphi]$ if $\T[s,t,S_i \varphi] = 1\lor t=0$;\\
+% %  &                          &   & $\T[s,0, \varphi]$ if $t=0$;\\
+%  &                          &   & $\T[s,t-1, B_i \varphi]$ otherwise\\ %\max(\T[f_i(s), \varphi], \T[f_i(s), \neg\varphi])$ otherwise\\
+% \end{tabular}
+% \begin{lemma}
+
+% \end{lemma}
+
+
+\vspace{2mm} 
+
+% \section{Forwards method}
+
+% \begin{definition}
+%     $Agt = Agt \cup \{g\}$. We denote the omniscience agent as $g$, whose perspective/observation is always consistent with the global states. 
+% \end{definition}
+
+% \begin{definition}
+%     stats: \{$\seen$,$\unseen$\}
+% \end{definition}
+
+% \begin{definition}
+%     $\mathcal{S}: V \mapsto D \cup \{\notknown \}, stats$
+% \end{definition}
+
+
+
+% \begin{tabular}{ll}
+%  (1) & $\observation_i(s) \subseteq s$ \\[1mm]
+%  (2) & $\observation_i(s) = \observation_i(\observation_i(s))$\\[1mm]
+%  (3) & If $s \subseteq s'$, then $\observation_i(s) \subseteq \observation_i(s')$ \\[1mm]
+%  (4) & $s = \observation_g(s)$
+% \end{tabular}
+% \vspace{2mm}
+
+
+
+% \begin{definition}
+%     $\diamond_{i_s} :  \mathcal{S} \mapsto \mathcal{S}$ is the seen update function, which works as follows: \vspace{2mm}
+    
+%     $ s \diamond_{i_s} s'$ = $ \{ v \mapsto (e,stat') \mid v \mapsto (e,stat) \in \f_i(s) \}$, 
+%      where $stat'$ is $\seen$ if $ \triangleright_i(s',v)$; $stat$ otherwise.
+% \end{definition}
+
+
+% \begin{definition}
+%     $\diamond_{i_v} :  \mathcal{S} \mapsto \mathcal{S}$ is the value update function, which works as follows: \vspace{2mm}
+    
+%     $ s \diamond_{i_v} s'$ = $ \{ v \mapsto (e',stat') \mid v \mapsto (e,stat) \in s \}$, 
+%      where:
+%      \begin{itemize}
+%          \item if $stat = \seen$ and $v \in \observation_i(\f_i(s'))$, then $e' = s'(v), stat' = \unseen$
+%          \item otherwise, $e' = e$, $stats' = stats$
+%      \end{itemize}
+% \end{definition}
+
+
+% \begin{definition}
+%     $s \diamond_i s' = s \diamond_{i_s} s' \diamond_{i_v} s'$
+% \end{definition}
+
+% Then, we can define our perspective function as follows:
+% \begin{definition}
+%     $\f_i : \mathcal{S} \mapsto \mathcal{S}$ is the perspective function returns agents belief of the world based on the sequence of states.
+    
+%     $\f_i(s_0,\dots,s_t)$: \vspace{2mm}
+    
+%     \begin{tabular}{ll}
+%      (a) & if $t=0$, [$\{ v \mapsto (\notknown,\unseen) \} \diamond_i s_0$ ] \\[1mm]
+%      (b) & otherwise, $states$ + $[states[-1]\diamond_i s_t]$-,\\
+%          & where $ states = \f_i(s_0,\dots,s_{t-1})$
+%     \end{tabular}
+    
+% \end{definition}
+
+
+% \begin{itemize}
+%     \item [$s_0$:] $\{peeking_a \mapsto f,\ peeking_b \mapsto f,\ coin \mapsto head\}$
+%     \item [$\f_b(s_0)$:] $\{peeking_a \mapsto f,\ peeking_b \mapsto f,\ coin \mapsto unknown\}$
+%     \item [$\f_b(s_0)$:] $\{peeking_a \mapsto f,\ peeking_b \mapsto f,\ coin \mapsto unknown\}$
+% \end{itemize}
+
+
+% \gh{it should be a sequence of state, not sure about the notation here.}
+% \gh{This works exactly the same as sudo code in 3.2. The only problem the complexity.}
