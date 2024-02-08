@@ -1,0 +1,70 @@
+
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{verbatim}
+
+% \newcommand{\showPro}{Proposition}
+% \newtheoremstyle{propositionstyle}% name
+%   {5pt}%      Space above
+%   {5pt}%      Space below
+%   {}%         Body font
+%   {}%         Indent amount (empty = no indent, \parindent = para indent)
+%   {\itshape\bfseries}% Thm head font
+%   {:}%        Punctuation after thm head
+%   {\newline}%     Space after thm head: " " = normal interword space;
+%         %       \newline = linebreak
+%   {}%         Thm head spec (can be left empty, meaning `normal')
+% \theoremstyle{propositionstyle}
+% \newtheorem{Proposition}{Proposition}[section]
+\theoremstyle{definition}
+% \newtheorem{proposition}{Proposition}[section]
+
+% \theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+% \theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+% \theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+%\theoremstyle{definition}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{plan}{Plan}[section]
+
+% \usepackage{multicolumn}
+\usepackage{listings}
+
+\newcommand{\dom}{\textrm{dom}}
+
+\newcommand{\timestamp}{ts}
+\newcommand{\seq}{\Vec{s}}
+% \newcommand{\bool}{\mathbb{B}}
+\newcommand{\bool}{\{true,false\}}
+\newcommand{\sees}{\triangleright}
+\newcommand{\f}{\mathit{f}}
+\newcommand{\observation}{\mathit{O}}
+\newcommand{\memorization}{\mathit{R}}
+\newcommand{\seen}{\mathbb{S}}
+\newcommand{\unseen}{\neg \mathbb{S}}
+\newcommand{\notknown}{\neg \mathbb{K}}
+\newcommand{\cc}{\mathit{c}}
+
+\def\L{\mathcal{L}}
+\def\T{T}
+\def\unknown{\frac{1}{2}}
+\def\NF{\mathcal{N}\hspace{-0.5mm}\mathcal{F}}
+
+
+\usepackage[textsize=scriptsize,textwidth=1cm]{todonotes}
+% \usepackage[disable]{todonotes}
+\newcommand{\tm}[1]{\vspace{0.5em}\todo[author=Tim,inline,color=green]{#1}\vspace{0.5em}}
+\newcommand{\nl}[1]{\vspace{0.5em}\todo[author=Nir,inline,color=blue!20!white]{#1}\vspace{0.5em}}
+\newcommand{\gh}[1]{\vspace{0.5em}\todo[author=Guang,inline,color=red!30!white]{#1}\vspace{0.5em}}
+\newcommand{\rw}[1]{\vspace{0.5em}\todo[author=Reviewer,inline,color=yellow!30!white]{#1}\vspace{0.5em}}
+
+
+
+\usetikzlibrary{calc,fadings,decorations.pathreplacing,automata}
