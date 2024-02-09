@@ -1,12 +1,17 @@
 
 
 \usepackage{amsthm}
-\usepackage{amssymb}
+% \usepackage{amssymb}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{verbatim}
+% \usepackage{mathptmx}
+\usepackage{MnSymbol}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage[hang,flushmargin]{footmisc}
 
 % \newcommand{\showPro}{Proposition}
 % \newtheoremstyle{propositionstyle}% name
@@ -27,9 +32,9 @@
 % \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 % \theoremstyle{definition}
-\newtheorem{example}{Example}[section]
+% \newtheorem{example}{Example}[section]
 % \theoremstyle{definition}
-\newtheorem{theorem}{Theorem}[section]
+% \newtheorem{theorem}{Theorem}[section]
 %\theoremstyle{definition}
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{plan}{Plan}[section]
@@ -46,25 +51,111 @@
 \newcommand{\sees}{\triangleright}
 \newcommand{\f}{\mathit{f}}
 \newcommand{\observation}{\mathit{O}}
+\newcommand{\oldobservation}{\mathit{O}}
 \newcommand{\memorization}{\mathit{R}}
 \newcommand{\seen}{\mathbb{S}}
 \newcommand{\unseen}{\neg \mathbb{S}}
 \newcommand{\notknown}{\neg \mathbb{K}}
+\newcommand{\none}{$\tau$}
+
 \newcommand{\cc}{\mathit{c}}
+
+% for the group perspectives
+\newcommand{\es}{\mathit{ES}}
+\newcommand{\ds}{\mathit{DS}}
+\newcommand{\cs}{\mathit{CS}}
+\newcommand{\ek}{\mathit{EK}}
+\newcommand{\dk}{\mathit{DK}}
+\newcommand{\ck}{\mathit{CK}}
+\newcommand{\eb}{\mathit{EB}}
+\newcommand{\db}{\mathit{DB}}
+\newcommand{\cb}{\mathit{CB}}
+\newcommand{\ef}{\mathit{ef}}
+\newcommand{\df}{\mathit{df}}
+\newcommand{\cf}{\mathit{cf}}
+\renewcommand{\b}{\mathit{B}}
+
+% \newcommand{\emptyset}{\varnothing}
+% \newcommand{\conflict}{\varepsilon}
+\newcommand{\statespace}{\mathcal{S}}
+\newcommand{\statespacecomplete}{\mathcal{S}_{c}}
+\newcommand{\statespaceglobal}{\mathcal{S}_{g}}
+\newcommand{\group}{G}
+
+
+\newcommand{\intersectmergevalue}{\land}
+\newcommand{\unionmergevalue}{\lor}
+\newcommand{\intersectmergestate}{\sqcap}
+\newcommand{\unionmergestate}{\sqcup}
+\newcommand{\intersectmergeperspecive}{\bigcap}
+\newcommand{\unionmergeperspective}{\bigcup}
+
+
+% \pagenumbering{arabic}
 
 \def\L{\mathcal{L}}
 \def\T{T}
 \def\unknown{\frac{1}{2}}
 \def\NF{\mathcal{N}\hspace{-0.5mm}\mathcal{F}}
 
+%\usepackage[textsize=scriptsize,textwidth=1cm]{todonotes}
+\usepackage[disable]{todonotes}
 
-\usepackage[textsize=scriptsize,textwidth=1cm]{todonotes}
-% \usepackage[disable]{todonotes}
-\newcommand{\tm}[1]{\vspace{0.5em}\todo[author=Tim,inline,color=green]{#1}\vspace{0.5em}}
-\newcommand{\nl}[1]{\vspace{0.5em}\todo[author=Nir,inline,color=blue!20!white]{#1}\vspace{0.5em}}
-\newcommand{\gh}[1]{\vspace{0.5em}\todo[author=Guang,inline,color=red!30!white]{#1}\vspace{0.5em}}
-\newcommand{\rw}[1]{\vspace{0.5em}\todo[author=Reviewer,inline,color=yellow!30!white]{#1}\vspace{0.5em}}
+% \usepackage[textsize=scriptsize,textwidth=1cm]{todonotes}
+% % \usepackage[disable]{todonotes}
+\newcommand{\tm}[1]{\todo[author=Tim,inline,color=green]{#1}}
+\newcommand{\nl}[1]{\todo[author=Nir,inline,color=blue!20!white]{#1}}
+\newcommand{\gh}[1]{\todo[author=Guang,inline,color=red!30!white]{#1}}
+\newcommand{\rw}[1]{\todo[author=Reviewer,inline,color=yellow!30!white]{#1}}
 
 
 
 \usetikzlibrary{calc,fadings,decorations.pathreplacing,automata}
+
+
+% for formating in ijcai
+
+% \newcommand{\myparagraph}[1]{\@startsection{paragraph}{4}{\z@}%
+%                                     {3.25ex \@plus1ex \@minus.2ex}%
+%                                     {-1em}%
+%                                     {\normalfont\normalsize\bfseries}}
+
+% \newcommand{\myparagraph}[1]{%  
+%     \noident\textbf{#1}%  
+% }
+% \makeatletter
+% \renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+%             {0ex \@plus1ex \@minus.2ex}%
+%             {-1ex}% space after the heading
+%             {\normalfont\normalsize\bfseries}}
+% \makeatother
+
+\newcounter{alphasect}
+\def\alphainsection{0}
+
+\let\oldsection=\section
+\def\section{%
+  \ifnum\alphainsection=1%
+    \addtocounter{alphasect}{1}
+  \fi%
+\oldsection}%
+
+\renewcommand\thesection{%
+  \ifnum\alphainsection=1% 
+    \Alph{alphasect}
+  \else%
+    \arabic{section}
+  \fi%
+}%
+
+\newenvironment{alphasection}{%
+  \ifnum\alphainsection=1%
+    \errhelp={Let other blocks end at the beginning of the next block.}
+    \errmessage{Nested Alpha section not allowed}
+  \fi%
+  \setcounter{alphasect}{0}
+  \def\alphainsection{1}
+}{%
+  \setcounter{alphasect}{0}
+  \def\alphainsection{0}
+}%
