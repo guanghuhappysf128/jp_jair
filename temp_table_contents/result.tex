@@ -1,0 +1,579 @@
+\begin{tabular}{lrrrrrllrl}
+\toprule
+problem & expanded & generated & common_max & common_average & epistemic_calls & epistemic_call_time_avg & search_time & plan_length & goals \\
+\midrule
+coin000 & 1 & 3 & 0 & 0 & 5 & 0.111 & 0.003 & 1 & $\b_a face-c=head $ \\% -,peek-a \\
+coin001 & 0 & 0 & 0 & 0 & 1 & 0.083 & 0.001 & 0 & $\b_a face-c=head  \rightarrow \unknown $ \\% - \\
+coin002 & 6 & 18 & 0 & 0 & 25 & 0.043 & 0.004 & 2 & $\neg \b_a face-c=head $ \\% -,peek-a,turn_coin-c \\
+coin003 & 4 & 12 & 0 & 0 & 17 & 0.069 & 0.005 & 2 & $\b_a \b_b face-c=head $ \\% -,peek-a,peek-b \\
+coin004 & 0 & 0 & 0 & 0 & 1 & 0.142 & 0.001 & 0 & $\b_a \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+coin005 & 10 & 30 & 0 & 0 & 46 & 0.053 & 0.007 & 3 & $\neg \b_a \b_b face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin006 & 4 & 12 & 0 & 0 & 17 & 0.077 & 0.003 & 2 & $\b_a face-c=head \land \b_a \b_b face-c=head $ \\% -,peek-a,peek-b \\
+coin007 & 1 & 3 & 0 & 0 & 5 & 0.076 & 0.001 & 1 & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown $ \\% -,peek-a \\
+coin008 & 23 & 69 & 0 & 0 & 124 & 0.077 & 0.028 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head $ \\% -,peek-a,peek-b,turn_coin-c,return-b,turn_coin-c \\
+coin009 & 4 & 8 & 0 & 0 & 22 & 0.061 & 0.004 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head $ \\ \\
+coin010 & 0 & 0 & 0 & 0 & 1 & 0.271 & 0.002 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+coin011 & 4 & 8 & 0 & 0 & 22 & 0.114 & 0.008 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head $ \\ \\
+coin012 & 15 & 45 & 0 & 0 & 76 & 0.081 & 0.019 & 4 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c \\
+coin013 & 5 & 12 & 0 & 0 & 21 & 0.111 & 0.006 & 2 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown $ \\% -,peek-a,turn_coin-c \\
+coin014 & 10 & 30 & 0 & 0 & 46 & 0.113 & 0.016 & 3 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin015 & 2 & 6 & 0 & 0 & 9 & 0.063 & 0.003 & 1 & $\b_b face-c=head $ \\% -,peek-b \\
+coin016 & 0 & 0 & 0 & 0 & 1 & 0.105 & 0.001 & 0 & $\b_b face-c=head  \rightarrow \unknown $ \\% - \\
+coin017 & 7 & 21 & 0 & 0 & 31 & 0.116 & 0.018 & 2 & $\neg \b_b face-c=head $ \\% -,peek-b,turn_coin-c \\
+coin018 & 4 & 12 & 0 & 0 & 17 & 0.087 & 0.004 & 2 & $\b_a face-c=head \land \b_b face-c=head $ \\% -,peek-a,peek-b \\
+coin019 & 1 & 2 & 0 & 0 & 5 & 0.089 & 0.002 & 1 & $\b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\% -,peek-a \\
+coin020 & 17 & 51 & 0 & 0 & 82 & 0.097 & 0.022 & 4 & $\b_a face-c=head \land \neg \b_b face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c \\
+coin021 & 1 & 2 & 0 & 0 & 5 & 0.137 & 0.003 & 1 & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\% -,peek-b \\
+coin022 & 0 & 0 & 0 & 0 & 1 & 0.39 & 0.003 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+coin023 & 4 & 8 & 0 & 0 & 17 & 0.083 & 0.004 & 2 & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\% -,peek-b,turn_coin-c \\
+coin024 & 18 & 54 & 0 & 0 & 88 & 0.099 & 0.028 & 4 & $\neg \b_a face-c=head \land \b_b face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c \\
+coin025 & 4 & 8 & 0 & 0 & 17 & 0.085 & 0.004 & 2 & $\neg \b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\% -,peek-a,turn_coin-c \\
+coin026 & 11 & 33 & 0 & 0 & 49 & 0.121 & 0.019 & 3 & $\neg \b_a face-c=head \land \neg \b_b face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin027 & 4 & 12 & 0 & 0 & 17 & 0.232 & 0.01 & 2 & $\b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,peek-a,peek-b \\
+coin028 & 8 & 16 & 0 & 0 & 42 & 0.115 & 0.017 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+coin029 & 17 & 51 & 0 & 0 & 82 & 0.196 & 0.041 & 4 & $\b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c \\
+coin030 & 2 & 5 & 0 & 0 & 9 & 0.328 & 0.008 & 1 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\% -,peek-b \\
+coin031 & 0 & 0 & 0 & 0 & 1 & 0.312 & 0.002 & 0 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+coin032 & 7 & 16 & 0 & 0 & 29 & 0.245 & 0.017 & 2 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\% -,peek-b,turn_coin-c \\
+coin033 & 22 & 66 & 0 & 0 & 110 & 0.176 & 0.052 & 4 & $\neg \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,peek-b,return-b,turn_coin-c,peek-a \\
+coin034 & 8 & 16 & 0 & 0 & 42 & 0.238 & 0.029 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+coin035 & 11 & 33 & 0 & 0 & 49 & 0.29 & 0.033 & 3 & $\neg \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin036 & 4 & 12 & 0 & 0 & 17 & 0.331 & 0.016 & 2 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,peek-a,peek-b \\
+coin037 & 8 & 16 & 0 & 0 & 42 & 0.298 & 0.033 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+coin038 & 17 & 51 & 0 & 0 & 82 & 0.255 & 0.05 & 4 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c \\
+coin039 & 14 & 30 & 0 & 0 & 74 & 0.127 & 0.024 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\ \\
+coin040 & 1 & 2 & 0 & 0 & 5 & 0.133 & 0.002 & 1 & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% -,peek-a \\
+coin041 & 14 & 30 & 0 & 0 & 74 & 0.096 & 0.018 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\ \\
+coin042 & 31 & 93 & 0 & 0 & 163 & 0.133 & 0.057 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,peek-b,return-b,turn_coin-c,peek-a,turn_coin-c \\
+coin043 & 8 & 16 & 0 & 0 & 42 & 0.122 & 0.017 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+coin044 & 29 & 87 & 0 & 0 & 151 & 0.152 & 0.063 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,peek-a,peek-b,turn_coin-c,return-b,turn_coin-c \\
+coin045 & 8 & 16 & 0 & 0 & 42 & 0.148 & 0.015 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head $ \\ \\
+coin046 & 2 & 2 & 0 & 0 & 10 & 0.253 & 0.006 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+coin047 & 8 & 16 & 0 & 0 & 42 & 0.194 & 0.024 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\ \\
+coin048 & 1 & 2 & 0 & 0 & 5 & 0.172 & 0.003 & 1 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\% -,peek-b \\
+coin049 & 0 & 0 & 0 & 0 & 1 & 0.234 & 0.001 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+coin050 & 4 & 8 & 0 & 0 & 17 & 0.187 & 0.007 & 2 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\% -,peek-b,turn_coin-c \\
+coin051 & 8 & 16 & 0 & 0 & 42 & 0.18 & 0.022 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head $ \\ \\
+coin052 & 2 & 2 & 0 & 0 & 10 & 0.136 & 0.004 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+coin053 & 8 & 16 & 0 & 0 & 42 & 0.225 & 0.024 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\ \\
+coin054 & 18 & 54 & 0 & 0 & 88 & 0.173 & 0.036 & 4 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c \\
+coin055 & 8 & 16 & 0 & 0 & 42 & 0.194 & 0.025 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+coin056 & 33 & 99 & 0 & 0 & 176 & 0.148 & 0.064 & 6 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c,return-b,peek-a \\
+coin057 & 14 & 30 & 0 & 0 & 74 & 0.123 & 0.024 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\ \\
+coin058 & 4 & 8 & 0 & 0 & 17 & 0.129 & 0.005 & 2 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% -,peek-a,turn_coin-c \\
+coin059 & 14 & 30 & 0 & 0 & 74 & 0.181 & 0.039 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\ \\
+coin060 & 22 & 66 & 0 & 0 & 110 & 0.189 & 0.048 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,peek-b,return-b,turn_coin-c,peek-a \\
+coin061 & 8 & 16 & 0 & 0 & 42 & 0.183 & 0.021 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+coin062 & 11 & 33 & 0 & 0 & 49 & 0.13 & 0.015 & 3 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin063 & 4 & 12 & 0 & 0 & 17 & 0.076 & 0.004 & 2 & $\b_b \b_a face-c=head $ \\% -,peek-a,peek-b \\
+coin064 & 0 & 0 & 0 & 0 & 1 & 0.664 & 0.004 & 0 & $\b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+coin065 & 10 & 30 & 0 & 0 & 46 & 0.096 & 0.014 & 3 & $\neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin066 & 4 & 12 & 0 & 0 & 17 & 0.227 & 0.015 & 2 & $\b_a face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b \\
+coin067 & 1 & 3 & 0 & 0 & 5 & 0.124 & 0.002 & 1 & $\b_a face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-a \\
+coin068 & 21 & 63 & 0 & 0 & 102 & 0.149 & 0.039 & 4 & $\b_a face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,return-a,turn_coin-c,peek-b \\
+coin069 & 8 & 16 & 0 & 0 & 42 & 0.113 & 0.013 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin070 & 0 & 0 & 0 & 0 & 1 & 0.183 & 0.001 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+coin071 & 8 & 16 & 0 & 0 & 42 & 0.122 & 0.017 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin072 & 18 & 54 & 0 & 0 & 88 & 0.149 & 0.034 & 4 & $\neg \b_a face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c \\
+coin073 & 5 & 12 & 0 & 0 & 21 & 0.116 & 0.006 & 2 & $\neg \b_a face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-a,turn_coin-c \\
+coin074 & 11 & 33 & 0 & 0 & 49 & 0.175 & 0.02 & 3 & $\neg \b_a face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin075 & 4 & 12 & 0 & 0 & 17 & 0.155 & 0.007 & 2 & $\b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b \\
+coin076 & 14 & 30 & 0 & 0 & 74 & 0.176 & 0.031 & NaN & $\b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin077 & 21 & 63 & 0 & 0 & 102 & 0.18 & 0.044 & 4 & $\b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,return-a,turn_coin-c,peek-b \\
+coin078 & 14 & 30 & 0 & 0 & 74 & 0.178 & 0.036 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin079 & 0 & 0 & 0 & 0 & 1 & 0.345 & 0.002 & 0 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+coin080 & 14 & 30 & 0 & 0 & 74 & 0.162 & 0.028 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin081 & 23 & 69 & 0 & 0 & 113 & 0.246 & 0.07 & 4 & $\neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-b,return-b,turn_coin-c,peek-a \\
+coin082 & 14 & 30 & 0 & 0 & 74 & 0.192 & 0.035 & NaN & $\neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin083 & 11 & 33 & 0 & 0 & 49 & 0.185 & 0.022 & 3 & $\neg \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin084 & 4 & 12 & 0 & 0 & 17 & 0.216 & 0.01 & 2 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b \\
+coin085 & 14 & 30 & 0 & 0 & 74 & 0.195 & 0.034 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin086 & 21 & 63 & 0 & 0 & 102 & 0.203 & 0.048 & 4 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,return-a,turn_coin-c,peek-b \\
+coin087 & 14 & 30 & 0 & 0 & 74 & 0.223 & 0.039 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin088 & 1 & 3 & 0 & 0 & 5 & 0.192 & 0.003 & 1 & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-a \\
+coin089 & 14 & 30 & 0 & 0 & 74 & 0.176 & 0.03 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin090 & 35 & 105 & 0 & 0 & 178 & 0.173 & 0.068 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-b,return-b,turn_coin-c,peek-a,turn_coin-c \\
+coin091 & 14 & 30 & 0 & 0 & 74 & 0.099 & 0.017 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin092 & 30 & 90 & 0 & 0 & 154 & 0.119 & 0.041 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c,return-b,turn_coin-c \\
+coin093 & 8 & 16 & 0 & 0 & 42 & 0.156 & 0.016 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin094 & 8 & 16 & 0 & 0 & 42 & 0.133 & 0.014 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin095 & 8 & 16 & 0 & 0 & 42 & 0.116 & 0.011 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin096 & 8 & 16 & 0 & 0 & 42 & 0.213 & 0.023 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin097 & 0 & 0 & 0 & 0 & 1 & 0.372 & 0.002 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+coin098 & 8 & 16 & 0 & 0 & 42 & 0.173 & 0.02 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin099 & 8 & 16 & 0 & 0 & 42 & 0.164 & 0.019 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin100 & 8 & 16 & 0 & 0 & 42 & 0.174 & 0.018 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin101 & 8 & 16 & 0 & 0 & 42 & 0.149 & 0.014 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin102 & 18 & 54 & 0 & 0 & 88 & 0.24 & 0.047 & 4 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c \\
+coin103 & 14 & 30 & 0 & 0 & 74 & 0.192 & 0.034 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin104 & 37 & 111 & 0 & 0 & 191 & 0.172 & 0.076 & 6 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c,return-b,peek-a \\
+coin105 & 14 & 30 & 0 & 0 & 74 & 0.112 & 0.02 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin106 & 5 & 12 & 0 & 0 & 21 & 0.208 & 0.01 & 2 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-a,turn_coin-c \\
+coin107 & 14 & 30 & 0 & 0 & 74 & 0.173 & 0.029 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin108 & 23 & 69 & 0 & 0 & 113 & 0.226 & 0.055 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-b,return-b,turn_coin-c,peek-a \\
+coin109 & 14 & 30 & 0 & 0 & 74 & 0.216 & 0.035 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin110 & 11 & 33 & 0 & 0 & 49 & 0.169 & 0.016 & 3 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin111 & 4 & 12 & 0 & 0 & 17 & 0.268 & 0.013 & 2 & $\b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b \\
+coin112 & 2 & 5 & 0 & 0 & 9 & 0.26 & 0.008 & 1 & $\b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-b \\
+coin113 & 22 & 66 & 0 & 0 & 118 & 0.146 & 0.05 & 5 & $\b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c,return-a,turn_coin-c \\
+coin114 & 4 & 8 & 0 & 0 & 22 & 0.177 & 0.012 & NaN & $\b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin115 & 0 & 0 & 0 & 0 & 1 & 0.251 & 0.002 & 0 & $\b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+coin116 & 4 & 8 & 0 & 0 & 22 & 0.154 & 0.011 & NaN & $\b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin117 & 14 & 42 & 0 & 0 & 70 & 0.156 & 0.032 & 4 & $\neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c \\
+coin118 & 6 & 14 & 0 & 0 & 26 & 0.256 & 0.019 & 2 & $\neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-b,turn_coin-c \\
+coin119 & 10 & 30 & 0 & 0 & 46 & 0.202 & 0.023 & 3 & $\neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin120 & 4 & 12 & 0 & 0 & 17 & 0.642 & 0.019 & 2 & $\b_a face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b \\
+coin121 & 14 & 30 & 0 & 0 & 74 & 0.195 & 0.032 & NaN & $\b_a face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin122 & 31 & 93 & 0 & 0 & 160 & 0.149 & 0.058 & 5 & $\b_a face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,return-a,turn_coin-c,peek-b,turn_coin-c \\
+coin123 & 8 & 16 & 0 & 0 & 42 & 0.095 & 0.01 & NaN & $\b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin124 & 1 & 2 & 0 & 0 & 5 & 0.099 & 0.002 & 1 & $\b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-a \\
+coin125 & 8 & 16 & 0 & 0 & 42 & 0.128 & 0.014 & NaN & $\b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin126 & 17 & 51 & 0 & 0 & 82 & 0.098 & 0.019 & 4 & $\b_a face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c \\
+coin127 & 14 & 30 & 0 & 0 & 74 & 0.116 & 0.024 & NaN & $\b_a face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin128 & 21 & 63 & 0 & 0 & 102 & 0.218 & 0.052 & 4 & $\b_a face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,return-a,turn_coin-c,peek-b \\
+coin129 & 8 & 16 & 0 & 0 & 42 & 0.179 & 0.02 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin130 & 1 & 2 & 0 & 0 & 5 & 0.306 & 0.006 & 1 & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-b \\
+coin131 & 8 & 16 & 0 & 0 & 42 & 0.179 & 0.02 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin132 & 2 & 2 & 0 & 0 & 10 & 0.134 & 0.004 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin133 & 0 & 0 & 0 & 0 & 1 & 0.429 & 0.004 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+coin134 & 2 & 2 & 0 & 0 & 10 & 0.223 & 0.006 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin135 & 8 & 16 & 0 & 0 & 42 & 0.242 & 0.029 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin136 & 4 & 8 & 0 & 0 & 17 & 0.352 & 0.022 & 2 & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-b,turn_coin-c \\
+coin137 & 8 & 16 & 0 & 0 & 42 & 0.231 & 0.03 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin138 & 18 & 54 & 0 & 0 & 88 & 0.319 & 0.058 & 4 & $\neg \b_a face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c \\
+coin139 & 14 & 30 & 0 & 0 & 74 & 0.185 & 0.035 & NaN & $\neg \b_a face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin140 & 28 & 84 & 0 & 0 & 145 & 0.167 & 0.056 & 5 & $\neg \b_a face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c,return-a,turn_coin-c \\
+coin141 & 8 & 16 & 0 & 0 & 42 & 0.087 & 0.009 & NaN & $\neg \b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin142 & 4 & 8 & 0 & 0 & 17 & 0.108 & 0.005 & 2 & $\neg \b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-a,turn_coin-c \\
+coin143 & 8 & 16 & 0 & 0 & 42 & 0.092 & 0.01 & NaN & $\neg \b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin144 & 34 & 102 & 0 & 0 & 183 & 0.086 & 0.039 & 6 & $\neg \b_a face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c,return-a,peek-b \\
+coin145 & 14 & 30 & 0 & 0 & 74 & 0.086 & 0.016 & NaN & $\neg \b_a face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin146 & 11 & 33 & 0 & 0 & 49 & 0.096 & 0.012 & 3 & $\neg \b_a face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin147 & 4 & 12 & 0 & 0 & 17 & 0.247 & 0.011 & 2 & $\b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b \\
+coin148 & 14 & 30 & 0 & 0 & 74 & 0.164 & 0.027 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin149 & 32 & 96 & 0 & 0 & 163 & 0.213 & 0.083 & 5 & $\b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,return-a,turn_coin-c,peek-b,turn_coin-c \\
+coin150 & 8 & 16 & 0 & 0 & 42 & 0.313 & 0.097 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin151 & 8 & 16 & 0 & 0 & 42 & 0.171 & 0.018 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin152 & 8 & 16 & 0 & 0 & 42 & 0.181 & 0.02 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin153 & 17 & 51 & 0 & 0 & 82 & 0.219 & 0.04 & 4 & $\b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c \\
+coin154 & 14 & 30 & 0 & 0 & 74 & 0.257 & 0.039 & NaN & $\b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin155 & 21 & 63 & 0 & 0 & 102 & 0.192 & 0.045 & 4 & $\b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,return-a,turn_coin-c,peek-b \\
+coin156 & 14 & 30 & 0 & 0 & 74 & 0.133 & 0.024 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin157 & 2 & 5 & 0 & 0 & 9 & 0.155 & 0.003 & 1 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-b \\
+coin158 & 14 & 30 & 0 & 0 & 74 & 0.173 & 0.031 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin159 & 8 & 16 & 0 & 0 & 42 & 0.14 & 0.014 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin160 & 0 & 0 & 0 & 0 & 1 & 0.226 & 0.001 & 0 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+coin161 & 8 & 16 & 0 & 0 & 42 & 0.161 & 0.016 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin162 & 14 & 30 & 0 & 0 & 74 & 0.135 & 0.023 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin163 & 7 & 16 & 0 & 0 & 29 & 0.176 & 0.009 & 2 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-b,turn_coin-c \\
+coin164 & 14 & 30 & 0 & 0 & 74 & 0.143 & 0.024 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin165 & 23 & 69 & 0 & 0 & 113 & 0.159 & 0.039 & 4 & $\neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-b,return-b,turn_coin-c,peek-a \\
+coin166 & 14 & 30 & 0 & 0 & 74 & 0.166 & 0.032 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin167 & 29 & 87 & 0 & 0 & 148 & 0.189 & 0.063 & 5 & $\neg \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c,return-a,turn_coin-c \\
+coin168 & 8 & 16 & 0 & 0 & 42 & 0.2 & 0.02 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin169 & 8 & 16 & 0 & 0 & 42 & 0.204 & 0.022 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin170 & 8 & 16 & 0 & 0 & 42 & 0.227 & 0.024 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin171 & 39 & 117 & 0 & 0 & 201 & 0.196 & 0.087 & 6 & $\neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c,return-a,peek-b \\
+coin172 & 14 & 30 & 0 & 0 & 74 & 0.126 & 0.021 & NaN & $\neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin173 & 11 & 33 & 0 & 0 & 49 & 0.12 & 0.012 & 3 & $\neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+coin174 & 4 & 12 & 0 & 0 & 17 & 0.573 & 0.015 & 2 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b \\
+coin175 & 14 & 30 & 0 & 0 & 74 & 0.174 & 0.027 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin176 & 32 & 96 & 0 & 0 & 163 & 0.213 & 0.069 & 5 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,return-a,turn_coin-c,peek-b,turn_coin-c \\
+coin177 & 8 & 16 & 0 & 0 & 42 & 0.166 & 0.015 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin178 & 8 & 16 & 0 & 0 & 42 & 0.194 & 0.021 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin179 & 8 & 16 & 0 & 0 & 42 & 0.171 & 0.017 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin180 & 17 & 51 & 0 & 0 & 82 & 0.203 & 0.033 & 4 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c \\
+coin181 & 14 & 30 & 0 & 0 & 74 & 0.174 & 0.028 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin182 & 21 & 63 & 0 & 0 & 102 & 0.208 & 0.042 & 4 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,return-a,turn_coin-c,peek-b \\
+coin183 & 14 & 30 & 0 & 0 & 74 & 0.236 & 0.036 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin184 & 14 & 30 & 0 & 0 & 74 & 0.189 & 0.032 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin185 & 14 & 30 & 0 & 0 & 74 & 0.173 & 0.028 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin186 & 8 & 16 & 0 & 0 & 42 & 0.156 & 0.015 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin187 & 1 & 2 & 0 & 0 & 5 & 0.168 & 0.002 & 1 & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-a \\
+coin188 & 8 & 16 & 0 & 0 & 42 & 0.175 & 0.017 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin189 & 14 & 30 & 0 & 0 & 74 & 0.23 & 0.037 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin190 & 14 & 30 & 0 & 0 & 74 & 0.197 & 0.033 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin191 & 14 & 30 & 0 & 0 & 74 & 0.167 & 0.026 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin192 & 35 & 105 & 0 & 0 & 178 & 0.199 & 0.074 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-b,return-b,turn_coin-c,peek-a,turn_coin-c \\
+coin193 & 14 & 30 & 0 & 0 & 74 & 0.14 & 0.022 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin194 & 56 & 168 & 0 & 0 & 338 & 0.143 & 0.109 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin195 & 8 & 16 & 0 & 0 & 42 & 0.112 & 0.01 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin196 & 8 & 16 & 0 & 0 & 42 & 0.155 & 0.014 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin197 & 8 & 16 & 0 & 0 & 42 & 0.143 & 0.015 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin198 & 56 & 168 & 0 & 0 & 338 & 0.143 & 0.108 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin199 & 14 & 30 & 0 & 0 & 74 & 0.125 & 0.02 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin200 & 30 & 90 & 0 & 0 & 154 & 0.15 & 0.047 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c,return-b,turn_coin-c \\
+coin201 & 8 & 16 & 0 & 0 & 42 & 0.132 & 0.013 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin202 & 8 & 16 & 0 & 0 & 42 & 0.124 & 0.011 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin203 & 8 & 16 & 0 & 0 & 42 & 0.133 & 0.015 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin204 & 2 & 2 & 0 & 0 & 10 & 0.17 & 0.004 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin205 & 2 & 2 & 0 & 0 & 10 & 0.128 & 0.003 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin206 & 2 & 2 & 0 & 0 & 10 & 0.163 & 0.006 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin207 & 8 & 16 & 0 & 0 & 42 & 0.15 & 0.014 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin208 & 8 & 16 & 0 & 0 & 42 & 0.169 & 0.017 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin209 & 8 & 16 & 0 & 0 & 42 & 0.17 & 0.017 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin210 & 8 & 16 & 0 & 0 & 42 & 0.151 & 0.015 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin211 & 1 & 2 & 0 & 0 & 5 & 0.174 & 0.002 & 1 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-b \\
+coin212 & 8 & 16 & 0 & 0 & 42 & 0.203 & 0.02 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin213 & 2 & 2 & 0 & 0 & 10 & 0.177 & 0.004 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin214 & 0 & 0 & 0 & 0 & 1 & 0.267 & 0.001 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+coin215 & 2 & 2 & 0 & 0 & 10 & 0.254 & 0.007 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin216 & 8 & 16 & 0 & 0 & 42 & 0.19 & 0.018 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin217 & 4 & 8 & 0 & 0 & 17 & 0.215 & 0.011 & 2 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-b,turn_coin-c \\
+coin218 & 8 & 16 & 0 & 0 & 42 & 0.196 & 0.024 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin219 & 8 & 16 & 0 & 0 & 42 & 0.164 & 0.017 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin220 & 8 & 16 & 0 & 0 & 42 & 0.21 & 0.02 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin221 & 8 & 16 & 0 & 0 & 42 & 0.25 & 0.023 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin222 & 2 & 2 & 0 & 0 & 10 & 0.208 & 0.007 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin223 & 2 & 2 & 0 & 0 & 10 & 0.201 & 0.005 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin224 & 2 & 2 & 0 & 0 & 10 & 0.171 & 0.004 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin225 & 8 & 16 & 0 & 0 & 42 & 0.164 & 0.016 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin226 & 8 & 16 & 0 & 0 & 42 & 0.193 & 0.019 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin227 & 8 & 16 & 0 & 0 & 42 & 0.204 & 0.019 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin228 & 18 & 54 & 0 & 0 & 88 & 0.242 & 0.042 & 4 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c \\
+coin229 & 14 & 30 & 0 & 0 & 74 & 0.195 & 0.033 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin230 & 56 & 168 & 0 & 0 & 338 & 0.163 & 0.123 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin231 & 8 & 16 & 0 & 0 & 42 & 0.118 & 0.011 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin232 & 8 & 16 & 0 & 0 & 42 & 0.121 & 0.012 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin233 & 8 & 16 & 0 & 0 & 42 & 0.159 & 0.017 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin234 & 56 & 168 & 0 & 0 & 338 & 0.149 & 0.116 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin235 & 14 & 30 & 0 & 0 & 74 & 0.114 & 0.018 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin236 & 37 & 111 & 0 & 0 & 191 & 0.14 & 0.056 & 6 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-a,turn_coin-c,return-b,peek-a \\
+coin237 & 14 & 30 & 0 & 0 & 74 & 0.115 & 0.018 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin238 & 14 & 30 & 0 & 0 & 74 & 0.111 & 0.017 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin239 & 14 & 30 & 0 & 0 & 74 & 0.124 & 0.021 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin240 & 8 & 16 & 0 & 0 & 42 & 0.12 & 0.011 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin241 & 4 & 8 & 0 & 0 & 17 & 0.152 & 0.006 & 2 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,peek-a,turn_coin-c \\
+coin242 & 8 & 16 & 0 & 0 & 42 & 0.161 & 0.015 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin243 & 14 & 30 & 0 & 0 & 74 & 0.116 & 0.019 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+coin244 & 14 & 30 & 0 & 0 & 74 & 0.115 & 0.018 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin245 & 14 & 30 & 0 & 0 & 74 & 0.145 & 0.024 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+coin246 & 23 & 69 & 0 & 0 & 113 & 0.139 & 0.032 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-b,return-b,turn_coin-c,peek-a \\
+coin247 & 14 & 30 & 0 & 0 & 74 & 0.139 & 0.022 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin248 & 29 & 87 & 0 & 0 & 148 & 0.217 & 0.073 & 5 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c,return-a,turn_coin-c \\
+coin249 & 8 & 16 & 0 & 0 & 42 & 0.166 & 0.016 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+coin250 & 8 & 16 & 0 & 0 & 42 & 0.178 & 0.018 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin251 & 8 & 16 & 0 & 0 & 42 & 0.251 & 0.023 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+coin252 & 39 & 117 & 0 & 0 & 201 & 0.197 & 0.081 & 6 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,return-b,turn_coin-c,return-a,peek-b \\
+coin253 & 14 & 30 & 0 & 0 & 74 & 0.118 & 0.019 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+coin254 & 11 & 33 & 0 & 0 & 49 & 0.213 & 0.02 & 3 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,peek-a,peek-b,turn_coin-c \\
+corridor000 & 8 & 20 & 0 & 0 & 32 & 0.055 & 0.007 & 3 & $\b_a secret-s=t $ \\% -,move_a_right,sense-s,shout-s \\
+corridor001 & 0 & 0 & 0 & 0 & 1 & 0.081 & 0.001 & 0 & $\b_a secret-s=t  \rightarrow \unknown $ \\% - \\
+corridor002 & 9 & 25 & 0 & 0 & 38 & 0.05 & 0.007 & 3 & $\neg \b_a secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s \\
+corridor003 & 7 & 19 & 0 & 0 & 30 & 0.081 & 0.009 & 3 & $\b_b secret-s=t $ \\% -,move_a_right,sense-s,shout-s \\
+corridor004 & 0 & 0 & 0 & 0 & 1 & 0.143 & 0.001 & 0 & $\b_b secret-s=t  \rightarrow \unknown $ \\% - \\
+corridor005 & 8 & 24 & 0 & 0 & 36 & 0.079 & 0.011 & 3 & $\neg \b_b secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s \\
+corridor006 & 8 & 20 & 0 & 0 & 32 & 0.088 & 0.007 & 3 & $\b_a secret-s=t \land \b_b secret-s=t $ \\% -,move_a_right,sense-s,shout-s \\
+corridor007 & 9 & 17 & 0 & 0 & 40 & 0.076 & 0.011 & 5 & $\b_a secret-s=t \land \b_b secret-s=t  \rightarrow \unknown $ \\% -,move_a_right,sense-s,move_a_right,move_a_right,shout-s \\
+corridor008 & 34 & 116 & 0 & 0 & 194 & 0.134 & 0.068 & 6 & $\b_a secret-s=t \land \neg \b_b secret-s=t $ \\% -,move_a_right,sense-s,move_a_right,shout_lie-s,move_a_right,shout-s \\
+corridor009 & 9 & 15 & 0 & 0 & 40 & 0.107 & 0.011 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \b_b secret-s=t $ \\ \\
+corridor010 & 0 & 0 & 0 & 0 & 1 & 0.264 & 0.002 & 0 & $\b_a secret-s=t  \rightarrow \unknown \land \b_b secret-s=t  \rightarrow \unknown $ \\% - \\
+corridor011 & 9 & 15 & 0 & 0 & 40 & 0.081 & 0.009 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \neg \b_b secret-s=t $ \\ \\
+corridor012 & 32 & 110 & 0 & 0 & 181 & 0.132 & 0.061 & 6 & $\neg \b_a secret-s=t \land \b_b secret-s=t $ \\% -,move_a_right,sense-s,move_a_right,shout-s,move_a_right,shout_lie-s \\
+corridor013 & 10 & 20 & 0 & 0 & 44 & 0.125 & 0.014 & 5 & $\neg \b_a secret-s=t \land \b_b secret-s=t  \rightarrow \unknown $ \\% -,move_a_right,sense-s,move_a_right,move_a_right,shout_lie-s \\
+corridor014 & 9 & 25 & 0 & 0 & 38 & 0.111 & 0.011 & 3 & $\neg \b_a secret-s=t \land \neg \b_b secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s \\
+corridor015 & 8 & 20 & 0 & 0 & 32 & 0.05 & 0.006 & 3 & $\b_c secret-s=t $ \\% -,move_a_right,sense-s,shout-s \\
+corridor016 & 0 & 0 & 0 & 0 & 1 & 0.122 & 0.001 & 0 & $\b_c secret-s=t  \rightarrow \unknown $ \\% - \\
+corridor017 & 9 & 25 & 0 & 0 & 38 & 0.105 & 0.015 & 3 & $\neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s \\
+corridor018 & 8 & 20 & 0 & 0 & 32 & 0.098 & 0.008 & 3 & $\b_a secret-s=t \land \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout-s \\
+corridor019 & 9 & 17 & 0 & 0 & 39 & 0.138 & 0.015 & 4 & $\b_a secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\% -,move_a_right,sense-s,move_a_left,shout-s \\
+corridor020 & 31 & 105 & 0 & 0 & 166 & 0.162 & 0.065 & 5 & $\b_a secret-s=t \land \neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s,move_a_left,shout-s \\
+corridor021 & 9 & 15 & 0 & 0 & 40 & 0.155 & 0.018 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \b_c secret-s=t $ \\ \\
+corridor022 & 0 & 0 & 0 & 0 & 1 & 0.204 & 0.001 & 0 & $\b_a secret-s=t  \rightarrow \unknown \land \b_c secret-s=t  \rightarrow \unknown $ \\% - \\
+corridor023 & 9 & 15 & 0 & 0 & 40 & 0.152 & 0.017 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \neg \b_c secret-s=t $ \\ \\
+corridor024 & 29 & 99 & 0 & 0 & 154 & 0.2 & 0.074 & 5 & $\neg \b_a secret-s=t \land \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout-s,move_a_left,shout_lie-s \\
+corridor025 & 10 & 20 & 0 & 0 & 43 & 0.11 & 0.013 & 4 & $\neg \b_a secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\% -,move_a_right,sense-s,move_a_left,shout_lie-s \\
+corridor026 & 9 & 25 & 0 & 0 & 38 & 0.122 & 0.011 & 3 & $\neg \b_a secret-s=t \land \neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s \\
+corridor027 & 8 & 20 & 0 & 0 & 32 & 0.18 & 0.017 & 3 & $\b_b secret-s=t \land \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout-s \\
+corridor028 & 9 & 17 & 0 & 0 & 39 & 0.152 & 0.017 & 4 & $\b_b secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\% -,move_a_right,sense-s,move_a_left,shout-s \\
+corridor029 & 31 & 105 & 0 & 0 & 166 & 0.146 & 0.058 & 5 & $\b_b secret-s=t \land \neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s,move_a_left,shout-s \\
+corridor030 & 9 & 17 & 0 & 0 & 40 & 0.102 & 0.012 & 5 & $\b_b secret-s=t  \rightarrow \unknown \land \b_c secret-s=t $ \\% -,move_a_right,sense-s,move_a_right,move_a_right,shout-s \\
+corridor031 & 0 & 0 & 0 & 0 & 1 & 0.268 & 0.002 & 0 & $\b_b secret-s=t  \rightarrow \unknown \land \b_c secret-s=t  \rightarrow \unknown $ \\% - \\
+corridor032 & 10 & 20 & 0 & 0 & 44 & 0.13 & 0.017 & 5 & $\b_b secret-s=t  \rightarrow \unknown \land \neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,move_a_right,move_a_right,shout_lie-s \\
+corridor033 & 29 & 99 & 0 & 0 & 154 & 0.151 & 0.057 & 5 & $\neg \b_b secret-s=t \land \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout-s,move_a_left,shout_lie-s \\
+corridor034 & 10 & 20 & 0 & 0 & 43 & 0.116 & 0.014 & 4 & $\neg \b_b secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\% -,move_a_right,sense-s,move_a_left,shout_lie-s \\
+corridor035 & 9 & 25 & 0 & 0 & 38 & 0.151 & 0.014 & 3 & $\neg \b_b secret-s=t \land \neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s \\
+corridor036 & 8 & 20 & 0 & 0 & 32 & 0.191 & 0.016 & 3 & $\b_a secret-s=t \land \b_b secret-s=t \land \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout-s \\
+corridor037 & 9 & 17 & 0 & 0 & 39 & 0.166 & 0.018 & 4 & $\b_a secret-s=t \land \b_b secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\% -,move_a_right,sense-s,move_a_left,shout-s \\
+corridor038 & 31 & 105 & 0 & 0 & 166 & 0.217 & 0.08 & 5 & $\b_a secret-s=t \land \b_b secret-s=t \land \neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s,move_a_left,shout-s \\
+corridor039 & 9 & 17 & 0 & 0 & 40 & 0.154 & 0.016 & 5 & $\b_a secret-s=t \land \b_b secret-s=t  \rightarrow \unknown \land \b_c secret-s=t $ \\% -,move_a_right,sense-s,move_a_right,move_a_right,shout-s \\
+corridor040 & 9 & 15 & 0 & 0 & 40 & 0.151 & 0.014 & NaN & $\b_a secret-s=t \land \b_b secret-s=t  \rightarrow \unknown \land \b_c secret-s=t  \rightarrow \unknown $ \\ \\
+corridor041 & 17 & 35 & 0 & 0 & 90 & 0.206 & 0.042 & NaN & $\b_a secret-s=t \land \b_b secret-s=t  \rightarrow \unknown \land \neg \b_c secret-s=t $ \\ \\
+corridor042 & 38 & 128 & 0 & 0 & 206 & 0.183 & 0.079 & 6 & $\b_a secret-s=t \land \neg \b_b secret-s=t \land \b_c secret-s=t $ \\% -,move_a_right,sense-s,move_a_right,shout_lie-s,move_a_right,shout-s \\
+corridor043 & 17 & 35 & 0 & 0 & 90 & 0.133 & 0.026 & NaN & $\b_a secret-s=t \land \neg \b_b secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\ \\
+corridor044 & 137 & 503 & 0 & 0 & 1008 & 0.107 & 0.252 & NaN & $\b_a secret-s=t \land \neg \b_b secret-s=t \land \neg \b_c secret-s=t $ \\ \\
+corridor045 & 9 & 15 & 0 & 0 & 40 & 0.113 & 0.011 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \b_b secret-s=t \land \b_c secret-s=t $ \\ \\
+corridor046 & 9 & 15 & 0 & 0 & 40 & 0.104 & 0.01 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \b_b secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\ \\
+corridor047 & 9 & 15 & 0 & 0 & 40 & 0.102 & 0.009 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \b_b secret-s=t \land \neg \b_c secret-s=t $ \\ \\
+corridor048 & 9 & 15 & 0 & 0 & 40 & 0.135 & 0.013 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \b_b secret-s=t  \rightarrow \unknown \land \b_c secret-s=t $ \\ \\
+corridor049 & 0 & 0 & 0 & 0 & 1 & 0.259 & 0.001 & 0 & $\b_a secret-s=t  \rightarrow \unknown \land \b_b secret-s=t  \rightarrow \unknown \land \b_c secret-s=t  \rightarrow \unknown $ \\% - \\
+corridor050 & 9 & 15 & 0 & 0 & 40 & 0.202 & 0.019 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \b_b secret-s=t  \rightarrow \unknown \land \neg \b_c secret-s=t $ \\ \\
+corridor051 & 9 & 15 & 0 & 0 & 40 & 0.196 & 0.019 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \neg \b_b secret-s=t \land \b_c secret-s=t $ \\ \\
+corridor052 & 9 & 15 & 0 & 0 & 40 & 0.158 & 0.016 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \neg \b_b secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\ \\
+corridor053 & 9 & 15 & 0 & 0 & 40 & 0.168 & 0.017 & NaN & $\b_a secret-s=t  \rightarrow \unknown \land \neg \b_b secret-s=t \land \neg \b_c secret-s=t $ \\ \\
+corridor054 & 137 & 503 & 0 & 0 & 1008 & 0.114 & 0.259 & NaN & $\neg \b_a secret-s=t \land \b_b secret-s=t \land \b_c secret-s=t $ \\ \\
+corridor055 & 17 & 35 & 0 & 0 & 90 & 0.127 & 0.025 & NaN & $\neg \b_a secret-s=t \land \b_b secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\ \\
+corridor056 & 36 & 122 & 0 & 0 & 193 & 0.146 & 0.058 & 6 & $\neg \b_a secret-s=t \land \b_b secret-s=t \land \neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,move_a_right,shout-s,move_a_right,shout_lie-s \\
+corridor057 & 17 & 35 & 0 & 0 & 90 & 0.124 & 0.024 & NaN & $\neg \b_a secret-s=t \land \b_b secret-s=t  \rightarrow \unknown \land \b_c secret-s=t $ \\ \\
+corridor058 & 9 & 15 & 0 & 0 & 40 & 0.161 & 0.016 & NaN & $\neg \b_a secret-s=t \land \b_b secret-s=t  \rightarrow \unknown \land \b_c secret-s=t  \rightarrow \unknown $ \\ \\
+corridor059 & 10 & 20 & 0 & 0 & 44 & 0.216 & 0.023 & 5 & $\neg \b_a secret-s=t \land \b_b secret-s=t  \rightarrow \unknown \land \neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,move_a_right,move_a_right,shout_lie-s \\
+corridor060 & 29 & 99 & 0 & 0 & 154 & 0.169 & 0.057 & 5 & $\neg \b_a secret-s=t \land \neg \b_b secret-s=t \land \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout-s,move_a_left,shout_lie-s \\
+corridor061 & 10 & 20 & 0 & 0 & 43 & 0.234 & 0.024 & 4 & $\neg \b_a secret-s=t \land \neg \b_b secret-s=t \land \b_c secret-s=t  \rightarrow \unknown $ \\% -,move_a_right,sense-s,move_a_left,shout_lie-s \\
+corridor062 & 9 & 25 & 0 & 0 & 38 & 0.157 & 0.013 & 3 & $\neg \b_a secret-s=t \land \neg \b_b secret-s=t \land \neg \b_c secret-s=t $ \\% -,move_a_right,sense-s,shout_lie-s \\
+spcoin000 & 1 & 3 & 0 & 0 & 5 & 0.041 & 0.001 & 1 & $\b_a face-c=head $ \\% -,single_peek-a \\
+spcoin001 & 0 & 0 & 0 & 0 & 1 & 0.068 & 0.001 & 0 & $\b_a face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin002 & 5 & 13 & 0 & 0 & 19 & 0.042 & 0.003 & 2 & $\neg \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c \\
+spcoin003 & 7 & 17 & 0 & 0 & 30 & 0.051 & 0.007 & 3 & $\b_a \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin004 & 0 & 0 & 0 & 0 & 1 & 0.124 & 0.001 & 0 & $\b_a \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin005 & 12 & 30 & 0 & 0 & 55 & 0.048 & 0.011 & 4 & $\neg \b_a \b_b face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin006 & 7 & 17 & 0 & 0 & 30 & 0.089 & 0.008 & 3 & $\b_a face-c=head \land \b_a \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin007 & 1 & 3 & 0 & 0 & 5 & 0.079 & 0.002 & 1 & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown $ \\% -,single_peek-a \\
+spcoin008 & 22 & 55 & 0 & 0 & 105 & 0.069 & 0.024 & 7 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b,return-b,single_peek-a,turn_coin-c \\
+spcoin009 & 4 & 8 & 0 & 0 & 20 & 0.065 & 0.005 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head $ \\ \\
+spcoin010 & 0 & 0 & 0 & 0 & 1 & 0.16 & 0.001 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin011 & 4 & 8 & 0 & 0 & 20 & 0.078 & 0.005 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head $ \\ \\
+spcoin012 & 18 & 45 & 0 & 0 & 83 & 0.087 & 0.022 & 6 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,return-b,single_peek-a,turn_coin-c \\
+spcoin013 & 5 & 12 & 0 & 0 & 19 & 0.208 & 0.01 & 2 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown $ \\% -,single_peek-a,turn_coin-c \\
+spcoin014 & 12 & 30 & 0 & 0 & 55 & 0.084 & 0.015 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin015 & 2 & 5 & 0 & 0 & 8 & 0.043 & 0.002 & 1 & $\b_b face-c=head $ \\% -,single_peek-b \\
+spcoin016 & 0 & 0 & 0 & 0 & 1 & 0.13 & 0.002 & 0 & $\b_b face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin017 & 6 & 15 & 0 & 0 & 23 & 0.047 & 0.005 & 2 & $\neg \b_b face-c=head $ \\% -,single_peek-b,turn_coin-c \\
+spcoin018 & 8 & 20 & 0 & 0 & 33 & 0.132 & 0.014 & 3 & $\b_a face-c=head \land \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin019 & 1 & 2 & 0 & 0 & 5 & 0.099 & 0.002 & 1 & $\b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\% -,single_peek-a \\
+spcoin020 & 15 & 39 & 0 & 0 & 62 & 0.151 & 0.03 & 4 & $\b_a face-c=head \land \neg \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,turn_coin-c \\
+spcoin021 & 1 & 2 & 0 & 0 & 5 & 0.081 & 0.002 & 1 & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\% -,single_peek-b \\
+spcoin022 & 0 & 0 & 0 & 0 & 1 & 0.553 & 0.007 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin023 & 4 & 8 & 0 & 0 & 16 & 0.122 & 0.006 & 2 & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\% -,single_peek-b,turn_coin-c \\
+spcoin024 & 18 & 46 & 0 & 0 & 77 & 0.111 & 0.028 & 4 & $\neg \b_a face-c=head \land \b_b face-c=head $ \\% -,single_peek-b,return-b,single_peek-a,turn_coin-c \\
+spcoin025 & 4 & 8 & 0 & 0 & 16 & 0.093 & 0.005 & 2 & $\neg \b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\% -,single_peek-a,turn_coin-c \\
+spcoin026 & 16 & 41 & 0 & 0 & 69 & 0.067 & 0.014 & 4 & $\neg \b_a face-c=head \land \neg \b_b face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin027 & 8 & 20 & 0 & 0 & 33 & 0.086 & 0.008 & 3 & $\b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin028 & 8 & 16 & 0 & 0 & 40 & 0.066 & 0.008 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+spcoin029 & 15 & 39 & 0 & 0 & 62 & 0.102 & 0.018 & 4 & $\b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,turn_coin-c \\
+spcoin030 & 2 & 5 & 0 & 0 & 8 & 0.098 & 0.003 & 1 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\% -,single_peek-b \\
+spcoin031 & 0 & 0 & 0 & 0 & 1 & 0.408 & 0.003 & 0 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin032 & 7 & 16 & 0 & 0 & 26 & 0.145 & 0.01 & 2 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\% -,single_peek-b,turn_coin-c \\
+spcoin033 & 19 & 48 & 0 & 0 & 80 & 0.126 & 0.028 & 4 & $\neg \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,single_peek-b,return-b,turn_coin-c,single_peek-a \\
+spcoin034 & 8 & 16 & 0 & 0 & 40 & 0.103 & 0.015 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+spcoin035 & 16 & 41 & 0 & 0 & 69 & 0.126 & 0.025 & 4 & $\neg \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin036 & 8 & 20 & 0 & 0 & 33 & 0.117 & 0.01 & 3 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin037 & 8 & 16 & 0 & 0 & 40 & 0.198 & 0.022 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+spcoin038 & 15 & 39 & 0 & 0 & 62 & 0.203 & 0.029 & 4 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,turn_coin-c \\
+spcoin039 & 14 & 30 & 0 & 0 & 70 & 0.165 & 0.032 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\ \\
+spcoin040 & 1 & 2 & 0 & 0 & 5 & 0.254 & 0.004 & 1 & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% -,single_peek-a \\
+spcoin041 & 14 & 30 & 0 & 0 & 70 & 0.192 & 0.036 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\ \\
+spcoin042 & 28 & 72 & 0 & 0 & 123 & 0.238 & 0.078 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,single_peek-b,return-b,turn_coin-c,single_peek-a,turn_coin-c \\
+spcoin043 & 8 & 16 & 0 & 0 & 40 & 0.174 & 0.019 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+spcoin044 & 29 & 74 & 0 & 0 & 127 & 0.185 & 0.06 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,single_peek-b,turn_coin-c,return-b,single_peek-a,turn_coin-c \\
+spcoin045 & 8 & 16 & 0 & 0 & 40 & 0.113 & 0.013 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head $ \\ \\
+spcoin046 & 2 & 2 & 0 & 0 & 10 & 0.21 & 0.008 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+spcoin047 & 8 & 16 & 0 & 0 & 40 & 0.196 & 0.03 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\ \\
+spcoin048 & 1 & 2 & 0 & 0 & 5 & 0.19 & 0.004 & 1 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\% -,single_peek-b \\
+spcoin049 & 0 & 0 & 0 & 0 & 1 & 0.423 & 0.003 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin050 & 4 & 8 & 0 & 0 & 16 & 0.168 & 0.007 & 2 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\% -,single_peek-b,turn_coin-c \\
+spcoin051 & 8 & 16 & 0 & 0 & 40 & 0.158 & 0.02 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head $ \\ \\
+spcoin052 & 2 & 2 & 0 & 0 & 10 & 0.267 & 0.009 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+spcoin053 & 8 & 16 & 0 & 0 & 40 & 0.183 & 0.02 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\ \\
+spcoin054 & 18 & 46 & 0 & 0 & 77 & 0.159 & 0.032 & 4 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,single_peek-b,return-b,single_peek-a,turn_coin-c \\
+spcoin055 & 8 & 16 & 0 & 0 & 40 & 0.186 & 0.021 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+spcoin056 & 31 & 78 & 0 & 0 & 138 & 0.229 & 0.078 & 6 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,turn_coin-c,return-b,single_peek-a \\
+spcoin057 & 14 & 30 & 0 & 0 & 70 & 0.154 & 0.028 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head $ \\ \\
+spcoin058 & 4 & 8 & 0 & 0 & 16 & 0.213 & 0.009 & 2 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown $ \\% -,single_peek-a,turn_coin-c \\
+spcoin059 & 14 & 30 & 0 & 0 & 70 & 0.164 & 0.078 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head $ \\ \\
+spcoin060 & 19 & 48 & 0 & 0 & 80 & 0.11 & 0.022 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head $ \\% -,single_peek-b,return-b,turn_coin-c,single_peek-a \\
+spcoin061 & 8 & 16 & 0 & 0 & 40 & 0.106 & 0.013 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown $ \\ \\
+spcoin062 & 16 & 41 & 0 & 0 & 69 & 0.227 & 0.043 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin063 & 7 & 17 & 0 & 0 & 31 & 0.137 & 0.016 & 3 & $\b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,single_peek-a \\
+spcoin064 & 0 & 0 & 0 & 0 & 1 & 0.264 & 0.007 & 0 & $\b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin065 & 12 & 30 & 0 & 0 & 54 & 0.103 & 0.025 & 4 & $\neg \b_b \b_a face-c=head $ \\% -,single_peek-b,turn_coin-c,return-b,single_peek-a \\
+spcoin066 & 8 & 20 & 0 & 0 & 33 & 0.148 & 0.018 & 3 & $\b_a face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin067 & 1 & 3 & 0 & 0 & 5 & 0.182 & 0.004 & 1 & $\b_a face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-a \\
+spcoin068 & 16 & 41 & 0 & 0 & 66 & 0.162 & 0.03 & 4 & $\b_a face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,turn_coin-c,single_peek-b \\
+spcoin069 & 8 & 16 & 0 & 0 & 40 & 0.209 & 0.024 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin070 & 0 & 0 & 0 & 0 & 1 & 0.301 & 0.003 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin071 & 8 & 16 & 0 & 0 & 40 & 0.225 & 0.045 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin072 & 19 & 48 & 0 & 0 & 79 & 0.15 & 0.034 & 4 & $\neg \b_a face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,single_peek-a,turn_coin-c \\
+spcoin073 & 5 & 12 & 0 & 0 & 19 & 0.214 & 0.012 & 2 & $\neg \b_a face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-a,turn_coin-c \\
+spcoin074 & 17 & 43 & 0 & 0 & 71 & 0.141 & 0.027 & 4 & $\neg \b_a face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin075 & 8 & 20 & 0 & 0 & 33 & 0.147 & 0.013 & 3 & $\b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin076 & 14 & 30 & 0 & 0 & 70 & 0.133 & 0.025 & NaN & $\b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin077 & 16 & 41 & 0 & 0 & 66 & 0.151 & 0.025 & 4 & $\b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,turn_coin-c,single_peek-b \\
+spcoin078 & 14 & 30 & 0 & 0 & 70 & 0.149 & 0.027 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin079 & 0 & 0 & 0 & 0 & 1 & 0.225 & 0.001 & 0 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin080 & 14 & 30 & 0 & 0 & 70 & 0.121 & 0.025 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin081 & 20 & 50 & 0 & 0 & 82 & 0.132 & 0.028 & 4 & $\neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,turn_coin-c,single_peek-a \\
+spcoin082 & 14 & 30 & 0 & 0 & 70 & 0.209 & 0.042 & NaN & $\neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin083 & 17 & 43 & 0 & 0 & 71 & 0.155 & 0.029 & 4 & $\neg \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin084 & 8 & 20 & 0 & 0 & 33 & 0.214 & 0.022 & 3 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin085 & 14 & 30 & 0 & 0 & 70 & 0.19 & 0.034 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin086 & 16 & 41 & 0 & 0 & 66 & 0.215 & 0.033 & 4 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,turn_coin-c,single_peek-b \\
+spcoin087 & 14 & 30 & 0 & 0 & 70 & 0.257 & 0.048 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin088 & 1 & 3 & 0 & 0 & 5 & 0.438 & 0.005 & 1 & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-a \\
+spcoin089 & 14 & 30 & 0 & 0 & 70 & 0.182 & 0.034 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin090 & 32 & 81 & 0 & 0 & 134 & 0.2 & 0.069 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,turn_coin-c,single_peek-a,turn_coin-c \\
+spcoin091 & 14 & 30 & 0 & 0 & 70 & 0.12 & 0.02 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin092 & 33 & 83 & 0 & 0 & 138 & 0.146 & 0.047 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-b,turn_coin-c,return-b,single_peek-a,turn_coin-c \\
+spcoin093 & 8 & 16 & 0 & 0 & 40 & 0.106 & 0.014 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin094 & 8 & 16 & 0 & 0 & 40 & 0.101 & 0.011 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin095 & 8 & 16 & 0 & 0 & 40 & 0.1 & 0.011 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin096 & 8 & 16 & 0 & 0 & 40 & 0.129 & 0.013 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin097 & 0 & 0 & 0 & 0 & 1 & 0.198 & 0.001 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin098 & 8 & 16 & 0 & 0 & 40 & 0.103 & 0.011 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin099 & 8 & 16 & 0 & 0 & 40 & 0.119 & 0.012 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin100 & 8 & 16 & 0 & 0 & 40 & 0.105 & 0.011 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin101 & 8 & 16 & 0 & 0 & 40 & 0.156 & 0.017 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin102 & 19 & 48 & 0 & 0 & 79 & 0.142 & 0.025 & 4 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,single_peek-a,turn_coin-c \\
+spcoin103 & 14 & 30 & 0 & 0 & 70 & 0.207 & 0.039 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin104 & 35 & 87 & 0 & 0 & 149 & 0.236 & 0.083 & 6 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,turn_coin-c,return-b,single_peek-a \\
+spcoin105 & 14 & 30 & 0 & 0 & 70 & 0.141 & 0.026 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin106 & 5 & 12 & 0 & 0 & 19 & 0.168 & 0.007 & 2 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-a,turn_coin-c \\
+spcoin107 & 14 & 30 & 0 & 0 & 70 & 0.14 & 0.024 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin108 & 20 & 50 & 0 & 0 & 82 & 0.123 & 0.022 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,turn_coin-c,single_peek-a \\
+spcoin109 & 14 & 30 & 0 & 0 & 70 & 0.105 & 0.019 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin110 & 17 & 43 & 0 & 0 & 71 & 0.177 & 0.029 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin111 & 7 & 17 & 0 & 0 & 31 & 0.094 & 0.009 & 3 & $\b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,single_peek-a \\
+spcoin112 & 2 & 5 & 0 & 0 & 8 & 0.211 & 0.006 & 1 & $\b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-b \\
+spcoin113 & 22 & 55 & 0 & 0 & 105 & 0.173 & 0.062 & 7 & $\b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-b,turn_coin-c,return-b,single_peek-a,return-a,single_peek-b,turn_coin-c \\
+spcoin114 & 4 & 8 & 0 & 0 & 20 & 0.1 & 0.008 & NaN & $\b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin115 & 0 & 0 & 0 & 0 & 1 & 0.181 & 0.001 & 0 & $\b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin116 & 4 & 8 & 0 & 0 & 20 & 0.097 & 0.006 & NaN & $\b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin117 & 18 & 45 & 0 & 0 & 83 & 0.133 & 0.037 & 6 & $\neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,single_peek-a,return-a,single_peek-b,turn_coin-c \\
+spcoin118 & 6 & 14 & 0 & 0 & 23 & 0.142 & 0.01 & 2 & $\neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-b,turn_coin-c \\
+spcoin119 & 12 & 30 & 0 & 0 & 54 & 0.132 & 0.022 & 4 & $\neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-b,turn_coin-c,return-b,single_peek-a \\
+spcoin120 & 8 & 20 & 0 & 0 & 33 & 0.268 & 0.025 & 3 & $\b_a face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin121 & 14 & 30 & 0 & 0 & 70 & 0.175 & 0.031 & NaN & $\b_a face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin122 & 25 & 64 & 0 & 0 & 108 & 0.193 & 0.053 & 5 & $\b_a face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,turn_coin-c,single_peek-b,turn_coin-c \\
+spcoin123 & 8 & 16 & 0 & 0 & 40 & 0.133 & 0.015 & NaN & $\b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin124 & 1 & 2 & 0 & 0 & 5 & 0.166 & 0.003 & 1 & $\b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-a \\
+spcoin125 & 8 & 16 & 0 & 0 & 40 & 0.145 & 0.017 & NaN & $\b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin126 & 15 & 39 & 0 & 0 & 62 & 0.17 & 0.028 & 4 & $\b_a face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,turn_coin-c \\
+spcoin127 & 14 & 30 & 0 & 0 & 70 & 0.172 & 0.034 & NaN & $\b_a face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin128 & 16 & 41 & 0 & 0 & 66 & 0.284 & 0.048 & 4 & $\b_a face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,turn_coin-c,single_peek-b \\
+spcoin129 & 8 & 16 & 0 & 0 & 40 & 0.196 & 0.021 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin130 & 1 & 2 & 0 & 0 & 5 & 0.163 & 0.003 & 1 & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-b \\
+spcoin131 & 8 & 16 & 0 & 0 & 40 & 0.236 & 0.025 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin132 & 2 & 2 & 0 & 0 & 10 & 0.151 & 0.005 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin133 & 0 & 0 & 0 & 0 & 1 & 0.435 & 0.003 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin134 & 2 & 2 & 0 & 0 & 10 & 0.225 & 0.009 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin135 & 8 & 16 & 0 & 0 & 40 & 0.241 & 0.031 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin136 & 4 & 8 & 0 & 0 & 16 & 0.286 & 0.012 & 2 & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-b,turn_coin-c \\
+spcoin137 & 8 & 16 & 0 & 0 & 40 & 0.313 & 0.035 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin138 & 19 & 48 & 0 & 0 & 79 & 0.148 & 0.029 & 4 & $\neg \b_a face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,single_peek-a,turn_coin-c \\
+spcoin139 & 14 & 30 & 0 & 0 & 70 & 0.172 & 0.035 & NaN & $\neg \b_a face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin140 & 27 & 69 & 0 & 0 & 115 & 0.231 & 0.07 & 5 & $\neg \b_a face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b,turn_coin-c \\
+spcoin141 & 8 & 16 & 0 & 0 & 40 & 0.218 & 0.023 & NaN & $\neg \b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin142 & 4 & 8 & 0 & 0 & 16 & 0.259 & 0.011 & 2 & $\neg \b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-a,turn_coin-c \\
+spcoin143 & 8 & 16 & 0 & 0 & 40 & 0.314 & 0.037 & NaN & $\neg \b_a face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin144 & 37 & 96 & 0 & 0 & 170 & 0.171 & 0.072 & 6 & $\neg \b_a face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,turn_coin-c,single_peek-b,turn_coin-c \\
+spcoin145 & 14 & 30 & 0 & 0 & 70 & 0.091 & 0.017 & NaN & $\neg \b_a face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin146 & 17 & 43 & 0 & 0 & 71 & 0.136 & 0.028 & 4 & $\neg \b_a face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin147 & 8 & 20 & 0 & 0 & 33 & 0.293 & 0.023 & 3 & $\b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin148 & 14 & 30 & 0 & 0 & 70 & 0.168 & 0.031 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin149 & 26 & 66 & 0 & 0 & 110 & 0.183 & 0.045 & 5 & $\b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,turn_coin-c,single_peek-b,turn_coin-c \\
+spcoin150 & 8 & 16 & 0 & 0 & 40 & 0.209 & 0.02 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin151 & 8 & 16 & 0 & 0 & 40 & 0.176 & 0.017 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin152 & 8 & 16 & 0 & 0 & 40 & 0.151 & 0.017 & NaN & $\b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin153 & 15 & 39 & 0 & 0 & 62 & 0.167 & 0.024 & 4 & $\b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,turn_coin-c \\
+spcoin154 & 14 & 30 & 0 & 0 & 70 & 0.172 & 0.03 & NaN & $\b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin155 & 16 & 41 & 0 & 0 & 66 & 0.202 & 0.029 & 4 & $\b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,turn_coin-c,single_peek-b \\
+spcoin156 & 14 & 30 & 0 & 0 & 70 & 0.166 & 0.031 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin157 & 2 & 5 & 0 & 0 & 8 & 0.253 & 0.006 & 1 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-b \\
+spcoin158 & 14 & 30 & 0 & 0 & 70 & 0.249 & 0.06 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin159 & 8 & 16 & 0 & 0 & 40 & 0.244 & 0.024 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin160 & 0 & 0 & 0 & 0 & 1 & 0.55 & 0.003 & 0 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin161 & 8 & 16 & 0 & 0 & 40 & 0.178 & 0.019 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin162 & 14 & 30 & 0 & 0 & 70 & 0.265 & 0.049 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin163 & 7 & 16 & 0 & 0 & 26 & 0.315 & 0.019 & 2 & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-b,turn_coin-c \\
+spcoin164 & 14 & 30 & 0 & 0 & 70 & 0.186 & 0.037 & NaN & $\b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin165 & 20 & 50 & 0 & 0 & 82 & 0.208 & 0.042 & 4 & $\neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,turn_coin-c,single_peek-a \\
+spcoin166 & 14 & 30 & 0 & 0 & 70 & 0.213 & 0.036 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin167 & 28 & 71 & 0 & 0 & 117 & 0.236 & 0.063 & 5 & $\neg \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b,turn_coin-c \\
+spcoin168 & 8 & 16 & 0 & 0 & 40 & 0.154 & 0.016 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin169 & 8 & 16 & 0 & 0 & 40 & 0.175 & 0.018 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin170 & 8 & 16 & 0 & 0 & 40 & 0.192 & 0.02 & NaN & $\neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin171 & 42 & 107 & 0 & 0 & 183 & 0.208 & 0.092 & 6 & $\neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,turn_coin-c,single_peek-b,turn_coin-c \\
+spcoin172 & 14 & 30 & 0 & 0 & 70 & 0.124 & 0.022 & NaN & $\neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin173 & 17 & 43 & 0 & 0 & 71 & 0.217 & 0.038 & 4 & $\neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+spcoin174 & 8 & 20 & 0 & 0 & 33 & 0.241 & 0.019 & 3 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b \\
+spcoin175 & 14 & 30 & 0 & 0 & 70 & 0.148 & 0.024 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin176 & 26 & 66 & 0 & 0 & 110 & 0.176 & 0.042 & 5 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,turn_coin-c,single_peek-b,turn_coin-c \\
+spcoin177 & 8 & 16 & 0 & 0 & 40 & 0.237 & 0.025 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin178 & 8 & 16 & 0 & 0 & 40 & 0.197 & 0.02 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin179 & 8 & 16 & 0 & 0 & 40 & 0.2 & 0.019 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin180 & 15 & 39 & 0 & 0 & 62 & 0.232 & 0.03 & 4 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,turn_coin-c \\
+spcoin181 & 14 & 30 & 0 & 0 & 70 & 0.227 & 0.039 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin182 & 16 & 41 & 0 & 0 & 66 & 0.252 & 0.037 & 4 & $\b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,turn_coin-c,single_peek-b \\
+spcoin183 & 14 & 30 & 0 & 0 & 70 & 0.237 & 0.041 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin184 & 14 & 30 & 0 & 0 & 70 & 0.178 & 0.028 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin185 & 14 & 30 & 0 & 0 & 70 & 0.152 & 0.025 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin186 & 8 & 16 & 0 & 0 & 40 & 0.188 & 0.019 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin187 & 1 & 2 & 0 & 0 & 5 & 0.184 & 0.002 & 1 & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-a \\
+spcoin188 & 8 & 16 & 0 & 0 & 40 & 0.18 & 0.017 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin189 & 14 & 30 & 0 & 0 & 70 & 0.175 & 0.033 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin190 & 14 & 30 & 0 & 0 & 70 & 0.239 & 0.045 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin191 & 14 & 30 & 0 & 0 & 70 & 0.204 & 0.035 & NaN & $\b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin192 & 32 & 81 & 0 & 0 & 134 & 0.215 & 0.06 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,turn_coin-c,single_peek-a,turn_coin-c \\
+spcoin193 & 14 & 30 & 0 & 0 & 70 & 0.148 & 0.023 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin194 & 54 & 142 & 0 & 0 & 286 & 0.133 & 0.088 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin195 & 8 & 16 & 0 & 0 & 40 & 0.113 & 0.01 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin196 & 8 & 16 & 0 & 0 & 40 & 0.102 & 0.009 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin197 & 8 & 16 & 0 & 0 & 40 & 0.113 & 0.01 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin198 & 54 & 142 & 0 & 0 & 286 & 0.123 & 0.085 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin199 & 14 & 30 & 0 & 0 & 70 & 0.111 & 0.018 & NaN & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin200 & 33 & 83 & 0 & 0 & 138 & 0.141 & 0.043 & 5 & $\b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-b,turn_coin-c,return-b,single_peek-a,turn_coin-c \\
+spcoin201 & 8 & 16 & 0 & 0 & 40 & 0.151 & 0.014 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin202 & 8 & 16 & 0 & 0 & 40 & 0.197 & 0.022 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin203 & 8 & 16 & 0 & 0 & 40 & 0.275 & 0.027 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin204 & 2 & 2 & 0 & 0 & 10 & 0.246 & 0.006 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin205 & 2 & 2 & 0 & 0 & 10 & 0.244 & 0.006 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin206 & 2 & 2 & 0 & 0 & 10 & 0.225 & 0.006 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin207 & 8 & 16 & 0 & 0 & 40 & 0.25 & 0.029 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin208 & 8 & 16 & 0 & 0 & 40 & 0.324 & 0.034 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin209 & 8 & 16 & 0 & 0 & 40 & 0.217 & 0.023 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin210 & 8 & 16 & 0 & 0 & 40 & 0.237 & 0.024 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin211 & 1 & 2 & 0 & 0 & 5 & 0.369 & 0.006 & 1 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-b \\
+spcoin212 & 8 & 16 & 0 & 0 & 40 & 0.289 & 0.029 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin213 & 2 & 2 & 0 & 0 & 10 & 0.221 & 0.006 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin214 & 0 & 0 & 0 & 0 & 1 & 0.584 & 0.004 & 0 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% - \\
+spcoin215 & 2 & 2 & 0 & 0 & 10 & 0.35 & 0.009 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin216 & 8 & 16 & 0 & 0 & 40 & 0.31 & 0.032 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin217 & 4 & 8 & 0 & 0 & 16 & 0.416 & 0.016 & 2 & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-b,turn_coin-c \\
+spcoin218 & 8 & 16 & 0 & 0 & 40 & 0.244 & 0.023 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin219 & 8 & 16 & 0 & 0 & 40 & 0.301 & 0.032 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin220 & 8 & 16 & 0 & 0 & 40 & 0.322 & 0.038 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin221 & 8 & 16 & 0 & 0 & 40 & 0.286 & 0.029 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin222 & 2 & 2 & 0 & 0 & 10 & 0.512 & 0.014 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin223 & 2 & 2 & 0 & 0 & 10 & 0.435 & 0.012 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin224 & 2 & 2 & 0 & 0 & 10 & 0.35 & 0.011 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin225 & 8 & 16 & 0 & 0 & 40 & 0.318 & 0.03 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin226 & 8 & 16 & 0 & 0 & 40 & 0.363 & 0.039 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin227 & 8 & 16 & 0 & 0 & 40 & 0.369 & 0.039 & NaN & $\b_a face-c=head  \rightarrow \unknown \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin228 & 19 & 48 & 0 & 0 & 79 & 0.401 & 0.07 & 4 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,single_peek-a,turn_coin-c \\
+spcoin229 & 14 & 30 & 0 & 0 & 70 & 0.246 & 0.044 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin230 & 54 & 142 & 0 & 0 & 286 & 0.158 & 0.104 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin231 & 8 & 16 & 0 & 0 & 40 & 0.118 & 0.011 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin232 & 8 & 16 & 0 & 0 & 40 & 0.132 & 0.015 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin233 & 8 & 16 & 0 & 0 & 40 & 0.243 & 0.025 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin234 & 54 & 142 & 0 & 0 & 286 & 0.265 & 0.143 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin235 & 14 & 30 & 0 & 0 & 70 & 0.113 & 0.019 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin236 & 35 & 87 & 0 & 0 & 149 & 0.183 & 0.063 & 6 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,return-a,single_peek-b,turn_coin-c,return-b,single_peek-a \\
+spcoin237 & 14 & 30 & 0 & 0 & 70 & 0.175 & 0.028 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin238 & 14 & 30 & 0 & 0 & 70 & 0.22 & 0.039 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin239 & 14 & 30 & 0 & 0 & 70 & 0.221 & 0.036 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin240 & 8 & 16 & 0 & 0 & 40 & 0.203 & 0.02 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin241 & 4 & 8 & 0 & 0 & 16 & 0.401 & 0.013 & 2 & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\% -,single_peek-a,turn_coin-c \\
+spcoin242 & 8 & 16 & 0 & 0 & 40 & 0.347 & 0.036 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin243 & 14 & 30 & 0 & 0 & 70 & 0.246 & 0.042 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\ \\
+spcoin244 & 14 & 30 & 0 & 0 & 70 & 0.255 & 0.038 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin245 & 14 & 30 & 0 & 0 & 70 & 0.161 & 0.028 & NaN & $\neg \b_a face-c=head \land \b_a \b_b face-c=head  \rightarrow \unknown \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin246 & 20 & 50 & 0 & 0 & 82 & 0.263 & 0.047 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-b,return-b,turn_coin-c,single_peek-a \\
+spcoin247 & 14 & 30 & 0 & 0 & 70 & 0.231 & 0.038 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin248 & 28 & 71 & 0 & 0 & 117 & 0.256 & 0.062 & 5 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b,turn_coin-c \\
+spcoin249 & 8 & 16 & 0 & 0 & 40 & 0.124 & 0.011 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head $ \\ \\
+spcoin250 & 8 & 16 & 0 & 0 & 40 & 0.123 & 0.013 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin251 & 8 & 16 & 0 & 0 & 40 & 0.181 & 0.02 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \b_b face-c=head  \rightarrow \unknown \land \neg \b_b \b_a face-c=head $ \\ \\
+spcoin252 & 42 & 107 & 0 & 0 & 183 & 0.195 & 0.078 & 6 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,turn_coin-c,single_peek-b,turn_coin-c \\
+spcoin253 & 14 & 30 & 0 & 0 & 70 & 0.132 & 0.021 & NaN & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \b_b \b_a face-c=head  \rightarrow \unknown $ \\ \\
+spcoin254 & 17 & 43 & 0 & 0 & 71 & 0.134 & 0.021 & 4 & $\neg \b_a face-c=head \land \neg \b_a \b_b face-c=head \land \neg \b_b face-c=head \land \neg \b_b \b_a face-c=head $ \\% -,single_peek-a,turn_coin-c,return-a,single_peek-b \\
+\bottomrule
+\end{tabular}
